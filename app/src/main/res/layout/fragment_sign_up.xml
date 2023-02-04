@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".SignUpFragment"
+    tools:ignore="ExtraText">
+
+    <ImageView
+        android:id="@+id/img_backSignUp"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_gravity="top"
+        android:src="@drawable/arrow_back"/>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="40dp"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/userName"
+        app:hintTextColor="@color/teal_700"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/teal_700"
+        app:errorEnabled="true"
+        app:startIconDrawable="@drawable/person"
+
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/email"
+        app:hintTextColor="@color/teal_700"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/teal_700"
+        app:errorEnabled="true"
+        app:startIconDrawable="@drawable/email"
+
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:errorEnabled="true"
+        app:counterEnabled="true"
+        app:counterMaxLength="11"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/password"
+        app:boxStrokeColor="@color/teal_700"
+        app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/lock"
+        app:hintTextColor="@color/teal_700"
+        app:boxBackgroundMode="outline">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/PasswordEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberPassword"
+            android:textSize="18sp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+
+        android:id="@+id/btnSignIn"
+        android:layout_margin="10dp"
+        app:cornerRadius="10dp"
+        android:layout_width="match_parent"
+        style="@style/ButtonStyle"
+        android:text="@string/createAccount"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/or"
+        android:layout_gravity="center"
+
+        android:textSize="18dp">
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/imgFaceSignIn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/facebook"
+            />
+        <ImageView
+            android:id="@+id/imgGoogleSignIn"
+            android:layout_width="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_height="50dp"
+            android:src="@drawable/google2"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/teal_700"
+        android:text="@string/haveAccount"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"/>
+
+</LinearLayout>
