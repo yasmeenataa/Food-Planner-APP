@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="textViewProfile" parent="TextAppearance.AppCompat">
+        <item name="android:color">@color/pale_white</item>
+        <item name="cornerRadius">@dimen/_15sdp</item>
+        <item name="strokeWidth">@dimen/_1sdp</item>
+        <item name="strokeColor">@color/white</item>
+        <item name="android:textSize">@dimen/_15ssp</item>
+    </style>
+
+
+    <style name="instructionStyle" parent="TextAppearance.AppCompat">
+        <item name="android:color">#F0FFFFFF</item>
+        <item name="cornerRadius">@dimen/_10sdp</item>
+        <item name="elevation">@dimen/_8sdp</item>
+        <item name="strokeWidth">@dimen/_1sdp</item>
+        <item name="strokeColor">@color/yellow</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+
+
+    <style name="backgroundStyle" parent="TextAppearance.AppCompat">
+        <item name="android:color">#F0FFFFFF</item>
+    </style>
+
+
+
+
+</resources>

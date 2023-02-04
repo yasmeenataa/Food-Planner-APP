@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.foodplannerapp.ui.splash.SplashFragment"
+        android:label="Splach"
+        tools:layout="@layout/fragment_splach">
+        <action
+            android:id="@+id/action_splashFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.foodplannerapp.ui.welcome.WelcomeFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_welcome" />
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="com.example.foodplannerapp.ui.favourite.FavouriteFragment"
+        android:label="Favourite"
+        tools:layout="@layout/fragment_favourite" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.foodplannerapp.ui.detailsFragment.DetailsFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_details" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.foodplannerapp.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
