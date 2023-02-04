@@ -22,4 +22,7 @@
     <color name="shadowedWhite">#F9F9F3</color>
     <color name="shadowed_yellow">#FFFAF1</color>
     <color name="secondaryWhite">#F0FFFFFF</color>
+    <color name="primaryColor">#0A8791</color>
+    <color name="secondaryColor">#FBA83C</color>
+    <color name="lightGray">#E6E5E5</color>
 </resources>
