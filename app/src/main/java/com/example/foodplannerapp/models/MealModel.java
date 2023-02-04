@@ -1,11 +1,13 @@
 package com.example.foodplannerapp.models;
 
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import com.example.foodplannerapp.utils.Constants;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -13,9 +15,10 @@ import java.util.List;
 public class MealModel {
 
     @PrimaryKey
+    @NonNull
     private String idMeal;
 
-    private List<String> userIds;
+    private ArrayList<String> userIds;
 
     private String strMeal;
     private String strCategory;
@@ -455,11 +458,11 @@ public class MealModel {
         this.strMeasure20 = strMeasure20;
     }
 
-    public List<String> getUserIds() {
+    public ArrayList<String> getUserIds() {
         return userIds;
     }
 
-    public void setUserIds(List<String> userIds) {
+    public void setUserIds(ArrayList<String> userIds) {
         this.userIds = userIds;
     }
 

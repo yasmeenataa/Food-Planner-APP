@@ -11,7 +11,7 @@ import com.example.foodplannerapp.models.MealModel;
 import com.example.foodplannerapp.utils.Constants;
 
 @Database(entities = {MealModel.class}, version = 1, exportSchema = false)
-@TypeConverters({Converters.class})
+@TypeConverters(Converters.class)
 public abstract class MyRoomDataBase extends RoomDatabase {
 
     private static MyRoomDataBase myRoomDataBase = null;
