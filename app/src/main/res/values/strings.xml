@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">FoodPlannerApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image">image</string>
+    <string name="chef_shift">Chef Shift</string>
+    <string name="skip">Skip</string>
+    <string name="slogan">Is The best ,Forget the Rest</string>
+    <string name="google">Google</string>
+    <string name="facebook">FaceBook</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_have_an_account">Already Have an Account?</string>
+    <string name="login">Login</string>
+    <string name="arwa">Arwa Ashraf</string>
+    <string name="logout">Logout</string>
+    <string name="favourite">Favourite List</string>
+    <string name="change_username">Change UserName</string>
+    <string name="enter_meal_name">Enter Meal Name</string>
+    <string name="instructions">Instructions :</string>
+    <string name="scrolltext"> "Bring a large pot of water to a boil. Add kosher salt to the boiling water,
+        then add the pasta. Cook according to the package instructions, about 9 minutes.
+        In a large skillet over medium-high heat, add the olive oil and heat until the oil
+        starts to shimmer. Add the garlic and cook, stirring, until fragrant,
+        1 to 2 minutes. Add the chopped tomatoes, red chile flakes, Italian seasoning
+        and salt and pepper to taste. Bring to a boil and cook for 5 minutes. Remove
+        from the heat and add the chopped basil.\r\nDrain the pasta and add it to the sauce.
+        Garnish with Parmigiano-Reggiano flakes and more basil and serve warm."
+                 </string>
+    <string name="ingredients">Ingredients :</string>
+    <string name="video">Video :</string>
+    <string name="garlic">garlic</string>
+    <string name="favourite_list">Favourite List</string>
+    <string name="chicken">Chicken</string>
+    <string name="settings">Settings</string>
 </resources>
