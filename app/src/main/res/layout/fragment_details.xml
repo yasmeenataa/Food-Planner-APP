@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/secondaryWhite"
+    tools:context=".ui.detailsFragment.DetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/image_food"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:contentDescription="@string/image"
+            android:scaleType="fitXY"
+            android:src="@drawable/coco"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/image_protection"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.3"
+            android:contentDescription="@string/image"
+            android:src="@color/background_protection_black"
+            app:layout_constraintEnd_toEndOf="@id/image_food"
+            app:layout_constraintStart_toStartOf="@id/image_food"
+            app:layout_constraintTop_toTopOf="@id/image_food" />
+
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/baseline_arrow_back_24"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toTopOf="@id/image_food"
+            app:tint="@color/white" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_15sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_15sdp" />
+
+
+        <TextView
+            android:id="@+id/instructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/akaya_telivigala"
+            android:text="@string/instructions"
+            android:textAllCaps="true"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/_20ssp"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/image_food" />
+
+        <TextView
+            android:id="@+id/text_view_steps"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_description"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_7sdp"
+            android:textColor="@color/black"
+            android:text="@string/scrolltext"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@id/instructions"
+            app:layout_constraintTop_toBottomOf="@id/instructions" />
+
+        <View
+            android:id="@+id/line_after_step"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/yellow"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/text_view_steps"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <TextView
+            android:id="@+id/ingredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/akaya_telivigala"
+            android:text="@string/ingredients"
+            android:textAllCaps="true"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/_20ssp"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/text_view_steps" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_ingredients"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/ingredients"
+            tools:listitem="@layout/item_details_ingredients" />
+
+        <View
+            android:id="@+id/line_after_ingredients"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/yellow"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/recycler_ingredients"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <TextView
+            android:id="@+id/video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/akaya_telivigala"
+            android:text="@string/video"
+            android:textAllCaps="true"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/_20ssp"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/line_after_ingredients" />
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/video" />
+
+        <View
+            android:id="@+id/line_after_video"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/yellow"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/videoView"
+            app:layout_constraintWidth_percent="0.5" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
