@@ -25,11 +25,10 @@
         app:itemIconTint="@color/primaryColor"
         app:itemTextColor="@color/secondaryColor"
         app:menu="@menu/bottom_nav_menu"
-
-
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"></com.google.android.material.bottomnavigation.BottomNavigationView>
+        app:layout_constraintStart_toStartOf="parent">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
