@@ -53,4 +53,9 @@
     <string name="search_by_category">Search by Category :</string>
     <string name="search_by_area">Search By Area</string>
     <string name="fish_stew">Fish Stew with Rouille</string>
+    <string name="fettuccine_alfredo">Fettuccine Alfredo</string>
+    <string name="paste">Paste</string>
+    <string name="italian">Italian</string>
+    <string name="sake_soy_sauce_sesame_seed_oil">Sake,Soy Sauce,Sesame Seed Oil</string>
+    <string name="seafood_recipes">Seafood Recipes</string>
 </resources>
