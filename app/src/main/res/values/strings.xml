@@ -52,4 +52,5 @@
     <string name="signUpText">Enter your Name,Email and password \nfor Sign Up</string>
     <string name="search_by_category">Search by Category :</string>
     <string name="search_by_area">Search By Area</string>
+    <string name="fish_stew">Fish Stew with Rouille</string>
 </resources>
