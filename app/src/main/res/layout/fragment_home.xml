@@ -22,9 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/design_top"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+         />
 
 
     <TextView
@@ -36,10 +34,7 @@
         android:textColor="#1C1C1C"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineVR"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="@+id/guidelineVL"
-        app:layout_constraintTop_toTopOf="@+id/guidelineHT" />
+        />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -49,9 +44,7 @@
         android:layout_marginEnd="30dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="24dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,7 +57,6 @@
                 android:layout_height="180dp"
                 android:layout_gravity="center"
                 android:scaleType="fitXY"
-
                 android:src="@drawable/random_meal"
                 tools:layout_editor_absoluteX="82dp"
                 tools:layout_editor_absoluteY="113dp" />
@@ -76,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:text="Fettuccine Alfredo"
+                android:text="@string/fettuccine_alfredo"
                 android:textColor="@color/primaryColor"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -86,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:text="Paste"
+                android:text="@string/paste"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -96,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="10dp"
-                android:text="Italian"
+                android:text="@string/italian"
                 android:textSize="16sp"
                 android:textStyle="bold" />
             <TextView
@@ -105,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="10dp"
-                android:text="Sake,Soy Sauce,Sesame Seed Oil"
+                android:text="@string/sake_soy_sauce_sesame_seed_oil"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -133,7 +125,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/category_row" />
 
