@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,7 +9,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants"
+        >
 
 
         <ImageView
@@ -19,20 +21,49 @@
             android:contentDescription="@string/image"
             android:scaleType="fitXY"
             android:src="@drawable/coco"
-            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintHeight_percent="0.26"
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <ImageView
-            android:id="@+id/image_protection"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.3"
-            android:contentDescription="@string/image"
-            android:src="@color/background_protection_black"
-            app:layout_constraintEnd_toEndOf="@id/image_food"
-            app:layout_constraintStart_toStartOf="@id/image_food"
-            app:layout_constraintTop_toTopOf="@id/image_food" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:backgroundTint="@color/light_black"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintBottom_toTopOf="@id/instructions"
+            app:cardCornerRadius="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:elevation="@dimen/_15sdp"
+            >
+
+            <ImageView
+                android:id="@+id/imageCalender"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:src="@drawable/plan"
+                app:tint="@color/yellow"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_gravity="end|center"
+                />
+
+            <ImageView
+                android:id="@+id/imageFavourite"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:src="@drawable/baseline_favorite_24"
+                app:tint="@color/yellow"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_gravity="start|center"
+                />
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
 
 
         <ImageView
@@ -44,7 +75,7 @@
             android:src="@drawable/baseline_arrow_back_24"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintTop_toTopOf="@id/image_food"
-            app:tint="@color/white" />
+            app:tint="@color/black" />
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -66,7 +97,7 @@
             android:id="@+id/instructions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_36sdp"
             android:fontFamily="@font/akaya_telivigala"
             android:text="@string/instructions"
             android:textAllCaps="true"
@@ -82,8 +113,8 @@
             android:background="@drawable/shape_description"
             android:gravity="center_vertical"
             android:padding="@dimen/_7sdp"
-            android:textColor="@color/black"
             android:text="@string/scrolltext"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/instructions"
             app:layout_constraintTop_toBottomOf="@id/instructions" />
@@ -118,6 +149,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
             android:orientation="horizontal"
+            android:focusable="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
@@ -148,10 +180,11 @@
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@id/line_after_ingredients" />
 
-        <VideoView
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
             android:id="@+id/videoView"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:elevation="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
@@ -164,7 +197,9 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/_1sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:background="@color/yellow"
+            app:layout_constraintCircleRadius="@dimen/_24sdp"
+            android:background="@color/white"
+            android:layout_marginBottom="@dimen/_100sdp"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@id/videoView"
@@ -174,4 +209,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
