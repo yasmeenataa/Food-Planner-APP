@@ -92,7 +92,7 @@
 
     <com.google.android.material.button.MaterialButton
 
-        android:id="@+id/btnSignIn"
+        android:id="@+id/btnSignUp"
         android:layout_margin="10dp"
         app:cornerRadius="10dp"
         android:layout_width="match_parent"
@@ -129,6 +129,7 @@
             />
     </LinearLayout>
     <TextView
+        android:id="@+id/text_view_haveAcount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

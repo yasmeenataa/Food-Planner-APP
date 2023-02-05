@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,14 +54,14 @@ public class FavouriteFragment extends Fragment {
         binding.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(requireContext(), "Back Button Clicked", Toast.LENGTH_SHORT).show();
+                Navigation.findNavController(view).navigate(R.id.action_favouriteFragment_to_homeFragment);
             }
         });
 
         adapter.setOnItemListener(new FavouriteAdapter.setOnItemListener() {
             @Override
             public void onItemClick(String id) {
-                Toast.makeText(requireContext(), "Item is Clicked", Toast.LENGTH_SHORT).show();
+                Navigation.findNavController(getView()).navigate(R.id.action_favouriteFragment_to_detailsFragment);
             }
 
             @Override
@@ -81,7 +82,7 @@ public class FavouriteFragment extends Fragment {
         for (int i = 0; i <= 10; i++) {
             mealModel.setStrCategory("Garlic" + i);
             mealModel.setStrMeal("Chicken" + i);
-            list.add(i,mealModel);
+            list.add(i, mealModel);
         }
         return list;
     }

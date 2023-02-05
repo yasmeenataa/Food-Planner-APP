@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,9 +21,9 @@ import java.util.ArrayList;
 
 public class DetailsFragment extends Fragment {
 
-    private FragmentDetailsBinding binding ;
-    private IngredientsAdapter adapter ;
-    private  ArrayList<MealModel> list ;
+    private FragmentDetailsBinding binding;
+    private IngredientsAdapter adapter;
+    private ArrayList<MealModel> list;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class DetailsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentDetailsBinding.inflate(inflater,container,false);
+        binding = FragmentDetailsBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -48,11 +49,11 @@ public class DetailsFragment extends Fragment {
 
     }
 
-    private void onClicks(){
+    private void onClicks() {
         binding.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(requireContext(), "Back Button is pressed", Toast.LENGTH_SHORT).show();
+                Navigation.findNavController(view).navigate(R.id.action_detailsFragment_to_homeFragment);
             }
         });
     }
@@ -67,7 +68,7 @@ public class DetailsFragment extends Fragment {
         for (int i = 0; i <= 10; i++) {
             mealModel.setStrIngredient1("Garlic" + i);
             mealModel.setStrMeasure1("Chicken" + i);
-            list.add(i,mealModel);
+            list.add(i, mealModel);
         }
         return list;
     }

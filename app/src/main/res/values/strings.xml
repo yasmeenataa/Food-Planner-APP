@@ -2,27 +2,7 @@
     <string name="app_name">FoodPlannerApp</string>
     <!-- TODO: Remove or change this placeholder text -->
 
-    <string name="inspiration_for_you">Inspiration For You</string>
-    <string name="search_by_ingredient">Search by ingredient :</string>
-    <string name="signIn">Sign In</string>
-    <string name="signup">Sign Up</string>
-    <string name="userName">User Name</string>
 
-    <string name="password">Password</string>
-    <string name="confirmPass">Confirm Password</string>
-    <string name="email">Email</string>
-    <string name="welcome">Welcome To</string>
-    <string name="loginText">Enter your Phone number or Email \naddress for Sign In.Enjoy your food.</string>
-    <string name="rememberMe">Remember Me</string>
-    <string name="noAccount">Don\'t have an account? </string>
-    <string name="or">OR</string>
-    <string name="connectFace">Connect with facebook</string>
-    <string name="connectGoogle">Connect with Google</string>
-    <string name="createAccount">Create Account</string>
-    <string name="haveAccount">Already have account?</string>
-    <string name="signUpText">Enter your Name,Email and password \nfor Sign Up</string>
-    <string name="search_by_category">Search by Category :</string>
-    <string name="search_by_area">Search By Area</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="image">image</string>
@@ -81,4 +61,17 @@
     <string name="italian">Italian</string>
     <string name="sake_soy_sauce_sesame_seed_oil">Sake,Soy Sauce,Sesame Seed Oil</string>
     <string name="seafood_recipes">Seafood Recipes</string>
+    <string name="plan">Plan</string>
+    <string name="account">Account</string>
+    <string name="search">Search</string>
+    <string name="home">Home</string>
+    <string name="weekPlan">Week Plan</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">TuesDay</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="friday">Friday</string>
+    <string name="thursday">Thursday</string>
+    <string name="planned">Planned</string>
 </resources>

@@ -17,20 +17,33 @@
         android:id="@+id/welcomeFragment"
         android:name="com.example.foodplannerapp.ui.welcome.WelcomeFragment"
         android:label="Welcome"
-        tools:layout="@layout/fragment_welcome" />
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_logInFragment"
+            app:destination="@id/logInFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/favouriteFragment"
-        android:name="com.example.foodplannerapp.ui.favourite.FavouriteFragment"
-        android:label="Favourite"
-        tools:layout="@layout/fragment_favourite" />
+        android:id="@+id/logInFragment"
+        android:name="com.example.foodplannerapp.LogInFragment"
+        android:label="fragment_log_in"
+        tools:layout="@layout/fragment_log_in" >
+        <action
+            android:id="@+id/action_logInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_logInFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/detailsFragment"
-        android:name="com.example.foodplannerapp.ui.detailsFragment.DetailsFragment"
-        android:label="Details"
-        tools:layout="@layout/fragment_details" />
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.foodplannerapp.ui.profile.ProfileFragment"
-        android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        android:id="@+id/signUpFragment"
+        android:name="com.example.foodplannerapp.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_logInFragment"
+            app:destination="@id/logInFragment" />
+    </fragment>
 </navigation>
