@@ -6,7 +6,6 @@
     android:layout_margin="8dp"
     android:layout_gravity="center"
     app:cardCornerRadius="24dp"
-
     android:id="@+id/categories_row"
     app:cardElevation="12dp">
     <GridLayout
@@ -19,8 +18,8 @@
         android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="120sp"
-            android:layout_height="120dp"
+            android:layout_width="100sp"
+            android:layout_height="100dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/circle"
             android:src="@drawable/beef"
