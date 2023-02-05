@@ -55,4 +55,17 @@
     <string name="favourite_list">Favourite List</string>
     <string name="chicken">Chicken</string>
     <string name="settings">Settings</string>
+    <string name="plan">Plan</string>
+    <string name="account">Account</string>
+    <string name="search">Search</string>
+    <string name="home">Home</string>
+    <string name="weekPlan">Week Plan</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">TuesDay</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="friday">Friday</string>
+    <string name="thursday">Thursday</string>
+    <string name="planned">Planned</string>
 </resources>
