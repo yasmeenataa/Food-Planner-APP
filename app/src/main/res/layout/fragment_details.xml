@@ -24,6 +24,16 @@
             app:layout_constraintHeight_percent="0.26"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/image_protection"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:contentDescription="@string/image"
+            android:scaleType="fitXY"
+            android:src="#2DFFFFFF"
+            app:layout_constraintHeight_percent="0.26"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <androidx.cardview.widget.CardView
             android:layout_width="@dimen/_120sdp"
@@ -42,6 +52,7 @@
                 android:layout_width="@dimen/_35sdp"
                 android:layout_height="@dimen/_35sdp"
                 android:src="@drawable/plan"
+                android:elevation="@dimen/_5sdp"
                 app:tint="@color/yellow"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_gravity="end|center"
@@ -53,6 +64,7 @@
                 android:layout_height="@dimen/_35sdp"
                 android:src="@drawable/baseline_favorite_24"
                 app:tint="@color/yellow"
+                android:elevation="@dimen/_5sdp"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_gravity="start|center"
                 />
