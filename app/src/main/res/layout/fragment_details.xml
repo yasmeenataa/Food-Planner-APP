@@ -221,7 +221,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:elevation="@dimen/_10sdp"
+            android:elevation="@dimen/_16sdp"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
