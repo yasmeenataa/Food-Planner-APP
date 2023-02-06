@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,7 +9,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants">
 
 
         <ImageView
@@ -19,20 +20,85 @@
             android:contentDescription="@string/image"
             android:scaleType="fitXY"
             android:src="@drawable/coco"
-            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintHeight_percent="0.26"
             app:layout_constraintTop_toTopOf="parent" />
-
 
         <ImageView
             android:id="@+id/image_protection"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.3"
             android:contentDescription="@string/image"
-            android:src="@color/background_protection_black"
-            app:layout_constraintEnd_toEndOf="@id/image_food"
-            app:layout_constraintStart_toStartOf="@id/image_food"
-            app:layout_constraintTop_toTopOf="@id/image_food" />
+            android:scaleType="fitXY"
+            android:src="#2DFFFFFF"
+            app:layout_constraintHeight_percent="0.26"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:backgroundTint="@color/light_black"
+            android:elevation="@dimen/_15sdp"
+            app:cardCornerRadius="@dimen/_25sdp"
+            app:layout_constraintBottom_toTopOf="@id/text_view_category"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart">
+
+            <ImageView
+                android:id="@+id/imageCalender"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="end|center"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:elevation="@dimen/_5sdp"
+                android:src="@drawable/plan"
+                app:tint="@color/yellow" />
+
+            <ImageView
+                android:id="@+id/imageFavourite"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="start|center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:elevation="@dimen/_5sdp"
+                android:src="@drawable/baseline_favorite_24"
+                app:tint="@color/yellow" />
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/text_view_category"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_36sdp"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_16sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/image_food"
+            app:layout_constraintWidth_percent="0.44"
+            tools:text="@string/category" />
+
+        <TextView
+            android:id="@+id/text_view_area"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_16sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/text_view_category"
+            app:layout_constraintTop_toTopOf="@id/text_view_category"
+            app:layout_constraintWidth_percent="0.45"
+            tools:text="@string/area" />
 
 
         <ImageView
@@ -44,7 +110,7 @@
             android:src="@drawable/baseline_arrow_back_24"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintTop_toTopOf="@id/image_food"
-            app:tint="@color/white" />
+            app:tint="@color/black" />
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -66,14 +132,14 @@
             android:id="@+id/instructions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_8sdp"
             android:fontFamily="@font/akaya_telivigala"
             android:text="@string/instructions"
             android:textAllCaps="true"
             android:textColor="@color/blue"
-            android:textSize="@dimen/_20ssp"
+            android:textSize="@dimen/_16ssp"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
-            app:layout_constraintTop_toBottomOf="@id/image_food" />
+            app:layout_constraintTop_toBottomOf="@id/text_view_category" />
 
         <TextView
             android:id="@+id/text_view_steps"
@@ -82,8 +148,8 @@
             android:background="@drawable/shape_description"
             android:gravity="center_vertical"
             android:padding="@dimen/_7sdp"
-            android:textColor="@color/black"
             android:text="@string/scrolltext"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/instructions"
             app:layout_constraintTop_toBottomOf="@id/instructions" />
@@ -108,7 +174,7 @@
             android:text="@string/ingredients"
             android:textAllCaps="true"
             android:textColor="@color/blue"
-            android:textSize="@dimen/_20ssp"
+            android:textSize="@dimen/_16ssp"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@id/text_view_steps" />
 
@@ -117,6 +183,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
+            android:focusable="false"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
@@ -148,12 +215,13 @@
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@id/line_after_ingredients" />
 
-        <VideoView
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
             android:id="@+id/videoView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginBottom="@dimen/_10sdp"
+            android:elevation="@dimen/_16sdp"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
@@ -164,7 +232,9 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/_1sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:background="@color/yellow"
+            android:layout_marginBottom="@dimen/_100sdp"
+            android:background="@color/white"
+            app:layout_constraintCircleRadius="@dimen/_24sdp"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@id/videoView"
@@ -174,4 +244,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -61,6 +62,7 @@ public class DetailsFragment extends Fragment {
     private void inflateRecyclerView() {
         adapter.setList(fillList());
         binding.recyclerIngredients.setAdapter(adapter);
+        ViewCompat.setNestedScrollingEnabled(binding.recyclerIngredients,false);
     }
 
     private ArrayList<MealModel> fillList() {

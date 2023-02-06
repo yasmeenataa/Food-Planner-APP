@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.foodplannerapp.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
@@ -23,7 +23,7 @@
         android:id="@+id/favouriteFragment"
         android:name="com.example.foodplannerapp.ui.favourite.FavouriteFragment"
         android:label="Favourit"
-        tools:layout="@layout/fragment_favourite" >
+        tools:layout="@layout/fragment_favourite">
         <action
             android:id="@+id/action_favouriteFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
@@ -35,7 +35,7 @@
         android:id="@+id/profileFragment"
         android:name="com.example.foodplannerapp.ui.profile.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_favouriteFragment"
             app:destination="@id/favouriteFragment" />
@@ -44,9 +44,17 @@
         android:id="@+id/detailsFragment"
         android:name="com.example.foodplannerapp.ui.detailsFragment.DetailsFragment"
         android:label="Details"
-        tools:layout="@layout/fragment_details" >
+        tools:layout="@layout/fragment_details">
         <action
             android:id="@+id/action_detailsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weekPlannerFragment"
+        android:name="com.example.foodplannerapp.ui.weekPlanner.WeekPlannerFragment"
+        android:label="Week">
+        <action
+            android:id="@+id/action_weekPlannerFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
 </navigation>

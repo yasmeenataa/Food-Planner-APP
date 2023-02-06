@@ -1,7 +1,17 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript{
-    dependencies{
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.5.3"
+
+buildscript {
+    ext {
+        retrofit = '2.9.0'
+        nav_version = "2.5.3"
+        lottie_version = '3.4.0'
+        glide_version = '4.14.2'
+        lifecycle_version = "2.5.1"
+
+    }
+    dependencies {
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+//        classpath 'com.google.gms:google-services:4.3.15'
     }
 }
 plugins {

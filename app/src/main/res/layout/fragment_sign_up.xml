@@ -16,8 +16,8 @@
         android:layout_gravity="top"
         android:src="@drawable/arrow_back"/>
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
         android:layout_gravity="center"
         android:src="@drawable/logo"
         android:layout_marginBottom="40dp"/>

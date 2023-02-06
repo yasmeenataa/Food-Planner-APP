@@ -29,7 +29,7 @@
         from the heat and add the chopped basil.\r\nDrain the pasta and add it to the sauce.
         Garnish with Parmigiano-Reggiano flakes and more basil and serve warm."
                  </string>
-    <string name="ingredients">Ingredients :</string>
+    <string name="ingredients">Main Ingredients :</string>
     <string name="video">Video :</string>
     <string name="garlic">garlic</string>
     <string name="favourite_list">Favourite List</string>
@@ -74,4 +74,7 @@
     <string name="friday">Friday</string>
     <string name="thursday">Thursday</string>
     <string name="planned">Planned</string>
+    <string name="days_of_week">Days Of Week</string>
+    <string name="category">Category :</string>
+    <string name="area">Area :</string>
 </resources>
