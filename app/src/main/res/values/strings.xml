@@ -68,4 +68,7 @@
     <string name="friday">Friday</string>
     <string name="thursday">Thursday</string>
     <string name="planned">Planned</string>
+    <string name="days_of_week">Days Of Week</string>
+    <string name="category">Category :</string>
+    <string name="area">Area :</string>
 </resources>
