@@ -1,0 +1,84 @@
+{
+  "project_info": {
+    "project_number": "1034875435793",
+    "project_id": "hospitalsystem-2f510",
+    "storage_bucket": "hospitalsystem-2f510.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034875435793:android:817fb33e2b48fd73dceab0",
+        "android_client_info": {
+          "package_name": "com.example.foodplannerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034875435793-jjlj4k15ra8rsqv7doi21n9e45dh1smo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.foodplannerapp",
+            "certificate_hash": "75e92a34d393496ade57077488fa187792c809bb"
+          }
+        },
+        {
+          "client_id": "1034875435793-huamt2risjmqpm636dr360jv5cp0kqdg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwjIoD6tYkwttsLzR6PLTObWlZZLBm3ZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034875435793-huamt2risjmqpm636dr360jv5cp0kqdg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034875435793:android:343fdf2350279a8fdceab0",
+        "android_client_info": {
+          "package_name": "com.example.hospitalsystemkotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034875435793-01a8kmvj3fm0uc97jnfk67ejruvra47r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hospitalsystemkotlin",
+            "certificate_hash": "75e92a34d393496ade57077488fa187792c809bb"
+          }
+        },
+        {
+          "client_id": "1034875435793-huamt2risjmqpm636dr360jv5cp0kqdg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwjIoD6tYkwttsLzR6PLTObWlZZLBm3ZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034875435793-huamt2risjmqpm636dr360jv5cp0kqdg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

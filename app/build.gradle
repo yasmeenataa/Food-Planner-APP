@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'androidx.navigation.safeargs'
-//    id 'com.google.gms.google-services'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -101,6 +101,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:21.1.0'
 //    implementation 'com.google.android.gms:play-services-auth:20.4.1'
     implementation 'com.google.firebase:firebase-firestore:24.4.2'
+    implementation 'com.google.firebase:firebase-analytics'
 
     //youtubeVideo
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:11.1.0'

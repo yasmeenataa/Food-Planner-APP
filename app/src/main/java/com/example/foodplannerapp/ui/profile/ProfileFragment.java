@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentProfileBinding;
-import com.example.foodplannerapp.ui.MainActivity;
+import com.example.foodplannerapp.MainActivity;
 
 public class ProfileFragment extends Fragment {
 
