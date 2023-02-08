@@ -11,12 +11,13 @@ import android.widget.ImageView;
 
 import com.example.foodplannerapp.databinding.ActivityBottomNavigationBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class BottomNavigation extends AppCompatActivity {
 
 
-    BottomNavigationView bottom_navigation;
-    NavController navController;
+    private BottomNavigationView bottom_navigation;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +25,15 @@ public class BottomNavigation extends AppCompatActivity {
         setContentView(R.layout.activity_bottom_navigation);
 
 
-        bottom_navigation=findViewById(R.id.bottom_navigation);
-        navController= Navigation.findNavController(this,R.id.nav_host_fragment);
-        NavigationUI.setupWithNavController(bottom_navigation,navController);
+        bottom_navigation = findViewById(R.id.bottom_navigation);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupWithNavController(bottom_navigation, navController);
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        FirebaseAuth.getInstance().signOut();
     }
 }

@@ -1,5 +1,6 @@
 package com.example.foodplannerapp.ui.splash;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,7 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.foodplannerapp.BottomNavigation;
 import com.example.foodplannerapp.R;
+import com.example.foodplannerapp.utils.MySharedPref;
 
 
 public class SplashFragment extends Fragment {
@@ -38,9 +41,18 @@ public class SplashFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_welcomeFragment);
+                action(view);
             }
-        }, 5000);
+        }, 3000);
+    }
+
+    private void action(View view) {
+        if (MySharedPref.getUserId().isEmpty()) {
+            Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_welcomeFragment);
+        } else {
+            Intent intent = new Intent(requireActivity(), BottomNavigation.class);
+            startActivity(intent);
+        }
     }
 
 }
