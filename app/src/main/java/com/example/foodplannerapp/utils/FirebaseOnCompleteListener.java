@@ -1,4 +1,4 @@
-package com.example.foodplannerapp.models;
+package com.example.foodplannerapp.utils;
 
 public interface FirebaseOnCompleteListener {
 

@@ -2,7 +2,7 @@ package com.example.foodplannerapp.models;
 
 import androidx.annotation.NonNull;
 
-import com.example.foodplannerapp.utils.MySharedPref;
+import com.example.foodplannerapp.utils.FirebaseOnCompleteListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;

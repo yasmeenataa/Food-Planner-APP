@@ -1,6 +1,6 @@
 package com.example.foodplannerapp.ui.login;
 
-import com.example.foodplannerapp.models.FirebaseOnCompleteListener;
+import com.example.foodplannerapp.utils.FirebaseOnCompleteListener;
 import com.example.foodplannerapp.models.Repo;
 import com.example.foodplannerapp.models.RepoInterface;
 import com.example.foodplannerapp.utils.MySharedPref;

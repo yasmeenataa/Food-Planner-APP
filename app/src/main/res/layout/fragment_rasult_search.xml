@@ -8,7 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/design_top"
-    tools:context=".ResultSearchFragment">
+    tools:context=".ui.resulFromSearch.ResultSearchFragment">
 
     <ImageView
         android:id="@+id/btn_back_result_search"

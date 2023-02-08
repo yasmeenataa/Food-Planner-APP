@@ -15,10 +15,6 @@ import androidx.navigation.Navigation;
 import com.example.foodplannerapp.BottomNavigation;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentSignUpBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 
 
 public class SignUpFragment extends Fragment implements ViewInterface {

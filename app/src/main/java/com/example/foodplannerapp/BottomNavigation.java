@@ -1,15 +1,13 @@
 package com.example.foodplannerapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
-import android.widget.ImageView;
 
-import com.example.foodplannerapp.databinding.ActivityBottomNavigationBinding;
+import com.example.foodplannerapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -34,6 +32,5 @@ public class BottomNavigation extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        FirebaseAuth.getInstance().signOut();
     }
 }

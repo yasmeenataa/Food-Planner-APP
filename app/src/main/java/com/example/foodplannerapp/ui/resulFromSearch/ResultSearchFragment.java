@@ -1,4 +1,4 @@
-package com.example.foodplannerapp;
+package com.example.foodplannerapp.ui.resulFromSearch;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.foodplannerapp.R;
 
 
 public class ResultSearchFragment extends Fragment {

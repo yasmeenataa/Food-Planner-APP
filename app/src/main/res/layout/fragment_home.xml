@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:layout_marginBottom="8dp"
     android:layout_marginStart="8dp"
-    tools:context=".HomeFragment">
+    tools:context=".ui.home.HomeFragment">
 
 
 <LinearLayout
