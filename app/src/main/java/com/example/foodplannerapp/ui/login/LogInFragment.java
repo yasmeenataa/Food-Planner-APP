@@ -1,22 +1,26 @@
-package com.example.foodplannerapp;
+package com.example.foodplannerapp.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.example.foodplannerapp.BottomNavigation;
+import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentLogInBinding;
 
 
-public class LogInFragment extends Fragment {
+public class LogInFragment extends Fragment implements ViewInterface {
 
     private FragmentLogInBinding binding;
+    private PresenterInterface presenterInterface;
 
 
     @Override
@@ -31,6 +35,7 @@ public class LogInFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        presenterInterface = new LoginPresenter(this);
         onClicks();
 
 
@@ -40,8 +45,7 @@ public class LogInFragment extends Fragment {
         binding.btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), BottomNavigation.class);
-                startActivity(intent);
+                getData();
             }
         });
 
@@ -60,10 +64,43 @@ public class LogInFragment extends Fragment {
         });
     }
 
+    private void getData() {
+        String pass = binding.PasswordEdit.getText().toString().trim();
+        String email = binding.UserNameEdit.getText().toString().trim();
+
+        validation(email, pass);
+
+
+    }
+
+    private void validation(String email, String pass) {
+        if (email.isEmpty()) {
+            binding.UserNameEdit.setError("Required");
+        } else if (pass.isEmpty()) {
+            binding.PasswordEdit.setError("Required");
+        } else {
+            presenterInterface.login(email, pass);
+
+        }
+    }
+
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+
+    @Override
+    public void onLoginSuccess(String userId) {
+        Intent intent = new Intent(requireContext(), BottomNavigation.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onLoginFail(String message) {
+        Toast.makeText(requireContext(), "Fail" + message, Toast.LENGTH_SHORT).show();
+
     }
 }
