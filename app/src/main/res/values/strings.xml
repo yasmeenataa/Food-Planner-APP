@@ -77,4 +77,6 @@
     <string name="days_of_week">Days Of Week</string>
     <string name="category">Category :</string>
     <string name="area">Area :</string>
+    <string name="favourite2">Favourite</string>
+    <string name="ingredients2">Ingredients :</string>
 </resources>

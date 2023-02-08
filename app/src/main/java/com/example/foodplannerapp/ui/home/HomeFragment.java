@@ -13,11 +13,16 @@ import android.view.ViewGroup;
 
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentHomeBinding;
+import com.example.foodplannerapp.models.CategoriesModel;
+
+import java.util.ArrayList;
 
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
+    private ArrayList<CategoriesModel> list;
+    private CategoriesAdapter adapter;
 
 
     @Override
@@ -31,6 +36,8 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        list = new ArrayList<>();
+        inflateRecyclerView();
         onClicks();
 
     }
@@ -43,6 +50,22 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+    private ArrayList<CategoriesModel> fillList() {
+        CategoriesModel categoriesModel = new CategoriesModel();
+        for (int i = 0; i <= 10; i++) {
+            categoriesModel.setStrCategory("Beef" + i);
+            categoriesModel.setStrCategoryThumb("https:\\/\\/www.themealdb.com\\/images\\/category\\/beef.png" + i);
+            list.add(i, categoriesModel);
+        }
+        return list;
+    }
+
+    private void inflateRecyclerView() {
+        adapter=new CategoriesAdapter(fillList(),getContext());
+
+        binding.recycleCategory.setAdapter(adapter);
+    }
+
 
     @Override
     public void onDestroyView() {
