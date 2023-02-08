@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.foodplannerapp.CategoriesAdapter;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentHomeBinding;
 import com.example.foodplannerapp.models.CategoriesModel;
