@@ -3,6 +3,7 @@ package com.example.foodplannerapp;
 import android.app.Application;
 
 import com.example.foodplannerapp.database.MyRoomDataBase;
+import com.example.foodplannerapp.utils.MySharedPref;
 
 
 public class App extends Application {
@@ -11,5 +12,6 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         MyRoomDataBase.initRoom(this);
+        MySharedPref.init(this);
     }
 }
