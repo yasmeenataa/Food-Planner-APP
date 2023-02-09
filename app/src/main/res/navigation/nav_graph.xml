@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.example.foodplannerapp.ui.welcome.WelcomeFragment"
+        android:name="com.example.foodplannerapp.ui.welcome.view.WelcomeFragment"
         android:label="Welcome"
         tools:layout="@layout/fragment_welcome" >
         <action

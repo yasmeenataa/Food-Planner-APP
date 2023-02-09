@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import com.example.foodplannerapp.BottomNavigation;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.utils.MySharedPref;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class SplashFragment extends Fragment {
@@ -47,11 +49,14 @@ public class SplashFragment extends Fragment {
     }
 
     private void action(View view) {
-        if (MySharedPref.getUserId().isEmpty()) {
-            Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_welcomeFragment);
-        } else {
+        FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+        if (!MySharedPref.getUserId().isEmpty()||user!=null) {
             Intent intent = new Intent(requireActivity(), BottomNavigation.class);
             startActivity(intent);
+
+        } else {
+            Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_welcomeFragment);
+
         }
     }
 

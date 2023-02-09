@@ -1,4 +1,4 @@
-package com.example.foodplannerapp;
+package com.example.foodplannerapp.ui.search;
 
 import android.os.Bundle;
 
@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.foodplannerapp.CategoriesAdapter;
 import com.example.foodplannerapp.databinding.FragmentSearchBinding;
 import com.example.foodplannerapp.models.CategoriesModel;
 import com.example.foodplannerapp.models.MealModel;
