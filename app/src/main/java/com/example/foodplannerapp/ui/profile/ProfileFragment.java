@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentProfileBinding;
 import com.example.foodplannerapp.MainActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileFragment extends Fragment {
 
@@ -54,6 +55,7 @@ public class ProfileFragment extends Fragment {
         binding.textViewLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             }
