@@ -10,20 +10,18 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.Toast;
 
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentFavouriteBinding;
-import com.example.foodplannerapp.databinding.FragmentWelcomeBinding;
-import com.example.foodplannerapp.models.MealModel;
+import com.example.foodplannerapp.models.ModelMeal;
 
 import java.util.ArrayList;
 
 
 public class FavouriteFragment extends Fragment {
     private FragmentFavouriteBinding binding;
-    private ArrayList<MealModel> list;
+    private ArrayList<ModelMeal> list;
     private FavouriteAdapter adapter;
 
     @Override
@@ -65,7 +63,7 @@ public class FavouriteFragment extends Fragment {
             }
 
             @Override
-            public void onItemDelete(MealModel mealModel) {
+            public void onItemDelete(ModelMeal mealModel) {
                 Toast.makeText(requireContext(), "Item is Deleted", Toast.LENGTH_SHORT).show();
             }
         });
@@ -77,8 +75,8 @@ public class FavouriteFragment extends Fragment {
         binding.recyclerFav.setAdapter(adapter);
     }
 
-    private ArrayList<MealModel> fillList() {
-        MealModel mealModel = new MealModel();
+    private ArrayList<ModelMeal> fillList() {
+        ModelMeal mealModel = new ModelMeal();
         for (int i = 0; i <= 10; i++) {
             mealModel.setStrCategory("Garlic" + i);
             mealModel.setStrMeal("Chicken" + i);
