@@ -1,23 +1,16 @@
-package com.example.foodplannerapp;
+package com.example.foodplannerapp.ui.search.view;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.example.foodplannerapp.databinding.FragmentFavouriteBinding;
-import com.example.foodplannerapp.databinding.FragmentSearchBinding;
+import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.models.CategoriesModel;
-import com.example.foodplannerapp.models.MealModel;
-import com.example.foodplannerapp.ui.favourite.FavouriteAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
