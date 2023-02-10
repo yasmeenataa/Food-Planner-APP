@@ -4,127 +4,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_marginBottom="8dp"
-   android:background="@drawable/design_top"
-    tools:context=".HomeFragment">
-
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:background="@drawable/design_top"
     android:orientation="vertical"
-    android:layout_marginBottom="8dp"
-    >
+    tools:context=".ui.home.view.HomeFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="8dp"
-        android:text="@string/inspiration_for_you"
-        android:textColor="#1C1C1C"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewMealHome"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="24dp"
-        >
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/inspiration_for_you"
+            android:textColor="#1C1C1C"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewMealHome"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="30dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="24dp">
 
-
-            <ImageView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_gravity="center"
-                android:scaleType="fitXY"
-                android:src="@drawable/random_meal"
-                tools:layout_editor_absoluteX="82dp"
-                tools:layout_editor_absoluteY="113dp" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
 
-            <TextView
-                android:id="@+id/mealName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/fettuccine_alfredo"
-                android:textColor="@color/primaryColor"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/paste"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/area"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="10dp"
-                android:text="@string/italian"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/ingredient"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="10dp"
-                android:text="@string/sake_soy_sauce_sesame_seed_oil"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_margin="10dp"
-                android:layout_gravity="right"
-                android:src="@drawable/favorite" />
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-    <TextView
-        android:id="@+id/search_by_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="8dp"
-        android:text="@string/search_by_category"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/category_row" />
+                <ImageView
+                    android:id="@+id/image_meal"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    tools:layout_editor_absoluteX="82dp"
+                    tools:layout_editor_absoluteY="113dp"
+                    tools:src="@drawable/random_meal" />
 
 
-</LinearLayout>
+                <TextView
+                    android:id="@+id/text_view_mealName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="@string/fettuccine_alfredo" />
+
+                <TextView
+                    android:id="@+id/text_viewcategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="@string/paste" />
+
+                <TextView
+                    android:id="@+id/text_view_area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="@string/italian" />
+
+                <ImageView
+                    android:id="@+id/image_favourite"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:layout_margin="10dp"
+                    android:tint="@color/blue"
+                    android:src="@drawable/baseline_favorite_border_24" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/search_by_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/search_by_category"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            android:layout_marginBottom="48dp"
+            tools:listitem="@layout/category_row" />
+
+
+    </LinearLayout>
 
 </ScrollView>

@@ -13,24 +13,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/image_meal"
+        <ImageView
+            android:id="@+id/image_meal_itemMeal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/_150sdp"
             android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
             android:src="@drawable/random_meal2"
-            app:riv_corner_radius="@dimen/_24sdp" />
+             />
 
         <TextView
-            android:id="@+id/text_view_maelName"
+            android:id="@+id/text_view_maelName_itemMeal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@color/background_protection_black"
             android:fontFamily="@font/akaya_telivigala"
-            android:padding="@dimen/_8sdp"
-            android:text="@string/arwa"
+            android:paddingStart="@dimen/_16sdp"
+            android:paddingEnd="@dimen/_32sdp"
+            tools:text="@string/arwa"
             android:textColor="@color/white"
+            android:paddingVertical="@dimen/_8sdp"
             android:textSize="@dimen/_16sdp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent" />
@@ -42,9 +45,9 @@
             android:layout_marginEnd="@dimen/_16sdp"
             android:scaleType="fitXY"
             android:src="@drawable/plan"
-            app:layout_constraintBottom_toBottomOf="@id/text_view_maelName"
+            app:layout_constraintBottom_toBottomOf="@id/text_view_maelName_itemMeal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/text_view_maelName"
+            app:layout_constraintTop_toTopOf="@id/text_view_maelName_itemMeal"
             app:riv_corner_radius="@dimen/_24sdp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
