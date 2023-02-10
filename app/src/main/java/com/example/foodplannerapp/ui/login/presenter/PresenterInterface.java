@@ -1,4 +1,4 @@
-package com.example.foodplannerapp.ui.login;
+package com.example.foodplannerapp.ui.login.presenter;
 
 public interface PresenterInterface {
 
