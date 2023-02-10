@@ -8,11 +8,10 @@ import androidx.room.PrimaryKey;
 import com.example.foodplannerapp.utils.Constants;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 @Entity(tableName = Constants.TABLE_NAME)
-public class MealModel {
+public class ModelMeal {
 
     @PrimaryKey
     @NonNull
@@ -69,7 +68,7 @@ public class MealModel {
     private String strMeasure19;
     private String strMeasure20;
 
-    public MealModel() {
+    public ModelMeal() {
 
     }
 
