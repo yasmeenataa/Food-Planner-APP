@@ -1,4 +1,4 @@
-package com.example.foodplannerapp.ui.search;
+package com.example.foodplannerapp.ui.search.view;
 
 import android.os.Bundle;
 
@@ -10,11 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.foodplannerapp.CategoriesAdapter;
 import com.example.foodplannerapp.databinding.FragmentSearchBinding;
 import com.example.foodplannerapp.models.CategoriesModel;
-import com.example.foodplannerapp.models.MealModel;
-import com.example.foodplannerapp.ui.favourite.FavouriteAdapter;
 
 import java.util.ArrayList;
 
