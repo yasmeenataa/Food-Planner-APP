@@ -1,4 +1,4 @@
-package com.example.foodplannerapp.models;
+package com.example.foodplannerapp.repo.authRepo;
 
 public interface RepoInterface {
 
@@ -7,5 +7,6 @@ public interface RepoInterface {
     void login(String email , String pass);
 
     void logout();
+
 
 }

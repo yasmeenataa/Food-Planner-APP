@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.foodplannerapp.BottomNavigation;
 import com.example.foodplannerapp.R;
-import com.example.foodplannerapp.utils.MySharedPref;
+import com.example.foodplannerapp.models.MySharedPref;
 
 
 public class SplashFragment extends Fragment {
