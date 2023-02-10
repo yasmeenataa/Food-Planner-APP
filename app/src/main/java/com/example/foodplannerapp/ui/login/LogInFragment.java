@@ -15,6 +15,8 @@ import androidx.navigation.Navigation;
 import com.example.foodplannerapp.BottomNavigation;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentLogInBinding;
+import com.example.foodplannerapp.ui.login.presenter.LoginPresenter;
+import com.example.foodplannerapp.ui.login.presenter.PresenterInterface;
 
 
 public class LogInFragment extends Fragment implements ViewInterface {
