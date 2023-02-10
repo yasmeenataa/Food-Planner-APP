@@ -8,7 +8,7 @@
 
     android:background="@drawable/design_top"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.search.SearchFragment">
+    tools:context=".ui.search.view.SearchFragment">
 
 
 
@@ -22,10 +22,7 @@
         android:text="@string/search_by_ingredient"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineVR"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="@+id/guidelineVL"
-        app:layout_constraintTop_toTopOf="@+id/guidelineHT" />
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_ingredients"
