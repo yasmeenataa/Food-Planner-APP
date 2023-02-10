@@ -7,18 +7,23 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.foodplannerapp.ui.home.HomeFragment"
+        android:name="com.example.foodplannerapp.ui.home.view.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_allCategoriesFragment3"
+            app:destination="@id/allCategoriesFragment3" />
         <action
             android:id="@+id/action_homeFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.foodplannerapp.ui.search.SearchFragment"
         android:label="Search"
         tools:layout="@layout/fragment_search" />
+
     <fragment
         android:id="@+id/favouriteFragment"
         android:name="com.example.foodplannerapp.ui.favourite.FavouriteFragment"
@@ -31,6 +36,7 @@
             android:id="@+id/action_favouriteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.foodplannerapp.ui.profile.ProfileFragment"
@@ -40,6 +46,7 @@
             android:id="@+id/action_profileFragment_to_favouriteFragment"
             app:destination="@id/favouriteFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.example.foodplannerapp.ui.detailsFragment.DetailsFragment"
@@ -48,7 +55,11 @@
         <action
             android:id="@+id/action_detailsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <argument
+            android:name="mealId"
+            app:argType="string" />
     </fragment>
+
     <fragment
         android:id="@+id/weekPlannerFragment"
         android:name="com.example.foodplannerapp.ui.weekPlanner.WeekPlannerFragment"
@@ -57,4 +68,20 @@
             android:id="@+id/action_weekPlannerFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/allCategoriesFragment3"
+        android:name="com.example.foodplannerapp.ui.allCategory.view.AllCategoriesFragment"
+        android:label="MealCategories"
+        tools:layout="@layout/fragment_all_categories">
+        <argument
+            android:name="category_name"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_allCategoriesFragment3_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_allCategoriesFragment3_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+
 </navigation>
