@@ -1,4 +1,4 @@
-package com.example.foodplannerapp.ui.favourite;
+package com.example.foodplannerapp.ui.favourite.view;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +9,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.models.ModelMeal;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Holder> {
 
@@ -43,6 +46,9 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Hold
         ModelMeal mealModel = list.get(position);
         holder.textView_mealName.setText(mealModel.getStrMeal());
         holder.textView_category.setText(mealModel.getStrCategory());
+        Glide.with(holder.itemView.getContext())
+                .load(mealModel.getStrMealThumb())
+                .into(holder.imageMeal);
     }
 
     @Override
@@ -52,7 +58,8 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Hold
 
     public class Holder extends RecyclerView.ViewHolder {
 
-        ImageView btnDelete, imageMeal;
+        ImageView btnDelete;
+        CircleImageView imageMeal;
         TextView textView_mealName, textView_category;
 
 
@@ -60,9 +67,9 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Hold
             super(itemView);
 
             btnDelete = itemView.findViewById(R.id.btn_delete);
-            imageMeal = itemView.findViewById(R.id.image_meal);
-            textView_category = itemView.findViewById(R.id.text_view_category);
-            textView_mealName = itemView.findViewById(R.id.text_view_mealName);
+            imageMeal = itemView.findViewById(R.id.image_meal_fav);
+            textView_category = itemView.findViewById(R.id.text_view_category_fav);
+            textView_mealName = itemView.findViewById(R.id.text_view_mealName_fav);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
