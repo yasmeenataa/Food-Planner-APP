@@ -59,23 +59,5 @@ public class PresenterHome implements PresenterHomeInterface, NetworkDelegate {
         viewInterface.getErrorMessage(errorMessage);
     }
 
-    @Override
-    public void onSuccessIngredientList(List<IngredientListModel> ingredientList) {
 
-    }
-
-    @Override
-    public void onFailureIngredientList(String errorMsg) {
-
-    }
-
-    @Override
-    public void onSuccessAreaList(List<AreaListModel> AreaList) {
-
-    }
-
-    @Override
-    public void onFailureAreaList(String errorMsg) {
-
-    }
 }

@@ -16,9 +16,7 @@ public interface NetworkDelegate {
 
     void onFailureResult(String errorMessage);
 
-    void onSuccessIngredientList(List<IngredientListModel> ingredientList);
-    void onFailureIngredientList(String errorMsg);
-    void onSuccessAreaList(List<AreaListModel> AreaList);
-    void onFailureAreaList(String errorMsg);
+
+
 
 }
