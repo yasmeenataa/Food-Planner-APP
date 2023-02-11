@@ -36,4 +36,9 @@ public class PresenterAllCategory implements AllCategoryPresenterInterface, Netw
     public void getAllMealCategory(String catName) {
         mealRepo.getMealsOfCategory(this, catName);
     }
+
+    @Override
+    public void insertToFav(ModelMeal modelMeal) {
+        mealRepo.insertMeal(modelMeal);
+    }
 }

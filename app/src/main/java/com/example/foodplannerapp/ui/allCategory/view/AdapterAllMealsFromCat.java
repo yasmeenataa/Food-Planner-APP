@@ -78,6 +78,5 @@ public class AdapterAllMealsFromCat extends RecyclerView.Adapter<AdapterAllMeals
     interface SetOnMealClickListener {
         void onMealClick(String mealId);
 
-        void onFavClick(ModelMeal modelMeal);
     }
 }
