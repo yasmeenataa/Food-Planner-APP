@@ -38,36 +38,17 @@
         android:id="@+id/recycle_ingredients"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
         tools:listitem="@layout/ingredients_row" />
-
-    <TextView
-        android:id="@+id/search_by_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="8dp"
-        android:text="@string/search_by_category"
-        android:textSize="20sp"
-        android:textStyle="bold"
-         />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_Search_cat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/category_row" />
     <TextView
         android:id="@+id/search_by_area"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:text="@string/search_by_area"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -77,10 +58,32 @@
         android:id="@+id/recycle_area"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/area_row" />
+
+
+    <TextView
+        android:id="@+id/search_by_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/search_by_category"
+        android:textSize="20sp"
+        android:textStyle="bold"
+         />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_Search_cat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/category_row" />
 
 
 </LinearLayout>
