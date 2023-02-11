@@ -3,8 +3,10 @@ package com.example.foodplannerapp.repo.mealRepo;
 import com.example.foodplannerapp.models.ModelMealRoot;
 import com.example.foodplannerapp.nework.NetworkDelegate;
 import com.example.foodplannerapp.nework.NetworkDelegateForArea;
+import com.example.foodplannerapp.nework.NetworkDelegateForAreaItem;
 import com.example.foodplannerapp.nework.NetworkDelegateForCategory;
 import com.example.foodplannerapp.nework.NetworkDelegateForIngredient;
+import com.example.foodplannerapp.nework.NetworkDelegateForIngredientItem;
 
 import io.reactivex.rxjava3.core.Single;
 
@@ -21,4 +23,6 @@ public interface MealRepoInterface {
     void getAllIngredient(NetworkDelegateForIngredient delegateForIngredient);
 
     void getMealsOfCategory(NetworkDelegateForCategory networkDelegateForCategory , String catName);
+    void getMealsOfArea(NetworkDelegateForAreaItem delegateForAreaItem , String areaName);
+    void getMealsOfIngredient(NetworkDelegateForIngredientItem delegateForIngredientItem , String ingredientName);
 }
