@@ -50,10 +50,12 @@ public class SearchFragment extends Fragment implements SearchViewInterface,OnIt
 
         areaListAdapter=new AreaListAdapter(new ArrayList<>(),getContext(),this);
         ingredientListAdapter=new IngredientListAdapter(new ArrayList<>(),getContext(),this);
+        categoriesAdapter=new CategoriesAdapter();
         list = new ArrayList<>();
         presenterInterface=new SearchPresenter(this, MealRepo.getMealRepoInstance());
         presenterInterface.getAreaList();
         presenterInterface.getIngredientList();
+        presenterInterface.getAllCategories();
 
 
     }
@@ -70,9 +72,18 @@ public class SearchFragment extends Fragment implements SearchViewInterface,OnIt
     }
 
     @Override
-    public void showCategoryList(List<CategoriesModel> categoriesList) {
-
+    public void showAllCategories(List<CategoriesModel> categoryList) {
+       categoriesAdapter.setList((ArrayList<CategoriesModel>) categoryList);
+       binding.recyclerSearchCat.setAdapter(categoriesAdapter);
+       categoriesAdapter.notifyDataSetChanged();
     }
+
+    @Override
+    public void onFailureCategoryList(String message) {
+        System.out.println("Error : "+message);
+        Toast.makeText(getContext(),"Error : "+message,Toast.LENGTH_SHORT).show();
+    }
+
 
     @Override
     public void showAreaList(List<AreaListModel> areaList) {

@@ -13,7 +13,7 @@ import com.example.foodplannerapp.ui.search.view.SearchViewInterface;
 
 import java.util.List;
 
-public class SearchPresenter implements NetworkDelegateForArea, NetworkDelegateForIngredient,SearchPresenterInterface {
+public class SearchPresenter implements NetworkDelegateForArea, NetworkDelegateForIngredient,NetworkDelegate,SearchPresenterInterface {
     private SearchViewInterface _view;
     private MealRepoInterface _repo;
 
@@ -25,6 +25,12 @@ public class SearchPresenter implements NetworkDelegateForArea, NetworkDelegateF
     @Override
     public void getIngredientList() {
         _repo.getAllIngredient(this);
+    }
+
+    @Override
+    public void getAllCategories() {
+        _repo.getAllCategory(this);
+
     }
 
 
@@ -53,5 +59,20 @@ public class SearchPresenter implements NetworkDelegateForArea, NetworkDelegateF
     @Override
     public void onFailureAreaList(String errorMsg) {
         _view.onFailureAreaList(errorMsg);
+    }
+
+    @Override
+    public void onSuccessfulResult(List<ModelMeal> mealList) {
+
+    }
+
+    @Override
+    public void onCategorySuccessfulResult(List<CategoriesModel> categoryList) {
+        _view.showAllCategories(categoryList);
+    }
+
+    @Override
+    public void onFailureResult(String errorMessage) {
+
     }
 }

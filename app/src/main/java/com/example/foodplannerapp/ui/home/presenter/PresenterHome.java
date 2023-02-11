@@ -15,7 +15,7 @@ import com.example.foodplannerapp.ui.home.view.HomeViewInterface;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PresenterHome implements PresenterHomeInterface, NetworkDelegate {
+    public class PresenterHome implements PresenterHomeInterface, NetworkDelegate {
 
 
     private final HomeViewInterface viewInterface;

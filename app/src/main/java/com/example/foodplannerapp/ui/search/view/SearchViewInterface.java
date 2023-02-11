@@ -8,7 +8,9 @@ import java.util.List;
 
 public interface SearchViewInterface {
     void showIngredientList(List<IngredientListModel> ingredientList);
-    void showCategoryList(List<CategoriesModel> categoriesList);
+    void showAllCategories(List<CategoriesModel> categoryList);
+
+    void onFailureCategoryList(String message);
     void showAreaList(List<AreaListModel> areaList);
     void onFailureIngredientList(String errorMsg);
     void onFailureAreaList(String errorMsg);
