@@ -50,8 +50,7 @@ public class SplashFragment extends Fragment {
         if (MySharedPref.getUserId().isEmpty()) {
             Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_welcomeFragment);
         } else {
-            Intent intent = new Intent(requireActivity(), BottomNavigation.class);
-            startActivity(intent);
+            Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_homeFragment);
         }
     }
 
