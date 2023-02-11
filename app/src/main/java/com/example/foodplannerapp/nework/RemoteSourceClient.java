@@ -102,8 +102,7 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        item ->{ networkDelegate.onSuccessIngredientList(item.getMeals());
-                            System.out.println("//////////////////////Done Ingredient/////////////"+item.getMeals().get(2).getStrIngredient());},
+                        item ->networkDelegate.onSuccessIngredientList(item.getMeals()),
                         error -> networkDelegate.onFailureIngredientList("Error :" + error.toString())
                 );
     }
@@ -134,6 +133,33 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                     }
                 });
     }
+
+    @Override
+    public void enqueueCallAreaItem(NetworkDelegateForAreaItem networkDelegateForArea, String areaName) {
+        RetrofitConnection
+                .getServices()
+                .getAllMealsByArea(areaName)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        item -> networkDelegateForArea.onAreaNameSuccessfulResult(item.getMeals()),
+                        error -> networkDelegateForArea.onFailureAreaNameResult("Error :" + error.toString())
+                );
+    }
+
+    @Override
+    public void enqueueIngredientItem(NetworkDelegateForIngredientItem delegateForIngredient, String ingredientName) {
+        RetrofitConnection
+                .getServices()
+                .getAllMealsByIngredient(ingredientName)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        item -> delegateForIngredient.onIngredientNameSuccessfulResult(item.getMeals()),
+                        error -> delegateForIngredient.onFailureIngredientNameResult("Error :" + error.toString())
+                );
+    }
+
 
     @Override
     public Single<ModelMealRoot> getRandomMeal() {

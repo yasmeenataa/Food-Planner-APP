@@ -13,6 +13,8 @@ public interface RemoteSourceInterface {
     void enqueueCallIngredients(NetworkDelegateForIngredient networkDelegate);
 
     void enqueueCallCategoryItem(NetworkDelegateForCategory networkDelegate , String categoryName);
+    void enqueueCallAreaItem(NetworkDelegateForAreaItem networkDelegateForArea,String areaName);
+    void enqueueIngredientItem(NetworkDelegateForIngredientItem delegateForIngredient,String ingredientName);
 
     Single<ModelMealRoot> getRandomMeal();
 
