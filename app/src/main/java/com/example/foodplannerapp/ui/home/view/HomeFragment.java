@@ -129,18 +129,3 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
     }
 }
 
-
-//        MealRepo.getMealRepoInstance().getListLiveData().observe(requireActivity(), new Observer<ArrayList<ModelMeal>>() {
-//            @Override
-//            public void onChanged(ArrayList<ModelMeal> modelMeals) {
-//                Log.i("TAG", modelMeals.get(0).getStrMeal());
-//                mealName = modelMeals.get(0).getStrMeal();
-//                mealCategory = modelMeals.get(0).getStrCategory();
-//                mealCountry = modelMeals.get(0).getStrArea();
-//                imageUrl = modelMeals.get(0).getStrMealThumb();
-//
-//
-//
-//
-//            }
-//        });
