@@ -30,6 +30,11 @@ public interface RetrofitServices {
 
     @GET("filter.php")
     Single<ModelMealRoot> getAllMealsByCategory(@Query("c") String category);
+    @GET("filter.php")
+    Single<ModelMealRoot> getAllMealsByArea(@Query("a") String area);
+    @GET("filter.php")
+    Single<ModelMealRoot> getAllMealsByIngredient(@Query("i") String ingredient);
+
 
     @GET("lookup.php")
     Single<ModelMealRoot> getMealById(@Query("i") String mealId);
