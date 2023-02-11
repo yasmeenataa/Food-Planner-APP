@@ -1,6 +1,9 @@
 package com.example.foodplannerapp.models;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -11,18 +14,37 @@ import java.util.ArrayList;
 
 
 @Entity(tableName = Constants.TABLE_NAME)
-public class ModelMeal {
+public class ModelMeal implements Parcelable {
 
     @PrimaryKey
     @NonNull
     private String idMeal;
 
-    private ArrayList<String> userIds;
-
     private String strMeal;
     private String strCategory;
     private String strArea;
     private String strInstructions;
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    private String day ;
+
+
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     private String strMealThumb;
     private String strTags;
@@ -457,13 +479,14 @@ public class ModelMeal {
         this.strMeasure20 = strMeasure20;
     }
 
-    public ArrayList<String> getUserIds() {
-        return userIds;
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public void setUserIds(ArrayList<String> userIds) {
-        this.userIds = userIds;
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+
     }
-
-
 }
