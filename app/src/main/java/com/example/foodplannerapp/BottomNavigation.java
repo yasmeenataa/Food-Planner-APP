@@ -22,12 +22,11 @@ public class BottomNavigation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_navigation);
 
-
         bottom_navigation = findViewById(R.id.bottom_navigation);
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(bottom_navigation, navController);
-
     }
+
 
     @Override
     protected void onDestroy() {

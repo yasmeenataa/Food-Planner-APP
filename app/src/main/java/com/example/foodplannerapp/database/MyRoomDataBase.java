@@ -7,10 +7,10 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-import com.example.foodplannerapp.models.MealModel;
+import com.example.foodplannerapp.models.ModelMeal;
 import com.example.foodplannerapp.utils.Constants;
 
-@Database(entities = {MealModel.class}, version = 1, exportSchema = false)
+@Database(entities = {ModelMeal.class}, version = 1, exportSchema = false)
 @TypeConverters(Converters.class)
 public abstract class MyRoomDataBase extends RoomDatabase {
 

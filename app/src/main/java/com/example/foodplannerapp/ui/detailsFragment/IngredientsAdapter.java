@@ -9,17 +9,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.foodplannerapp.R;
-import com.example.foodplannerapp.models.MealModel;
+import com.example.foodplannerapp.models.ModelMeal;
 
 import java.util.ArrayList;
 
 public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.Holder> {
 
-    private ArrayList<MealModel> list;
+    private ArrayList<String> ingredientList;
 
-    public void setList(ArrayList<MealModel> list) {
-        this.list = list;
+    private ArrayList<String> measurementList;
+
+    public void setIngredientList(ArrayList<String> ingredientList) {
+        this.ingredientList = ingredientList;
+    }
+
+    public void setMeasurementList(ArrayList<String> measurementList) {
+        this.measurementList = measurementList;
     }
 
     @NonNull
@@ -33,17 +40,19 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-        MealModel mealModel = list.get(position);
-        holder.textView_ingredientName.setText(mealModel.getStrIngredient1());
-        holder.textView_ingredientMeasure.setText(mealModel.getStrMeasure1());
 
-        // glide
+        holder.textView_ingredientName.setText(ingredientList.get(position));
+        holder.textView_ingredientMeasure.setText(measurementList.get(position));
+        Glide.with(holder.itemView.getContext())
+                .load(String.format("https://www.themealdb.com/images/ingredients/%s-Small.png", ingredientList.get(position)))
+                .placeholder(R.drawable.ic_launcher_foreground)
+                .into(holder.imageFood);
 
     }
 
     @Override
     public int getItemCount() {
-        return list == null ? 0 : list.size();
+        return ingredientList == null ? 0 : ingredientList.size();
     }
 
     public class Holder extends RecyclerView.ViewHolder {
@@ -52,7 +61,7 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
 
         public Holder(@NonNull View itemView) {
             super(itemView);
-            imageFood = itemView.findViewById(R.id.image_meal);
+            imageFood = itemView.findViewById(R.id.image_ingredient);
             textView_ingredientMeasure = itemView.findViewById(R.id.text_view_ingredient_measure);
             textView_ingredientName = itemView.findViewById(R.id.text_view_ingredient_name);
         }

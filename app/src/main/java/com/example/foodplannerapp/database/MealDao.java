@@ -6,7 +6,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.example.foodplannerapp.models.MealModel;
+import com.example.foodplannerapp.models.ModelMeal;
 
 import java.util.List;
 
@@ -14,10 +14,10 @@ import java.util.List;
 public interface MealDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertMeal (MealModel mealModel);
+    void insertMeal (ModelMeal mealModel);
 
 
-    @Query("select * from MEAL_TABLE where userIds Like :userId")
-    LiveData<List<MealModel>> getFavouriteMeals(String userId);
+//    @Query("select * from ModelMeal where userIds Like :userId")
+//    LiveData<List<ModelMeal>> getFavouriteMeals(String userId);
 
 }

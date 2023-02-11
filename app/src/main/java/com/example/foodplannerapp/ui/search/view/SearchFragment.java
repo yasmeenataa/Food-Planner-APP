@@ -10,8 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.foodplannerapp.ui.home.view.*;
 import com.example.foodplannerapp.databinding.FragmentSearchBinding;
 import com.example.foodplannerapp.models.CategoriesModel;
+import com.example.foodplannerapp.models.ModelMeal;
+import com.example.foodplannerapp.ui.favourite.FavouriteAdapter;
 
 import java.util.ArrayList;
 
@@ -35,7 +38,7 @@ public class SearchFragment extends Fragment {
 
 
         list = new ArrayList<>();
-        inflateRecyclerView();
+       // inflateRecyclerView();
 
     }
 
@@ -49,11 +52,11 @@ public class SearchFragment extends Fragment {
         return list;
     }
 
-    private void inflateRecyclerView() {
-        adapter=new CategoriesAdapter(fillList(),getContext());
-
-        binding.recyclerSearchCat.setAdapter(adapter);
-    }
+//    private void inflateRecyclerView() {
+//        adapter=new CategoriesAdapter(fillList(),getContext());
+//
+//        binding.recyclerSearchCat.setAdapter(adapter);
+//    }
 
     @Override
     public void onDestroyView() {

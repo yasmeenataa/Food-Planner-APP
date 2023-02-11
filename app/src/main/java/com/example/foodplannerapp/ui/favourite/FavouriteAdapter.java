@@ -10,13 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodplannerapp.R;
-import com.example.foodplannerapp.models.MealModel;
+import com.example.foodplannerapp.models.ModelMeal;
 
 import java.util.ArrayList;
 
 public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Holder> {
 
-    private ArrayList<MealModel> list;
+    private ArrayList<ModelMeal> list;
 
     private setOnItemListener onItemListener;
 
@@ -24,7 +24,7 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Hold
         this.onItemListener = onItemListener;
     }
 
-    public void setList(ArrayList<MealModel> list) {
+    public void setList(ArrayList<ModelMeal> list) {
         this.list = list;
     }
 
@@ -40,7 +40,7 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Hold
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
 
-        MealModel mealModel = list.get(position);
+        ModelMeal mealModel = list.get(position);
         holder.textView_mealName.setText(mealModel.getStrMeal());
         holder.textView_category.setText(mealModel.getStrCategory());
     }
@@ -87,6 +87,6 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Hold
     public interface setOnItemListener {
         void onItemClick(String id);
 
-        void onItemDelete(MealModel mealModel);
+        void onItemDelete(ModelMeal mealModel);
     }
 }

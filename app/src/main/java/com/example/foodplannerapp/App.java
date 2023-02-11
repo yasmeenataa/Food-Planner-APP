@@ -3,7 +3,7 @@ package com.example.foodplannerapp;
 import android.app.Application;
 
 import com.example.foodplannerapp.database.MyRoomDataBase;
-import com.example.foodplannerapp.utils.MySharedPref;
+import com.example.foodplannerapp.models.MySharedPref;
 
 
 public class App extends Application {

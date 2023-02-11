@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="170dp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="8dp"
-    android:layout_gravity="center"
     app:cardCornerRadius="24dp"
+    android:layout_gravity="center"
     android:id="@+id/categories_row"
     app:cardElevation="8dp">
-    <GridLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp"
-        android:gravity="center"
-        android:rowCount="1"
-        android:columnCount="2"
-        android:orientation="vertical">
+        >
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/category_image"
-            android:layout_width="100sp"
-            android:layout_height="100dp"
-            android:layout_marginBottom="5dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:background="@drawable/circle"
             android:src="@drawable/beef"
             android:scaleType="centerCrop"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             />
+
         <TextView
             android:id="@+id/category_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="5dp"
-            android:text="Lime"
+            android:layout_marginVertical="5dp"
+            android:layout_gravity="center_vertical"
+            tools:text="@string/lime"
+            app:layout_constraintTop_toBottomOf="@id/category_image"
+            app:layout_constraintStart_toStartOf="@id/category_image"
+            app:layout_constraintEnd_toEndOf="@id/category_image"
             android:textSize="20sp"
             android:textStyle="bold"/>
 
 
-    </GridLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

@@ -10,6 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_70sdp"
         android:descendantFocusability="blocksDescendants">
 
 
@@ -42,7 +43,7 @@
             android:backgroundTint="@color/light_black"
             android:elevation="@dimen/_15sdp"
             app:cardCornerRadius="@dimen/_25sdp"
-            app:layout_constraintBottom_toTopOf="@id/text_view_category"
+            app:layout_constraintBottom_toTopOf="@id/text_view_MealName"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             app:layout_constraintStart_toEndOf="@id/guidelineStart">
 
@@ -71,7 +72,7 @@
 
 
         <TextView
-            android:id="@+id/text_view_category"
+            android:id="@+id/text_view_MealName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_36sdp"
@@ -80,25 +81,25 @@
             android:textColor="@color/black"
             android:textSize="@dimen/_16sdp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@id/image_food"
-            app:layout_constraintWidth_percent="0.44"
             tools:text="@string/category" />
 
-        <TextView
-            android:id="@+id/text_view_area"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_16sdp"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_16sdp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-            app:layout_constraintStart_toEndOf="@id/text_view_category"
-            app:layout_constraintTop_toTopOf="@id/text_view_category"
-            app:layout_constraintWidth_percent="0.45"
-            tools:text="@string/area" />
+        <!--        <TextView-->
+        <!--            android:id="@+id/text_view_area"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:paddingHorizontal="@dimen/_16sdp"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="@dimen/_16sdp"-->
+        <!--            android:textStyle="bold"-->
+        <!--            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/text_view_category"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/text_view_category"-->
+        <!--            app:layout_constraintWidth_percent="0.45"-->
+        <!--            tools:text="@string/area" />-->
 
 
         <ImageView
@@ -139,7 +140,7 @@
             android:textColor="@color/blue"
             android:textSize="@dimen/_16ssp"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
-            app:layout_constraintTop_toBottomOf="@id/text_view_category" />
+            app:layout_constraintTop_toBottomOf="@id/text_view_MealName" />
 
         <TextView
             android:id="@+id/text_view_steps"
@@ -218,26 +219,40 @@
         <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
             android:id="@+id/videoView"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/_150sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_150sdp"
             android:elevation="@dimen/_16sdp"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-            app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@id/video" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_16sdp"
+            android:fontFamily="@font/akaya_telivigala"
+            android:text="@string/play"
+            android:textSize="@dimen/_16sdp"
+            app:cornerRadius="@dimen/_8sdp"
+            android:backgroundTint="@color/yellow"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/videoView" />
 
         <View
             android:id="@+id/line_after_video"
             android:layout_width="0dp"
             android:layout_height="@dimen/_1sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginBottom="@dimen/_100sdp"
+            android:layout_marginBottom="70dp"
             android:background="@color/white"
             app:layout_constraintCircleRadius="@dimen/_24sdp"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
-            app:layout_constraintTop_toBottomOf="@id/videoView"
+            app:layout_constraintTop_toBottomOf="@id/btn_play"
             app:layout_constraintWidth_percent="0.5" />
 
 

@@ -1,9 +1,9 @@
 package com.example.foodplannerapp.ui.signUp;
 
 import com.example.foodplannerapp.utils.FirebaseOnCompleteListener;
-import com.example.foodplannerapp.models.Repo;
-import com.example.foodplannerapp.models.RepoInterface;
-import com.example.foodplannerapp.utils.MySharedPref;
+import com.example.foodplannerapp.repo.authRepo.Repo;
+import com.example.foodplannerapp.repo.authRepo.RepoInterface;
+import com.example.foodplannerapp.models.MySharedPref;
 
 public class SignUpPresenter implements PresenterInterface, FirebaseOnCompleteListener {
 
