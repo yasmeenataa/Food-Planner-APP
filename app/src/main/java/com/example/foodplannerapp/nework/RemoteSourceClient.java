@@ -82,6 +82,34 @@ public class RemoteSourceClient implements RemoteSourceInterface {
     }
 
     @Override
+    public void enqueueCallArea(NetworkDelegateForArea networkDelegate) {
+        RetrofitConnection
+                .getServices()
+                .getAreaList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        item -> networkDelegate.onSuccessAreaList(item.getMeals()),
+                        error -> networkDelegate.onFailureAreaList("Error :" + error.toString())
+                );
+    }
+
+    @Override
+    public void enqueueCallIngredients(NetworkDelegateForIngredient networkDelegate) {
+        RetrofitConnection
+                .getServices()
+                .getIngredientList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        item ->{ networkDelegate.onSuccessIngredientList(item.getMeals());
+                            System.out.println("//////////////////////Done Ingredient/////////////"+item.getMeals().get(2).getStrIngredient());},
+                        error -> networkDelegate.onFailureIngredientList("Error :" + error.toString())
+                );
+    }
+
+
+    @Override
     public void enqueueCallCategoryItem(NetworkDelegateForCategory networkDelegate, String categoryName) {
         RetrofitConnection
                 .getServices()
