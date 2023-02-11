@@ -10,4 +10,6 @@ public interface NetworkDelegateForCategory {
 
     void onFailureResult(String errorMessage);
 
+
+
 }
