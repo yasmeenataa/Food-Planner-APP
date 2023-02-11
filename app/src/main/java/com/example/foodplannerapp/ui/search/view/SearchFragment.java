@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -19,7 +20,7 @@ import com.example.foodplannerapp.repo.mealRepo.MealRepo;
 import com.example.foodplannerapp.ui.home.view.*;
 import com.example.foodplannerapp.databinding.FragmentSearchBinding;
 import com.example.foodplannerapp.models.CategoriesModel;
-import com.example.foodplannerapp.models.ModelMeal;
+import com.example.foodplannerapp.ui.search.view.SearchFragmentDirections;
 import com.example.foodplannerapp.ui.favourite.FavouriteAdapter;
 import com.example.foodplannerapp.ui.search.presenter.SearchPresenter;
 import com.example.foodplannerapp.ui.search.presenter.SearchPresenterInterface;
@@ -35,6 +36,7 @@ public class SearchFragment extends Fragment implements SearchViewInterface,OnIt
     private AreaListAdapter areaListAdapter;
     private IngredientListAdapter ingredientListAdapter;
     private SearchPresenterInterface presenterInterface;
+    private SearchFragment searchFragment;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,7 +49,7 @@ public class SearchFragment extends Fragment implements SearchViewInterface,OnIt
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-
+        searchFragment=new SearchFragment();
         areaListAdapter=new AreaListAdapter(new ArrayList<>(),getContext(),this);
         ingredientListAdapter=new IngredientListAdapter(new ArrayList<>(),getContext(),this);
         categoriesAdapter=new CategoriesAdapter();
@@ -56,11 +58,24 @@ public class SearchFragment extends Fragment implements SearchViewInterface,OnIt
         presenterInterface.getAreaList();
         presenterInterface.getIngredientList();
         presenterInterface.getAllCategories();
+        onClicks();
 
 
     }
 
+public void onClicks()
+{
+    categoriesAdapter.setOnCategoryClickListener(new CategoriesAdapter.SetOnCategoryClickListener() {
+        @Override
+        public void onCategoryClicked(String categoryName) {
+            SearchFragmentDirections.ActionSearchFragmentToAllCategoriesFragment3 action=
+                    SearchFragmentDirections.actionSearchFragmentToAllCategoriesFragment3(categoryName);
+            Navigation.findNavController(requireView())
+                    .navigate(action);
 
+        }
+    });
+}
 
     @Override
     public void showIngredientList(List<IngredientListModel> ingredientList) {
@@ -107,18 +122,26 @@ public class SearchFragment extends Fragment implements SearchViewInterface,OnIt
     }
 
     @Override
-    public void OnIngredientClick() {
+    public void OnIngredientClick(String item_name) {
+        SearchFragmentDirections.ActionSearchFragmentToResultSearchFragment action=
+                SearchFragmentDirections.actionSearchFragmentToResultSearchFragment("Ingredient",item_name);
+        Navigation.findNavController(requireView())
+                .navigate(action);
 
     }
 
     @Override
-    public void OnCategoryClick() {
+    public void OnCategoryClick(String item_name) {
+
 
     }
 
     @Override
-    public void OnAreaClick() {
-
+    public void OnAreaClick(String item_name) {
+        SearchFragmentDirections.ActionSearchFragmentToResultSearchFragment action=
+                SearchFragmentDirections.actionSearchFragmentToResultSearchFragment("Area",item_name);
+        Navigation.findNavController(requireView())
+                .navigate(action);
     }
     @Override
     public void onDestroyView() {

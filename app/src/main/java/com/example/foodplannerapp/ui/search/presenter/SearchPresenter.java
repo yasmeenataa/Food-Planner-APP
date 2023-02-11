@@ -61,6 +61,8 @@ public class SearchPresenter implements NetworkDelegateForArea, NetworkDelegateF
         _view.onFailureAreaList(errorMsg);
     }
 
+
+
     @Override
     public void onSuccessfulResult(List<ModelMeal> mealList) {
 
