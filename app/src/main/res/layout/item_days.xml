@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_8sdp"
-    android:elevation="@dimen/_16sdp"
+    android:layout_margin="@dimen/_4sdp"
     android:backgroundTint="@color/shadowed_yellow"
+    android:elevation="@dimen/_8sdp"
     app:cardCornerRadius="@dimen/_16sdp">
 
     <TextView
-        android:id="@+id/text_view_day"
+        android:id="@+id/text_view_Itemday"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fontFamily="@font/akaya_telivigala"
-        android:paddingHorizontal="@dimen/_24sdp"
+        android:paddingHorizontal="@dimen/_16sdp"
         android:paddingVertical="@dimen/_5sdp"
-        android:textSize="@dimen/_20ssp"
+        android:textSize="@dimen/_16ssp"
         android:textStyle="italic"
         tools:text="Thu" />
 

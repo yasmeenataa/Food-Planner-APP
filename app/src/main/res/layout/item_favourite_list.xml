@@ -15,40 +15,41 @@
         android:padding="@dimen/_5sdp">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/image_meal"
+            android:id="@+id/image_meal_fav"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="@drawable/coco"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHeight_percent="0.8"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.28" />
+            app:layout_constraintWidth_percent="0.28"
+            tools:src="@drawable/coco" />
 
         <TextView
-            android:id="@+id/text_view_mealName"
+            android:id="@+id/text_view_mealName_fav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
+            android:maxEms="7"
             android:paddingHorizontal="@dimen/_5sdp"
             android:textColor="@color/black"
-            android:textSize="@dimen/_15sdp"
-            app:layout_constraintBottom_toTopOf="@id/text_view_category"
-            app:layout_constraintStart_toEndOf="@id/image_meal"
-            app:layout_constraintTop_toTopOf="@id/image_meal"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintBottom_toTopOf="@id/text_view_category_fav"
+            app:layout_constraintStart_toEndOf="@id/image_meal_fav"
+            app:layout_constraintTop_toTopOf="@id/image_meal_fav"
             tools:text="@string/chicken" />
 
         <TextView
-            android:id="@+id/text_view_category"
+            android:id="@+id/text_view_category_fav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_3sdp"
             android:paddingHorizontal="@dimen/_5sdp"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_15sdp"
-            app:layout_constraintBottom_toBottomOf="@id/image_meal"
-            app:layout_constraintStart_toStartOf="@id/text_view_mealName"
-            app:layout_constraintTop_toBottomOf="@id/text_view_mealName"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@id/image_meal_fav"
+            app:layout_constraintStart_toStartOf="@id/text_view_mealName_fav"
+            app:layout_constraintTop_toBottomOf="@id/text_view_mealName_fav"
             tools:text="@string/garlic" />
 
         <ImageView
@@ -56,7 +57,7 @@
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
             android:contentDescription="@string/image"
-            android:src="@drawable/baseline_favorite_24"
+            android:src="@drawable/baseline_delete_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:tint="@color/yellow" />

@@ -18,9 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_150sdp"
             android:scaleType="fitXY"
-            app:layout_constraintTop_toTopOf="parent"
             android:src="@drawable/random_meal2"
-             />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_view_maelName_itemMeal"
@@ -29,14 +28,14 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@color/background_protection_black"
             android:fontFamily="@font/akaya_telivigala"
+            android:paddingVertical="@dimen/_8sdp"
             android:paddingStart="@dimen/_16sdp"
             android:paddingEnd="@dimen/_32sdp"
-            tools:text="@string/arwa"
             android:textColor="@color/white"
-            android:paddingVertical="@dimen/_8sdp"
             android:textSize="@dimen/_16sdp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="@string/arwa" />
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/image_calender"
@@ -45,10 +44,23 @@
             android:layout_marginEnd="@dimen/_16sdp"
             android:scaleType="fitXY"
             android:src="@drawable/plan"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/text_view_maelName_itemMeal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/text_view_maelName_itemMeal"
-            app:riv_corner_radius="@dimen/_24sdp" />
+            app:layout_constraintTop_toTopOf="@id/text_view_maelName_itemMeal" />
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/image_fav_item_meal"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/baseline_favorite_border_24"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/image_calender"
+            app:layout_constraintEnd_toStartOf="@id/image_calender"
+            app:layout_constraintTop_toTopOf="@id/image_calender" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

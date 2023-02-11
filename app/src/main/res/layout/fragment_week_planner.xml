@@ -16,15 +16,26 @@
         android:textColor="@color/white"
         android:textSize="@dimen/_24ssp"
         android:textStyle="bold"
-        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btnBackInWeekFrag"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title"
+        app:tint="@color/white" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_days"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_36sdp"
         android:focusable="false"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -45,7 +56,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recycler_days"
-        tools:listitem="@layout/item_meal" />
+        tools:listitem="@layout/item_week_planner_recycler" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
