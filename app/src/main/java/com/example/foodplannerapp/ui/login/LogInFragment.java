@@ -96,13 +96,14 @@ public class LogInFragment extends Fragment implements ViewInterface {
 
     @Override
     public void onLoginSuccess(String userId) {
-        Intent intent = new Intent(requireContext(), BottomNavigation.class);
-        startActivity(intent);
+        presenterInterface.getFavData();
+        presenterInterface.getPlanData();
+        Navigation.findNavController(requireView())
+                .navigate(R.id.action_logInFragment_to_homeFragment);
     }
 
     @Override
     public void onLoginFail(String message) {
         Toast.makeText(requireContext(), "Fail" + message, Toast.LENGTH_SHORT).show();
-
     }
 }
