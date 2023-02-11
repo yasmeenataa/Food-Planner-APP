@@ -7,7 +7,9 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.foodplannerapp.models.ModelMeal;
 import com.example.foodplannerapp.models.ModelMealRoot;
+import com.example.foodplannerapp.nework.NetworkDelegateForArea;
 import com.example.foodplannerapp.nework.NetworkDelegateForCategory;
+import com.example.foodplannerapp.nework.NetworkDelegateForIngredient;
 import com.example.foodplannerapp.nework.RemoteSourceClient;
 import com.example.foodplannerapp.nework.NetworkDelegate;
 import com.example.foodplannerapp.nework.RemoteSourceInterface;
@@ -107,6 +109,16 @@ public class MealRepo implements MealRepoInterface {
     @Override
     public void getAllCategory(NetworkDelegate networkDelegate) {
         remoteSourceInterface.enqueueCallCategory(networkDelegate);
+    }
+
+    @Override
+    public void getAllArea(NetworkDelegateForArea delegateForArea) {
+        remoteSourceInterface.enqueueCallArea(delegateForArea);
+    }
+
+    @Override
+    public void getAllIngredient(NetworkDelegateForIngredient delegateForIngredient) {
+        remoteSourceInterface.enqueueCallIngredients(delegateForIngredient);
     }
 
     @Override
