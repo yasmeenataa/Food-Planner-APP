@@ -82,4 +82,8 @@
     <string name="all_category">All Meals Category</string>
     <string name="lime">Lime</string>
     <string name="play">Play</string>
+    <string name="saterday">Saterday</string>
+    <string name="week_days">Week Days</string>
+    <string name="inserted_toweek">Inserted to Week Table</string>
+    <string name="planner_meals">Planner Meals</string>
 </resources>
