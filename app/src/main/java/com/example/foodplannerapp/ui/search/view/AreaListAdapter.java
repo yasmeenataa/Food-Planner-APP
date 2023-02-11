@@ -51,7 +51,7 @@ public class AreaListAdapter extends RecyclerView.Adapter<AreaListAdapter.Holder
         holder.area_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.OnAreaClick();
+                listener.OnAreaClick(areaModel.getStrArea());
             }
         });
 
@@ -69,8 +69,12 @@ public class AreaListAdapter extends RecyclerView.Adapter<AreaListAdapter.Holder
                 super(itemView);
 
                 area_name = itemView.findViewById(R.id.area_name);
-
-
+                itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        listener.OnAreaClick(values.get(getLayoutPosition()).getStrArea());
+                    }
+                });
             }
         }
 }

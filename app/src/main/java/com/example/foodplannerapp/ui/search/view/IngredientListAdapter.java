@@ -57,13 +57,13 @@ public class IngredientListAdapter extends RecyclerView.Adapter<IngredientListAd
         holder.ingredient_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.OnIngredientClick();
+                listener.OnIngredientClick(mealModel.getStrIngredient());
             }
         });
         holder.ingredient_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.OnIngredientClick();
+                listener.OnIngredientClick(mealModel.getStrIngredient());
             }
         });
 
@@ -83,6 +83,12 @@ public class IngredientListAdapter extends RecyclerView.Adapter<IngredientListAd
 
             ingredient_img = itemView.findViewById(R.id.ingredient_img);
             ingredient_name = itemView.findViewById(R.id.ingredient_name);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.OnIngredientClick(values.get(getLayoutPosition()).getStrIngredient());
+                }
+            });
 
 
         }
