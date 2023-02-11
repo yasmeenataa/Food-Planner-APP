@@ -91,8 +91,8 @@
                     android:layout_height="40dp"
                     android:layout_gravity="right"
                     android:layout_margin="10dp"
-                    android:tint="@color/blue"
-                    android:src="@drawable/baseline_favorite_border_24" />
+                    android:src="@drawable/baseline_favorite_border_24"
+                    app:tint="@color/primaryColor" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
