@@ -39,7 +39,7 @@ public class AreaListAdapter extends RecyclerView.Adapter<AreaListAdapter.Holder
         @Override
         public AreaListAdapter.Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.category_row, parent, false);
+                    .inflate(R.layout.area_row, parent, false);
             AreaListAdapter.Holder holder = new AreaListAdapter.Holder(view);
             return holder;
         }

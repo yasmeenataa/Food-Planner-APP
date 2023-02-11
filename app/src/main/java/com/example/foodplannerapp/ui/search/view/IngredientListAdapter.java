@@ -41,7 +41,7 @@ public class IngredientListAdapter extends RecyclerView.Adapter<IngredientListAd
     @Override
     public IngredientListAdapter.Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.category_row, parent, false);
+                .inflate(R.layout.ingredients_row, parent, false);
         IngredientListAdapter.Holder holder = new IngredientListAdapter.Holder(view);
         return holder;
     }
@@ -50,7 +50,9 @@ public class IngredientListAdapter extends RecyclerView.Adapter<IngredientListAd
     public void onBindViewHolder(@NonNull IngredientListAdapter.Holder holder, int position) {
         IngredientListModel mealModel = values.get(position);
         holder.ingredient_name.setText(mealModel.getStrIngredient());
-        Glide.with(context).load("www.themealdb.com/images/ingredients/"+mealModel.getStrIngredient()+"-Small.png")
+        String image=String.format("https://www.themealdb.com/images/ingredients/%s.png", mealModel.getStrIngredient());
+        Glide.with(context).load(image).apply(new RequestOptions()
+                        .override(80,80))
                 .placeholder(R.drawable.ic_launcher_foreground).error(R.drawable.ic_launcher_background).into(holder.ingredient_img);
         holder.ingredient_img.setOnClickListener(new View.OnClickListener() {
             @Override
