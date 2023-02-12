@@ -14,7 +14,8 @@
         android:layout_width="40dp"
         android:layout_height="30dp"
         android:layout_gravity="top"
-        android:src="@drawable/arrow_back"/>
+        android:src="@drawable/arrow_back"
+        app:tint="@color/blue"/>
     <ImageView
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_150sdp"
@@ -109,25 +110,7 @@
 
         android:textSize="18dp">
     </TextView>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="center">
-        <ImageView
-            android:id="@+id/imgFaceSignIn"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/facebook"
-            />
-        <ImageView
-            android:id="@+id/imgGoogleSignIn"
-            android:layout_width="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_height="50dp"
-            android:src="@drawable/google2"
-            />
-    </LinearLayout>
+
     <TextView
         android:id="@+id/text_view_haveAcount"
         android:layout_width="wrap_content"
