@@ -17,19 +17,18 @@
         android:layout_gravity="center">
 
         <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/image_of_category"
+            android:id="@+id/image_of_weekPlanner"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/_200sdp"
             android:layout_gravity="center"
             android:contentDescription="@string/image"
             android:elevation="@dimen/_8sdp"
             android:scaleType="fitXY"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.5"
             tools:src="@drawable/random_meal" />
 
         <TextView
-            android:id="@+id/text_view_category_name"
+            android:id="@+id/text_view_meal_name_inWeekFrag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/light_black"
@@ -39,20 +38,21 @@
             android:textColor="@color/blue"
             android:textSize="@dimen/_24sdp"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/image_of_category"
+            app:layout_constraintTop_toBottomOf="@id/image_of_weekPlanner"
             tools:text="@string/arwa" />
 
 
         <ImageView
-            android:id="@+id/image_favourite_cat"
+            android:id="@+id/imageDeleteWeekItem"
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_35sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:contentDescription="@string/image"
-            android:src="@drawable/favorite_border"
-            app:layout_constraintBottom_toBottomOf="@id/text_view_category_name"
+            android:src="@drawable/baseline_delete_24"
+            app:tint="@color/blue"
+            app:layout_constraintBottom_toBottomOf="@id/text_view_meal_name_inWeekFrag"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_of_category" />
+            app:layout_constraintTop_toBottomOf="@id/image_of_weekPlanner" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

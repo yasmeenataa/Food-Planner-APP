@@ -5,10 +5,13 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.foodplannerapp.database.LocalSource;
+import com.example.foodplannerapp.database.LocalSourceInterface;
 import com.example.foodplannerapp.models.ModelMeal;
 import com.example.foodplannerapp.models.ModelMealRoot;
 import com.example.foodplannerapp.nework.NetworkDelegateForArea;
 import com.example.foodplannerapp.nework.NetworkDelegateForAreaItem;
+import com.example.foodplannerapp.models.WeekPlannerModel;
 import com.example.foodplannerapp.nework.NetworkDelegateForCategory;
 import com.example.foodplannerapp.nework.NetworkDelegateForIngredient;
 import com.example.foodplannerapp.nework.NetworkDelegateForIngredientItem;
@@ -17,9 +20,12 @@ import com.example.foodplannerapp.nework.NetworkDelegate;
 import com.example.foodplannerapp.nework.RemoteSourceInterface;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.CompletableObserver;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.core.SingleObserver;
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -29,6 +35,9 @@ public class MealRepo implements MealRepoInterface {
 
     private static RemoteSourceInterface remoteSourceInterface;
     private static MealRepo repo;
+
+
+    private static LocalSourceInterface localSourceInterface;
 
     private static MutableLiveData<ArrayList<ModelMeal>> listLiveData;
     private static MutableLiveData<String> errorMessage;
@@ -49,6 +58,7 @@ public class MealRepo implements MealRepoInterface {
         listLiveData = new MutableLiveData<>();
         errorMessage = new MutableLiveData<>();
         remoteSourceInterface = RemoteSourceClient.getMealClientInstance();
+        localSourceInterface = LocalSource.getLocalInstance();
     }
 
     @Override
@@ -126,6 +136,57 @@ public class MealRepo implements MealRepoInterface {
     @Override
     public void getMealsOfCategory(NetworkDelegateForCategory networkDelegateForCategory, String catName) {
         remoteSourceInterface.enqueueCallCategoryItem(networkDelegateForCategory, catName);
+    }
+
+    @Override
+    public Completable insertMeal(ModelMeal modelMeal) {
+        return localSourceInterface.insertMeal(modelMeal);
+
+    }
+
+    @Override
+    public Completable deleteMeal(ModelMeal modelMeal) {
+        return localSourceInterface.removeMeal(modelMeal);
+    }
+
+    @Override
+    public LiveData<List<ModelMeal>> getFavMeals() {
+        return localSourceInterface.getFavProduct();
+    }
+
+    @Override
+    public LiveData<List<WeekPlannerModel>> getPlannerMeals(String day) {
+        return localSourceInterface.getWeeKMeals(day);
+    }
+
+    @Override
+    public Completable insertWeekMeal(WeekPlannerModel weekPlannerModel) {
+        return localSourceInterface.insertWeekPlannerMeal(weekPlannerModel);
+
+    }
+
+    @Override
+    public Completable deleteWeekMeal(WeekPlannerModel weekPlannerModel) {
+        return localSourceInterface
+                .removeWeekPlannerMeal(weekPlannerModel);
+
+    }
+
+    @Override
+    public Completable deleteFavTableRoom() {
+        return localSourceInterface
+                .deleteFavTableRoom();
+    }
+
+    @Override
+    public Completable deleteWeekTableRoom() {
+        return localSourceInterface
+                .deleteWeekTableRoom();
+    }
+
+    @Override
+    public Single<ModelMeal> isFav(String mealId) {
+        return localSourceInterface.isFav(mealId);
     }
 
     @Override

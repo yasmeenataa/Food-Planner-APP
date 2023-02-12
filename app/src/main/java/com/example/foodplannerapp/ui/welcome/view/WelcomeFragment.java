@@ -12,10 +12,8 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.foodplannerapp.BottomNavigation;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentWelcomeBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -55,11 +53,11 @@ public class WelcomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        GoogleSignInOptions options=new GoogleSignInOptions
+        GoogleSignInOptions options = new GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail().build();
-        client= GoogleSignIn.getClient(getContext(),options);
+        client = GoogleSignIn.getClient(getContext(), options);
         CreateLineUnderLogin();
         onClicks();
 
@@ -71,19 +69,12 @@ public class WelcomeFragment extends Fragment {
 
 
     private void onClicks() {
-        binding.btnFacebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(requireContext(), "FaceBook is Clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-
 
         binding.btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=client.getSignInIntent();
-                startActivityForResult(i,1234);
+                Intent i = client.getSignInIntent();
+                startActivityForResult(i, 1234);
             }
         });
 
@@ -104,8 +95,8 @@ public class WelcomeFragment extends Fragment {
         binding.btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), BottomNavigation.class);
-                startActivity(intent);
+                Navigation.findNavController(view)
+                        .navigate(R.id.action_welcomeFragment_to_homeFragment);
             }
         });
 
@@ -121,23 +112,20 @@ public class WelcomeFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==1234)
-        {
-            Task<GoogleSignInAccount> task=GoogleSignIn.getSignedInAccountFromIntent(data);
+        if (requestCode == 1234) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
-                GoogleSignInAccount account=task.getResult(ApiException.class);
-                AuthCredential credential= GoogleAuthProvider.getCredential(account.getIdToken(),null);
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
                 FirebaseAuth.getInstance().signInWithCredential(credential)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if(task.isSuccessful())
-                                {
-                                    Intent i=new Intent(getContext(),BottomNavigation.class);
-                                    startActivity(i);
-                                }
-                                else
-                                    Toast.makeText(getContext(),task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                                if (task.isSuccessful()) {
+                                    Navigation.findNavController(requireView())
+                                            .navigate(R.id.action_welcomeFragment_to_homeFragment);
+                                } else
+                                    Toast.makeText(getContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
                             }
                         });
@@ -151,11 +139,10 @@ public class WelcomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-        if(user!=null)
-        {
-            Intent intent=new Intent(getContext(),BottomNavigation.class);
-            startActivity(intent);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            Navigation.findNavController(requireView())
+                    .navigate(R.id.action_welcomeFragment_to_homeFragment);
         }
     }
 }

@@ -1,5 +1,6 @@
-package com.example.foodplannerapp.ui.signUp;
+package com.example.foodplannerapp.ui.signUp.presenter;
 
+import com.example.foodplannerapp.ui.signUp.view.ViewInterface;
 import com.example.foodplannerapp.utils.FirebaseOnCompleteListener;
 import com.example.foodplannerapp.repo.authRepo.Repo;
 import com.example.foodplannerapp.repo.authRepo.RepoInterface;

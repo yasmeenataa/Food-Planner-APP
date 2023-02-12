@@ -51,7 +51,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/wave"
                 android:src="@drawable/baseline_person_24"
-                android:tint="@color/blue"/>
+                android:tint="@color/blue" />
 
 
             <TextView
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_4sdp"
                 android:fontFamily="@font/akaya_telivigala"
-                android:text="@string/arwa"
+                tools:text="@string/arwa"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15ssp"
                 android:textStyle="bold"
@@ -88,7 +88,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:fontFamily="@font/akaya_telivigala"
                 android:gravity="center_vertical"
                 android:paddingStart="@dimen/_5sdp"
@@ -104,15 +104,15 @@
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_marginStart="@dimen/_30sdp"
-                android:src="@drawable/baseline_settings_24"
-                app:layout_constraintBottom_toBottomOf="@id/text_view_settings"
+                android:src="@drawable/plan"
+                app:layout_constraintBottom_toBottomOf="@id/text_view_WeeklyPlannerMeals"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/text_view_settings"
+                app:layout_constraintTop_toTopOf="@id/text_view_WeeklyPlannerMeals"
                 app:tint="@color/blue" />
 
 
             <TextView
-                android:id="@+id/text_view_settings"
+                android:id="@+id/text_view_WeeklyPlannerMeals"
                 style="@style/textViewProfile"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
                 android:fontFamily="@font/akaya_telivigala"
                 android:gravity="center_vertical"
                 android:paddingStart="@dimen/_5sdp"
-                android:text="@string/settings"
+                android:text="@string/planner_meals"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/image_view_logout"
                 app:layout_constraintTop_toBottomOf="@id/text_view_fav"
@@ -153,7 +153,7 @@
                 android:text="@string/logout"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/image_view_logout"
-                app:layout_constraintTop_toBottomOf="@id/text_view_settings"
+                app:layout_constraintTop_toBottomOf="@id/text_view_WeeklyPlannerMeals"
                 app:layout_constraintWidth_percent="0.7" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

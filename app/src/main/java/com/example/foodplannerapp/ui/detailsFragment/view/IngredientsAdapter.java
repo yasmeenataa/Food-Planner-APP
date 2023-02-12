@@ -1,4 +1,4 @@
-package com.example.foodplannerapp.ui.detailsFragment;
+package com.example.foodplannerapp.ui.detailsFragment.view;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.foodplannerapp.R;
-import com.example.foodplannerapp.models.ModelMeal;
 
 import java.util.ArrayList;
 

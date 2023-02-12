@@ -55,6 +55,7 @@ public class AllCategoriesFragment extends Fragment implements AllCategoryViewIn
         onClicks();
         presenterInterface.getAllMealCategory(categoryName);
 
+
     }
 
     private void onClicks() {
@@ -76,17 +77,12 @@ public class AllCategoriesFragment extends Fragment implements AllCategoryViewIn
 
             }
 
-            @Override
-            public void onFavClick(ModelMeal modelMeal) {
-
-            }
         });
     }
 
 
     @Override
     public void showAllMealCategory(List<ModelMeal> mealList) {
-        Toast.makeText(requireContext(), mealList.get(0).getStrMeal(), Toast.LENGTH_SHORT).show();
         adapter.setList((ArrayList<ModelMeal>) mealList);
         binding.recyclerAllCategories.setAdapter(adapter);
         adapter.notifyDataSetChanged();

@@ -1,6 +1,5 @@
-package com.example.foodplannerapp.ui.signUp;
+package com.example.foodplannerapp.ui.signUp.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +11,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.example.foodplannerapp.BottomNavigation;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentSignUpBinding;
+import com.example.foodplannerapp.ui.signUp.presenter.PresenterInterface;
+import com.example.foodplannerapp.ui.signUp.presenter.SignUpPresenter;
 
 
 public class SignUpFragment extends Fragment implements ViewInterface {
@@ -106,8 +106,8 @@ public class SignUpFragment extends Fragment implements ViewInterface {
     @Override
     public void onRegisterSuccess(String userId) {
 
-        Intent intent = new Intent(requireActivity(), BottomNavigation.class);
-        startActivity(intent);
+        Navigation.findNavController(requireView())
+                .navigate(R.id.action_signUpFragment_to_homeFragment);
 
     }
 

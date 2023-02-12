@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".ui.signUp.SignUpFragment"
+    tools:context=".ui.signUp.view.SignUpFragment"
     tools:ignore="ExtraText">
 
     <ImageView
@@ -15,7 +15,8 @@
         android:layout_height="30dp"
         android:layout_gravity="top"
         android:src="@drawable/arrow_back"
-        app:tint="@color/blue"/>
+        app:tint="@color/blue" />
+
     <ImageView
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_150sdp"

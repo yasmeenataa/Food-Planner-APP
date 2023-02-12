@@ -11,15 +11,18 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentProfileBinding;
 import com.example.foodplannerapp.MainActivity;
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.foodplannerapp.models.MySharedPref;
+import com.example.foodplannerapp.repo.authRepo.Repo;
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements ProfileViewInterface {
 
     private FragmentProfileBinding binding;
+    private ProfilePresenterInterface presenterInterface;
 
 
     @Override
@@ -38,13 +41,14 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        presenterInterface = new ProfilePresenter(this);
 
         onClicks();
 
 
     }
 
-    private void onClicks(){
+    private void onClicks() {
         binding.textViewFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,9 +59,21 @@ public class ProfileFragment extends Fragment {
         binding.textViewLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
+                MySharedPref.setUserId("");
+                MySharedPref.setUserPassword("");
+                MySharedPref.setUserName("");
+                MySharedPref.setUserEmail("");
+                onLogoutSuccess();
+                Navigation.findNavController(view)
+                        .navigate(R.id.action_profileFragment_to_welcomeFragment);
+            }
+        });
+
+        binding.textViewWeeklyPlannerMeals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view)
+                        .navigate(R.id.action_profileFragment_to_weekPlannerFragment2);
             }
         });
     }
@@ -66,5 +82,15 @@ public class ProfileFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding.getRoot();
+    }
+
+    @Override
+    public void onLogoutSuccess() {
+        presenterInterface.logoutFromApp();
+    }
+
+    @Override
+    public void onLogoutFail(String message) {
+        Toast.makeText(requireContext(), "Fail Logout : " + message, Toast.LENGTH_SHORT).show();
     }
 }

@@ -4,4 +4,8 @@ public interface PresenterInterface {
 
     void login(String email , String pass);
 
+    void getFavData();
+
+    void getPlanData();
+
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/secondaryWhite"
-    tools:context=".ui.detailsFragment.DetailsFragment">
+    tools:context=".ui.detailsFragment.view.DetailsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,21 +17,19 @@
         <ImageView
             android:id="@+id/image_food"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/_250sdp"
             android:contentDescription="@string/image"
             android:scaleType="fitXY"
             android:src="@drawable/coco"
-            app:layout_constraintHeight_percent="0.26"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/image_protection"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/_250sdp"
             android:contentDescription="@string/image"
             android:scaleType="fitXY"
             android:src="#2DFFFFFF"
-            app:layout_constraintHeight_percent="0.26"
             app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -64,7 +62,7 @@
                 android:layout_gravity="start|center"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:elevation="@dimen/_5sdp"
-                android:src="@drawable/baseline_favorite_24"
+                android:src="@drawable/baseline_favorite_border_24"
                 app:tint="@color/yellow" />
 
 
@@ -86,20 +84,7 @@
             app:layout_constraintTop_toBottomOf="@id/image_food"
             tools:text="@string/category" />
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/text_view_area"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:gravity="center"-->
-        <!--            android:paddingHorizontal="@dimen/_16sdp"-->
-        <!--            android:textColor="@color/black"-->
-        <!--            android:textSize="@dimen/_16sdp"-->
-        <!--            android:textStyle="bold"-->
-        <!--            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"-->
-        <!--            app:layout_constraintStart_toEndOf="@id/text_view_category"-->
-        <!--            app:layout_constraintTop_toTopOf="@id/text_view_category"-->
-        <!--            app:layout_constraintWidth_percent="0.45"-->
-        <!--            tools:text="@string/area" />-->
+
 
 
         <ImageView

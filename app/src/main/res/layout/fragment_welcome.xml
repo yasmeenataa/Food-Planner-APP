@@ -98,29 +98,11 @@
         android:textStyle="bold"
         app:cornerRadius="@dimen/_10sdp"
         app:elevation="@dimen/_10sdp"
-        app:layout_constraintHeight_percent="0.07"
-        app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        app:layout_constraintTop_toBottomOf="@id/guideline1"
-        app:layout_constraintWidth_percent="0.42" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_facebook"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:backgroundTint="@color/faceBookBlue"
-        android:elevation="@dimen/_50sdp"
-        android:fontFamily="@font/akaya_telivigala"
-        android:paddingHorizontal="@dimen/_20sdp"
-        android:text="@string/facebook"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_15ssp"
-        android:textStyle="bold"
-        app:cornerRadius="@dimen/_8sdp"
-        app:elevation="@dimen/_10sdp"
         app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
         app:layout_constraintHeight_percent="0.07"
-        app:layout_constraintTop_toBottomOf="@id/guideline1"
-        app:layout_constraintWidth_percent="0.42" />
+        app:layout_constraintStart_toEndOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/guideline1" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_signup"
@@ -139,7 +121,7 @@
         app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
         app:layout_constraintHeight_percent="0.07"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        app:layout_constraintTop_toBottomOf="@id/btn_facebook" />
+        app:layout_constraintTop_toBottomOf="@id/btn_google" />
 
     <TextView
         android:id="@+id/haveAcc"

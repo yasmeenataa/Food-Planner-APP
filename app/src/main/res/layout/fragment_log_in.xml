@@ -16,8 +16,7 @@ android:padding="10dp"
             android:layout_height="30dp"
             android:layout_gravity="top"
             app:tint="@color/blue"
-            android:src="@drawable/arrow_back"
-            />
+            android:src="@drawable/arrow_back"/>
 
 
    <ImageView
@@ -116,6 +115,5 @@ android:padding="10dp"
         android:textSize="18sp">
     </TextView>
 </LinearLayout>
-
 
 </LinearLayout>

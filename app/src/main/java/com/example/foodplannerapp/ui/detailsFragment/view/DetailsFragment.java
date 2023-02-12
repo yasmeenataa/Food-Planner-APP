@@ -1,10 +1,9 @@
-package com.example.foodplannerapp.ui.detailsFragment;
+package com.example.foodplannerapp.ui.detailsFragment.view;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.Observer;
@@ -20,8 +19,18 @@ import com.bumptech.glide.Glide;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentDetailsBinding;
 import com.example.foodplannerapp.models.ModelMeal;
+import com.example.foodplannerapp.models.MySharedPref;
 import com.example.foodplannerapp.repo.mealRepo.MealRepo;
-import com.example.foodplannerapp.ui.allCategory.view.AllCategoriesFragmentArgs;
+import com.example.foodplannerapp.ui.detailsFragment.view.DetailsFragmentDirections;
+import com.example.foodplannerapp.ui.detailsFragment.view.DetailsFragmentArgs;
+import com.example.foodplannerapp.ui.detailsFragment.presenter.DetailsPresenter;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
@@ -29,21 +38,25 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.Abs
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.SingleObserver;
+import io.reactivex.rxjava3.disposables.Disposable;
 
-public class DetailsFragment extends Fragment {
+
+public class DetailsFragment extends Fragment implements DetailsViewInterface {
 
     private FragmentDetailsBinding binding;
 
-    private boolean flag;
     private IngredientsAdapter adapter;
     private String mealId;
     private List<String> ingredientList;
     private List<String> measurementList;
 
+    private DetailsPresenter detailsPresenter;
+
+    private boolean flag;
 
     private ModelMeal modelMeal;
-
-    private MealRepo repo;
 
 
     @Override
@@ -51,6 +64,7 @@ public class DetailsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         assert getArguments() != null;
         mealId = DetailsFragmentArgs.fromBundle(getArguments()).getMealId();
+
 
     }
 
@@ -65,65 +79,71 @@ public class DetailsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         adapter = new IngredientsAdapter();
-        onClicks();
         measurementList = new ArrayList<>();
         ingredientList = new ArrayList<>();
         modelMeal = new ModelMeal();
-        repo = MealRepo.getMealRepoInstance();
-        getData();
-    }
+        flag = false;
+        binding.btnPlay.setVisibility(View.GONE);
+        detailsPresenter = new DetailsPresenter(this);
+        detailsPresenter.getData(mealId, getViewLifecycleOwner());
+        RedrawHeart();
+        onClicks();
 
-    public void setFlag(boolean flag) {
-        this.flag = flag;
-    }
-
-    private void getData() {
-
-        repo.getMealById(mealId);
-        repo.getListLiveData().observe(getActivity(), new Observer<ArrayList<ModelMeal>>() {
-            @Override
-            public void onChanged(ArrayList<ModelMeal> modelMeals) {
-
-                modelMeal = modelMeals.get(0);
-
-                binding.textViewMealName.setText(modelMeal.getStrCategory().concat("\t From \t").concat(modelMeal.getStrArea()));
-                binding.textViewSteps.setText(modelMeal.getStrInstructions());
-                Glide.with(requireContext())
-                        .load(modelMeal.getStrMealThumb())
-                        .into(binding.imageFood);
-
-
-                setData(modelMeal);
-
-                adapter.setIngredientList((ArrayList<String>) ingredientList);
-                adapter.setMeasurementList((ArrayList<String>) measurementList);
-                binding.recyclerIngredients.setAdapter(adapter);
-
-//                Log.e("TAG", "onChanged: before click flag "+flag+"");
-//
-//                if (isFlag()) {
-                    Log.e("TAG", "onChanged: after clicke flag "+flag+"");
-                    playVideo(modelMeal);
-//                }
-
-
-            }
-        });
 
     }
 
-    public boolean isFlag() {
-        return flag;
+    private void RedrawHeart() {
+        detailsPresenter.isFav(mealId).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<ModelMeal>() {
+                    @Override
+                    public void onSubscribe(@io.reactivex.rxjava3.annotations.NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull ModelMeal modelMeal) {
+                        if (modelMeal != null) {
+                            flag = true;
+                            binding.imageFavourite.setImageResource(R.drawable.baseline_favorite_24);
+                            binding.imageFavourite.setColorFilter(R.color.yellow);
+                        }
+                    }
+
+                    @Override
+                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                        Log.e("TAG", "onError: " + e.getMessage());
+                    }
+                });
+
     }
+
+
+    private void setData2(ModelMeal modelMeal) {
+        binding.textViewMealName.setText(modelMeal.getStrCategory().concat("\t From \t").concat(modelMeal.getStrArea()));
+        binding.textViewSteps.setText(modelMeal.getStrInstructions());
+        Glide.with(requireContext())
+                .load(modelMeal.getStrMealThumb())
+                .into(binding.imageFood);
+
+
+        setData(modelMeal);
+
+        adapter.setIngredientList((ArrayList<String>) ingredientList);
+        adapter.setMeasurementList((ArrayList<String>) measurementList);
+        binding.recyclerIngredients.setAdapter(adapter);
+
+
+        playVideo(modelMeal);
+    }
+
 
     private void playVideo(ModelMeal mealModel) {
-
         if (mealModel.getStrYoutube().isEmpty()) {
             binding.video.setVisibility(View.GONE);
             binding.videoView.setVisibility(View.GONE);
             binding.lineAfterVideo.setVisibility(View.GONE);
         } else {
-            getLifecycle().addObserver((LifecycleObserver) binding.videoView);
+            getViewLifecycleOwner().getLifecycle().addObserver((LifecycleObserver) binding.videoView);
             String[] split = mealModel.getStrYoutube().split("=");
 
             binding.videoView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
@@ -218,22 +238,50 @@ public class DetailsFragment extends Fragment {
             }
         });
 
-        binding.btnPlay.setOnClickListener(new View.OnClickListener() {
+        binding.imageFavourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setFlag(true);
-                Log.e("TAG", "onClick: inside click "+flag+"");
+                if (!flag) {
+                    modelMeal.setUserId(MySharedPref.getUserId());
+                    insertMealToFav(modelMeal);
+                    RedrawHeart();
+                    Toast.makeText(requireContext(), "inserted", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(requireContext(), "Already Inserted", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
+        binding.imageCalender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                modelMeal.setUserId(MySharedPref.getUserId());
+                DetailsFragmentDirections.ActionDetailsFragmentToDayFragment action =
+                        DetailsFragmentDirections.actionDetailsFragmentToDayFragment(modelMeal);
+                Navigation.findNavController(view)
+                        .navigate(action);
+            }
+        });
+    }
 
+
+    @Override
+    public void onSuccess(ModelMeal modelMeal) {
+        setData2(modelMeal);
+        this.modelMeal = modelMeal;
+    }
+
+
+    @Override
+    public void insertMealToFav(ModelMeal modelMeal) {
+        detailsPresenter.insertMeal(modelMeal);
+        detailsPresenter.insertMealToFireBase(modelMeal);
     }
 
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        binding = null;
     }
-
-
 }
