@@ -32,7 +32,6 @@ public interface MealRepoInterface {
     void getMealsOfCategory(NetworkDelegateForCategory networkDelegateForCategory , String catName);
     void getMealsOfArea(NetworkDelegateForAreaItem delegateForAreaItem , String areaName);
     void getMealsOfIngredient(NetworkDelegateForIngredientItem delegateForIngredientItem , String ingredientName);
-    void getMealsOfCategory(NetworkDelegateForCategory networkDelegateForCategory, String catName);
 
     Completable insertMeal(ModelMeal modelMeal);
 
