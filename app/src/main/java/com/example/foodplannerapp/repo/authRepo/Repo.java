@@ -2,6 +2,7 @@ package com.example.foodplannerapp.repo.authRepo;
 
 import androidx.annotation.NonNull;
 
+import com.example.foodplannerapp.models.MySharedPref;
 import com.example.foodplannerapp.nework.NetworkDelegate;
 import com.example.foodplannerapp.utils.FirebaseOnCompleteListener;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -9,6 +10,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 public class Repo implements RepoInterface {
 
@@ -30,6 +33,8 @@ public class Repo implements RepoInterface {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            MySharedPref.setUserEmail(task.getResult().getUser().getEmail());
+                            MySharedPref.setUserUriKey(String.valueOf(task.getResult().getUser().getPhotoUrl()));
                             firebaseOnCompleteListener.onSuccess(task.getResult().getUser().getUid());
                         } else {
                             firebaseOnCompleteListener.onFail(task.getException().getMessage());
@@ -45,6 +50,8 @@ public class Repo implements RepoInterface {
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        MySharedPref.setUserEmail(task.getResult().getUser().getEmail());
+                        MySharedPref.setUserUriKey(String.valueOf(task.getResult().getUser().getPhotoUrl()));
                         firebaseOnCompleteListener.onSuccess(task.getResult().getUser().getUid());
                     }
                 }).addOnFailureListener(new OnFailureListener() {

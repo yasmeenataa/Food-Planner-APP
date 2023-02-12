@@ -1,6 +1,5 @@
-package com.example.foodplannerapp.ui.login;
+package com.example.foodplannerapp.ui.login.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +13,7 @@ import androidx.navigation.Navigation;
 
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentLogInBinding;
+import com.example.foodplannerapp.models.MySharedPref;
 import com.example.foodplannerapp.ui.login.presenter.LoginPresenter;
 import com.example.foodplannerapp.ui.login.presenter.PresenterInterface;
 import com.example.foodplannerapp.utils.Extensions;
@@ -82,7 +82,6 @@ public class LogInFragment extends Fragment implements ViewInterface {
             binding.PasswordEdit.setError("Required");
         } else {
             presenterInterface.login(email, pass);
-
         }
     }
 

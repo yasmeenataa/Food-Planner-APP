@@ -1,13 +1,11 @@
 package com.example.foodplannerapp.ui.login.presenter;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 
 import com.example.foodplannerapp.models.ModelMeal;
 import com.example.foodplannerapp.models.WeekPlannerModel;
 import com.example.foodplannerapp.repo.mealRepo.MealRepo;
-import com.example.foodplannerapp.ui.login.ViewInterface;
+import com.example.foodplannerapp.ui.login.view.ViewInterface;
 import com.example.foodplannerapp.utils.Constants;
 import com.example.foodplannerapp.utils.FirebaseOnCompleteListener;
 import com.example.foodplannerapp.repo.authRepo.Repo;

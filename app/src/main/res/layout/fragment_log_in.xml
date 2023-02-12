@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".ui.login.LogInFragment">
+    tools:context=".ui.login.view.LogInFragment">
 
     <ImageView
         android:id="@+id/img_backSignIn"
