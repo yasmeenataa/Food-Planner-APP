@@ -20,11 +20,8 @@ public interface RetrofitServices {
     Single<AreaListRootModel> getAreaList();
     @GET("list.php?i=list")
     Single<IngredientListRootModel> getIngredientList();
-
     @GET("random.php")
     Single<ModelMealRoot> getRandomMeal();
-
-
     @GET("categories.php")
     Single<CategoriesRootModel> getAllCategories();
 
@@ -34,10 +31,11 @@ public interface RetrofitServices {
     Single<ModelMealRoot> getAllMealsByArea(@Query("a") String area);
     @GET("filter.php")
     Single<ModelMealRoot> getAllMealsByIngredient(@Query("i") String ingredient);
-
-
     @GET("lookup.php")
     Single<ModelMealRoot> getMealById(@Query("i") String mealId);
+
+    @GET("search.php")
+    Observable<ModelMealRoot> searchMealByName(@Query("s") String mealName);
 
 
 
