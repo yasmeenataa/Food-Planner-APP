@@ -12,4 +12,6 @@ public class Constants {
     public static final String FAV_REF = "Favourite";
 
     public static final String WEEK_REF = "WeeklyMeals";
+
+    public static final String ANONYMOUS_USER_MESSAGE = "Are you sure you want to complete as anonymous user";
 }
