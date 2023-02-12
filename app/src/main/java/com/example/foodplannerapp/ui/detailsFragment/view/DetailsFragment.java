@@ -80,12 +80,17 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         showHideDetailsProgress();
+
+        if (MySharedPref.getUserId().isEmpty()) {
+            binding.imageCalender.setVisibility(View.GONE);
+            binding.card.setVisibility(View.GONE);
+            binding.imageFavourite.setVisibility(View.GONE);
+        }
         adapter = new IngredientsAdapter();
         measurementList = new ArrayList<>();
         ingredientList = new ArrayList<>();
         modelMeal = new ModelMeal();
         flag = false;
-        binding.btnPlay.setVisibility(View.GONE);
         detailsPresenter = new DetailsPresenter(this);
         detailsPresenter.getData(mealId, getViewLifecycleOwner());
         RedrawHeart();
@@ -135,7 +140,6 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
         binding.recyclerIngredients.setAdapter(adapter);
 
 
-        playVideo(modelMeal);
     }
 
 
@@ -252,6 +256,7 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
         binding.imageFavourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (!flag) {
                     modelMeal.setUserId(MySharedPref.getUserId());
                     insertMealToFav(modelMeal);
@@ -259,6 +264,7 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
                     Toast.makeText(requireContext(), "inserted", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(requireContext(), "Already Inserted", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -266,11 +272,20 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
         binding.imageCalender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 modelMeal.setUserId(MySharedPref.getUserId());
                 DetailsFragmentDirections.ActionDetailsFragmentToDayFragment action =
                         DetailsFragmentDirections.actionDetailsFragmentToDayFragment(modelMeal);
                 Navigation.findNavController(view)
                         .navigate(action);
+
+            }
+        });
+
+        binding.btnPlayVedio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playVideo(modelMeal);
             }
         });
     }
