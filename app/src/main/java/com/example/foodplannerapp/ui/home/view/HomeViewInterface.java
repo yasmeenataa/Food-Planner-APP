@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface HomeViewInterface {
 
-    void showMeal(ModelMeal modelMeal);
+    void showMealOfTheDay(ModelMeal modelMeal);
 
     void showAllCategories(List<CategoriesModel> categoryList);
 

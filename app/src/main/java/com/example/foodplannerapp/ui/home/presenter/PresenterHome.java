@@ -15,7 +15,7 @@ import com.example.foodplannerapp.ui.home.view.HomeViewInterface;
 import java.util.ArrayList;
 import java.util.List;
 
-    public class PresenterHome implements PresenterHomeInterface, NetworkDelegate {
+public class PresenterHome implements PresenterHomeInterface, NetworkDelegate {
 
 
     private final HomeViewInterface viewInterface;
@@ -39,19 +39,18 @@ import java.util.List;
 
     @Override
     public void getAllCategories() {
-    mealRepo.getAllCategory(this);
+        mealRepo.getAllCategory(this);
     }
 
     @Override
     public void onSuccessfulResult(List<ModelMeal> mealList) {
-        viewInterface.showMeal(mealList.get(0));
+        viewInterface.showMealOfTheDay(mealList.get(0));
     }
 
     @Override
     public void onCategorySuccessfulResult(List<CategoriesModel> categoryList) {
         viewInterface.showAllCategories(categoryList);
     }
-
 
 
     @Override
