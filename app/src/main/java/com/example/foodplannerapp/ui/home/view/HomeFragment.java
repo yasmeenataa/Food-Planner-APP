@@ -74,7 +74,7 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
         new Handler().postDelayed(() -> {
             binding.progressMealOfTheDay.setVisibility(View.GONE);
             binding.rootMealOfTheDay.setVisibility(View.VISIBLE);
-        }, 2500);
+        }, 1500);
     }
 
     private void showHideCategoriesProgress(){
@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
         new Handler().postDelayed(() -> {
             binding.progressCategories.setVisibility(View.GONE);
             binding.recycleCategory.setVisibility(View.VISIBLE);
-        }, 2500);
+        }, 1500);
     }
 
     private void onClicks() {
