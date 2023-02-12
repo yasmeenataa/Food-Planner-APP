@@ -75,6 +75,6 @@ It is a simple Food Planner App that help you :
   ![Home](https://user-images.githubusercontent.com/55101407/218336900-fa72ab99-d205-4c41-9221-c689e7109e33.jpg)
   
   # Dependecy :
-  ## All dependencies are located in the Gradle Script file in the build.gradle folder. To implement them use implementation Libs.XXX.
+  - All dependencies are located in the Gradle Script file in the build.gradle folder. To implement them use implementation Libs.XXX.
  
            
