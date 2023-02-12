@@ -21,7 +21,7 @@ import com.example.foodplannerapp.ui.home.view.*;
 import com.example.foodplannerapp.databinding.FragmentSearchBinding;
 import com.example.foodplannerapp.models.CategoriesModel;
 import com.example.foodplannerapp.ui.search.view.SearchFragmentDirections;
-import com.example.foodplannerapp.ui.favourite.FavouriteAdapter;
+import com.example.foodplannerapp.ui.favourite.view.FavouriteAdapter;
 import com.example.foodplannerapp.ui.search.presenter.SearchPresenter;
 import com.example.foodplannerapp.ui.search.presenter.SearchPresenterInterface;
 

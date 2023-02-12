@@ -85,4 +85,5 @@
     <string name="week_days">Week Days</string>
     <string name="inserted_toweek">Inserted to Week Table</string>
     <string name="planner_meals">Planner Meals</string>
+    <string name="login_successfully_please_wait">Login successfully, Please wait...</string>
 </resources>
