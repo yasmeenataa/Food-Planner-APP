@@ -10,7 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+<<<<<<<<< Temporary merge branch 1
+import com.example.foodplannerapp.CategoriesAdapter;
+=========
 import com.example.foodplannerapp.ui.home.view.CategoriesAdapter;
+>>>>>>>>> Temporary merge branch 2
 import com.example.foodplannerapp.databinding.FragmentSearchBinding;
 import com.example.foodplannerapp.models.CategoriesModel;
 

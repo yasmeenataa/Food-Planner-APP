@@ -6,7 +6,11 @@ import com.example.foodplannerapp.models.ModelMeal;
 import com.example.foodplannerapp.models.ModelMealRoot;
 import com.example.foodplannerapp.models.WeekPlannerModel;
 import com.example.foodplannerapp.nework.NetworkDelegate;
+import com.example.foodplannerapp.nework.NetworkDelegateForArea;
+import com.example.foodplannerapp.nework.NetworkDelegateForAreaItem;
 import com.example.foodplannerapp.nework.NetworkDelegateForCategory;
+import com.example.foodplannerapp.nework.NetworkDelegateForIngredient;
+import com.example.foodplannerapp.nework.NetworkDelegateForIngredientItem;
 
 import java.util.List;
 
@@ -22,7 +26,12 @@ public interface MealRepoInterface {
     void getMealById(String mealId);
 
     void getAllCategory(NetworkDelegate networkDelegate);
+    void getAllArea(NetworkDelegateForArea delegateForArea);
+    void getAllIngredient(NetworkDelegateForIngredient delegateForIngredient);
 
+    void getMealsOfCategory(NetworkDelegateForCategory networkDelegateForCategory , String catName);
+    void getMealsOfArea(NetworkDelegateForAreaItem delegateForAreaItem , String areaName);
+    void getMealsOfIngredient(NetworkDelegateForIngredientItem delegateForIngredientItem , String ingredientName);
     void getMealsOfCategory(NetworkDelegateForCategory networkDelegateForCategory, String catName);
 
     Completable insertMeal(ModelMeal modelMeal);

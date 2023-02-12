@@ -1,5 +1,12 @@
 package com.example.foodplannerapp.nework;
 
+import com.example.foodplannerapp.models.AreaListRootModel;
+import com.example.foodplannerapp.models.CategoriesRootModel;
+import com.example.foodplannerapp.models.IngredientListRootModel;
+
+import io.reactivex.rxjava3.core.Single;
+import retrofit2.http.GET;
+
 import com.example.foodplannerapp.models.CategoriesRootModel;
 import com.example.foodplannerapp.models.ModelMealRoot;
 
@@ -9,6 +16,11 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface RetrofitServices {
+    @GET("list.php?a=list")
+    Single<AreaListRootModel> getAreaList();
+    @GET("list.php?i=list")
+    Single<IngredientListRootModel> getIngredientList();
+
     @GET("random.php")
     Single<ModelMealRoot> getRandomMeal();
 
@@ -18,6 +30,11 @@ public interface RetrofitServices {
 
     @GET("filter.php")
     Single<ModelMealRoot> getAllMealsByCategory(@Query("c") String category);
+    @GET("filter.php")
+    Single<ModelMealRoot> getAllMealsByArea(@Query("a") String area);
+    @GET("filter.php")
+    Single<ModelMealRoot> getAllMealsByIngredient(@Query("i") String ingredient);
+
 
     @GET("lookup.php")
     Single<ModelMealRoot> getMealById(@Query("i") String mealId);

@@ -5,6 +5,9 @@ import com.example.foodplannerapp.models.ModelMeal;
 
 import java.util.List;
 
+import com.example.foodplannerapp.models.AreaListModel;
+import com.example.foodplannerapp.models.IngredientListModel;
+
 public interface NetworkDelegate {
 
     void onSuccessfulResult(List<ModelMeal> mealList);
@@ -12,5 +15,8 @@ public interface NetworkDelegate {
     void onCategorySuccessfulResult(List<CategoriesModel> categoryList);
 
     void onFailureResult(String errorMessage);
+
+
+
 
 }

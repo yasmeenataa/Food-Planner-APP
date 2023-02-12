@@ -1,3 +1,4 @@
+
 package com.example.foodplannerapp.ui.home.view;
 
 import android.view.LayoutInflater;
@@ -8,10 +9,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.models.CategoriesModel;
+import com.example.foodplannerapp.ui.resulFromSearch.view.OnResultClickListener;
+import com.example.foodplannerapp.ui.search.view.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +30,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ho
 
     public void setOnCategoryClickListener(SetOnCategoryClickListener onCategoryClickListener) {
         this.onCategoryClickListener = onCategoryClickListener;
+
     }
 
     public void setList(ArrayList<CategoriesModel> list) {
@@ -73,9 +78,11 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ho
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     if (onCategoryClickListener != null) {
                         onCategoryClickListener.onCategoryClicked(list.get(getLayoutPosition()).getStrCategory());
                     }
+
                 }
             });
 

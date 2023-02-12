@@ -4,7 +4,9 @@ import android.util.Log;
 
 import androidx.lifecycle.Observer;
 
+import com.example.foodplannerapp.models.AreaListModel;
 import com.example.foodplannerapp.models.CategoriesModel;
+import com.example.foodplannerapp.models.IngredientListModel;
 import com.example.foodplannerapp.models.ModelMeal;
 import com.example.foodplannerapp.nework.NetworkDelegate;
 import com.example.foodplannerapp.repo.mealRepo.MealRepo;
@@ -13,7 +15,7 @@ import com.example.foodplannerapp.ui.home.view.HomeViewInterface;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PresenterHome implements PresenterHomeInterface, NetworkDelegate {
+    public class PresenterHome implements PresenterHomeInterface, NetworkDelegate {
 
 
     private final HomeViewInterface viewInterface;
@@ -56,4 +58,6 @@ public class PresenterHome implements PresenterHomeInterface, NetworkDelegate {
     public void onFailureResult(String errorMessage) {
         viewInterface.getErrorMessage(errorMessage);
     }
+
+
 }

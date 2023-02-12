@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="60dp"
+    android:background="@drawable/design_top"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.search.view.SearchFragment">
+
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginBottom="8dp"
-    android:background="@drawable/design_top"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.search.SearchFragment">
-
-
+    android:layout_marginBottom="20dp"
+    android:background="@drawable/design_top">
 
 
     <TextView
@@ -21,45 +27,34 @@
         android:text="@string/search_by_ingredient"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineVR"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="@+id/guidelineVL"
-        app:layout_constraintTop_toTopOf="@+id/guidelineHT" />
+        />
+
+    <ProgressBar
+        android:id="@+id/progressBar_search"
+        android:visibility="visible"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:progressBackgroundTint="@color/white"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_ingredients"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
         tools:listitem="@layout/ingredients_row" />
-
-    <TextView
-        android:id="@+id/search_by_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="8dp"
-        android:text="@string/search_by_category"
-        android:textSize="20sp"
-        android:textStyle="bold"
-         />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_Search_cat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/category_row" />
     <TextView
         android:id="@+id/search_by_area"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:text="@string/search_by_area"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -69,10 +64,32 @@
         android:id="@+id/recycle_area"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/area_row" />
 
 
+    <TextView
+        android:id="@+id/search_by_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/search_by_category"
+        android:textSize="20sp"
+        android:textStyle="bold"
+         />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_Search_cat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/category_row" />
+
 </LinearLayout>
+</ScrollView>

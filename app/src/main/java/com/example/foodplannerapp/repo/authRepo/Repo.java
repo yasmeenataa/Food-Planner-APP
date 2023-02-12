@@ -2,6 +2,7 @@ package com.example.foodplannerapp.repo.authRepo;
 
 import androidx.annotation.NonNull;
 
+import com.example.foodplannerapp.nework.NetworkDelegate;
 import com.example.foodplannerapp.utils.FirebaseOnCompleteListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -57,6 +58,16 @@ public class Repo implements RepoInterface {
     @Override
     public void logout() {
         auth.signOut();
+    }
+
+    @Override
+    public void getAllIngredients(NetworkDelegate networkDelegate) {
+
+    }
+
+    @Override
+    public void getAllAreas(NetworkDelegate networkDelegate) {
+
     }
 
 

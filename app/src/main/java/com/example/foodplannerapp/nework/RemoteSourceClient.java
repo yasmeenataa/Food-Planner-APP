@@ -82,6 +82,33 @@ public class RemoteSourceClient implements RemoteSourceInterface {
     }
 
     @Override
+    public void enqueueCallArea(NetworkDelegateForArea networkDelegate) {
+        RetrofitConnection
+                .getServices()
+                .getAreaList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        item -> networkDelegate.onSuccessAreaList(item.getMeals()),
+                        error -> networkDelegate.onFailureAreaList("Error :" + error.toString())
+                );
+    }
+
+    @Override
+    public void enqueueCallIngredients(NetworkDelegateForIngredient networkDelegate) {
+        RetrofitConnection
+                .getServices()
+                .getIngredientList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        item ->networkDelegate.onSuccessIngredientList(item.getMeals()),
+                        error -> networkDelegate.onFailureIngredientList("Error :" + error.toString())
+                );
+    }
+
+
+    @Override
     public void enqueueCallCategoryItem(NetworkDelegateForCategory networkDelegate, String categoryName) {
         RetrofitConnection
                 .getServices()
@@ -106,6 +133,33 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                     }
                 });
     }
+
+    @Override
+    public void enqueueCallAreaItem(NetworkDelegateForAreaItem networkDelegateForArea, String areaName) {
+        RetrofitConnection
+                .getServices()
+                .getAllMealsByArea(areaName)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        item -> networkDelegateForArea.onAreaNameSuccessfulResult(item.getMeals()),
+                        error -> networkDelegateForArea.onFailureAreaNameResult("Error :" + error.toString())
+                );
+    }
+
+    @Override
+    public void enqueueIngredientItem(NetworkDelegateForIngredientItem delegateForIngredient, String ingredientName) {
+        RetrofitConnection
+                .getServices()
+                .getAllMealsByIngredient(ingredientName)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        item -> delegateForIngredient.onIngredientNameSuccessfulResult(item.getMeals()),
+                        error -> delegateForIngredient.onFailureIngredientNameResult("Error :" + error.toString())
+                );
+    }
+
 
     @Override
     public Single<ModelMealRoot> getRandomMeal() {
