@@ -87,4 +87,5 @@
     <string name="planner_meals">Planner Meals</string>
     <string name="login_successfully_please_wait">Login successfully, Please wait...</string>
     <string name="loginFirst">You Have To Login First</string>
+    <string name="enterYourMeal">Enter Your Meal</string>
 </resources>
