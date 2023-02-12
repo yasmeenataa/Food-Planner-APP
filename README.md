@@ -87,7 +87,20 @@ It is a simple Food Planner App that help you :
         
         4) search by Category tap on your category to nav to all reciepes taht included in this category
   
-  ![searchByName](https://user-images.githubusercontent.com/55101407/218341855-de377f43-fc89-48fa-9d8e-f54eb6036c78.jpg)
+  ![searchByName](https://user-images.githubusercontent.com/55101407/218341855-de377f43-fc89-48fa-9d8e-f54eb6036c78.jpg)     |         ![filter byIngredientd](https://user-images.githubusercontent.com/55101407/218342992-c13e1848-4acf-4885-b5a1-b7a15cc1c9f3.jpg)
+  
+  
+  ### 7) Meal Details Screen 
+  
+          it shows all Details about the target meal image, instructions , ingredients and youtube video for how to cook this meal
+          
+          tap on icon favourite to add this meal to your favourite list
+          
+          tap on calender icon to plan this meal to week planner 
+          
+          tap on button add this meal to calender to add this meal to your mobile calender as event
+  
+ ![mealDetails](https://user-images.githubusercontent.com/55101407/218343142-771f3a22-b209-4ab8-ab4a-25bb7f31c778.jpg)
   
   # Dependecy :
   - All dependencies are located in the Gradle Script file in the build.gradle folder. To implement them use implementation Libs.XXX.
