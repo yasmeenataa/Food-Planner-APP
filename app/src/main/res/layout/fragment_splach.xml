@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottiAnimation"
+        android:id="@+id/lottiAnimationView"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="@dimen/_250sdp"
         android:contentDescription="@string/app_name"
@@ -45,17 +45,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="@color/blue" />
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/logo"-->
-    <!--        android:layout_width="@dimen/_200sdp"-->
-    <!--        android:layout_height="@dimen/_100sdp"-->
-    <!--        android:contentDescription="@string/image"-->
-    <!--        android:elevation="@dimen/_10sdp"-->
-    <!--        android:src="@drawable/logo_eat_it"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/guideLineTop"-->
-    <!--        app:tint="@color/brown" />-->
+<!--        <ImageView-->
+<!--            android:id="@+id/logo"-->
+<!--            android:layout_width="@dimen/_200sdp"-->
+<!--            android:layout_height="@dimen/_100sdp"-->
+<!--            android:contentDescription="@string/image"-->
+<!--            android:elevation="@dimen/_10sdp"-->
+<!--            android:src="@drawable/logo"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/guideLineTop"-->
+<!--            app:tint="@color/brown" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
