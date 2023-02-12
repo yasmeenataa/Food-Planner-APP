@@ -1,5 +1,6 @@
 package com.example.foodplannerapp.ui.search.view;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -63,6 +64,7 @@ public class SearchFragment extends Fragment implements SearchViewInterface,OnIt
 
             }
 
+            @SuppressLint("SuspiciousIndentation")
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(s.toString().equals(""))
