@@ -5,5 +5,6 @@ public interface SearchPresenterInterface {
     void getAllCategories();
 
     void getAreaList();
+    void getMealByName(String mealName);
 
 }

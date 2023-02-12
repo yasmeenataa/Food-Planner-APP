@@ -3,6 +3,7 @@ package com.example.foodplannerapp.ui.search.view;
 import com.example.foodplannerapp.models.AreaListModel;
 import com.example.foodplannerapp.models.CategoriesModel;
 import com.example.foodplannerapp.models.IngredientListModel;
+import com.example.foodplannerapp.models.ModelMeal;
 
 import java.util.List;
 
@@ -14,5 +15,7 @@ public interface SearchViewInterface {
     void showAreaList(List<AreaListModel> areaList);
     void onFailureIngredientList(String errorMsg);
     void onFailureAreaList(String errorMsg);
+    void showMealsByName(List<ModelMeal> resultList);
+    void onFailureMealsByName(String errorMsg);
 
 }

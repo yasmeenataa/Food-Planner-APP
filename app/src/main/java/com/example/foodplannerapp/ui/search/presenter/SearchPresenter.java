@@ -8,12 +8,13 @@ import com.example.foodplannerapp.models.ModelMeal;
 import com.example.foodplannerapp.nework.NetworkDelegate;
 import com.example.foodplannerapp.nework.NetworkDelegateForArea;
 import com.example.foodplannerapp.nework.NetworkDelegateForIngredient;
+import com.example.foodplannerapp.nework.NetworkDelegateForSearchMeal;
 import com.example.foodplannerapp.repo.mealRepo.MealRepoInterface;
 import com.example.foodplannerapp.ui.search.view.SearchViewInterface;
 
 import java.util.List;
 
-public class SearchPresenter implements NetworkDelegateForArea, NetworkDelegateForIngredient,NetworkDelegate,SearchPresenterInterface {
+public class SearchPresenter implements NetworkDelegateForArea, NetworkDelegateForIngredient,NetworkDelegate,SearchPresenterInterface , NetworkDelegateForSearchMeal {
     private SearchViewInterface _view;
     private MealRepoInterface _repo;
 
@@ -39,6 +40,10 @@ public class SearchPresenter implements NetworkDelegateForArea, NetworkDelegateF
         _repo.getAllArea(this);
     }
 
+    @Override
+    public void getMealByName(String mealName) {
+        _repo.getMealByName(this,mealName);
+    }
 
 
     @Override
@@ -75,6 +80,17 @@ public class SearchPresenter implements NetworkDelegateForArea, NetworkDelegateF
 
     @Override
     public void onFailureResult(String errorMessage) {
+
+    }
+
+    @Override
+    public void onSuccessSearchMealByName(List<ModelMeal> modelMealsFromCategoriesList) {
+        _view.showMealsByName(modelMealsFromCategoriesList);
+    }
+
+    @Override
+    public void onFailureSearchMealByName(String errorMessage) {
+        _view.onFailureMealsByName(errorMessage);
 
     }
 }
