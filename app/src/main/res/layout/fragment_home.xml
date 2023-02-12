@@ -21,6 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/akaya_telivigala"
             android:text="@string/inspiration_for_you"
             android:textColor="#1C1C1C"
             android:textSize="20sp"
@@ -40,18 +41,18 @@
                 android:id="@+id/progressMealOfTheDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                tools:visibility="visible"
-                android:indeterminateTint="@color/teal_700"
+                android:layout_gravity="center"
                 android:elevation="@dimen/_5sdp"
-                android:layout_gravity="center"/>
+                android:indeterminateTint="@color/teal_700"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
             <LinearLayout
                 android:id="@+id/rootMealOfTheDay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/_8sdp">
 
 
                 <ImageView
@@ -70,7 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:textColor="@color/primaryColor"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -81,7 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="3dp"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     tools:text="@string/paste" />
@@ -106,8 +107,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
+            android:fontFamily="@font/akaya_telivigala"
             android:text="@string/search_by_category"
-            android:textSize="20sp"
+            android:textColor="#1C1C1C"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
 
@@ -115,24 +118,23 @@
             android:id="@+id/progressCategories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:indeterminateTint="@color/teal_700"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_4sdp"
             android:elevation="@dimen/_5sdp"
-            android:layout_gravity="center_horizontal"/>
+            android:indeterminateTint="@color/teal_700"
+            android:visibility="gone"
+            tools:visibility="visible" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycle_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="48dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
-            android:layout_marginBottom="48dp"
             tools:listitem="@layout/category_row" />
-
 
 
     </LinearLayout>
