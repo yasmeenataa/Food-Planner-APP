@@ -28,6 +28,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@color/background_protection_black"
             android:fontFamily="@font/akaya_telivigala"
+            android:maxEms="7"
             android:paddingVertical="@dimen/_8sdp"
             android:paddingStart="@dimen/_16sdp"
             android:paddingEnd="@dimen/_32sdp"
