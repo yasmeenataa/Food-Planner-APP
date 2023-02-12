@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.foodplannerapp.R;
+import com.example.foodplannerapp.models.MySharedPref;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {

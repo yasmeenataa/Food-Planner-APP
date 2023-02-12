@@ -13,6 +13,8 @@ public class MySharedPref {
 
     private static final String USER_ID_KEY = "user id";
 
+    private static final String USER_URI_KEY = "user uri";
+
     private MySharedPref() {
 
     }
@@ -32,6 +34,15 @@ public class MySharedPref {
 
     public static String getUserName() {
         return getSharedPreferences().getString(USER_NAME_KEY, "");
+    }
+
+    public static void setUserUriKey(String userName) {
+        SharedPreferences.Editor editor = getSharedPreferences().edit();
+        editor.putString(USER_URI_KEY, userName).apply();
+    }
+
+    public static String getUserUriKey() {
+        return getSharedPreferences().getString(USER_URI_KEY, "");
     }
 
     public static void setUserEmail(String userEmail) {
