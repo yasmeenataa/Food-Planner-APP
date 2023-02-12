@@ -36,7 +36,6 @@ public class DayFragment extends Fragment implements DayViewInterface {
         super.onCreate(savedInstanceState);
 
         model = DayFragmentArgs.fromBundle(getArguments()).getMealData();
-        Log.i("TAG", "onCreate Day Fragment: " + model.getStrMeal());
 
     }
 
@@ -196,7 +195,7 @@ public class DayFragment extends Fragment implements DayViewInterface {
     public void insertMealToWeek(WeekPlannerModel weekPlannerModel) {
         presenterInterface.insertMealToDay(weekPlannerModel);
         presenterInterface.insertMealToDayToFirebase(weekPlannerModel);
-        Toast.makeText(requireContext(), getString(R.string.inserted_toweek), Toast.LENGTH_SHORT).show();
+        Toast.makeText(requireContext(), "Inserted into : " + weekPlannerModel.getDay(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
