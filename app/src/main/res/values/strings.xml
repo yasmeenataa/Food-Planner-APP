@@ -89,4 +89,5 @@
     <string name="loginFirst">You Have To Login First</string>
     <string name="enterYourMeal">Enter Your Meal</string>
     <string name="error_pass_msg">Password must have at least one numeric character ,one uppercase character,one lowercase character,one special symbol among @#$% and Password length should be between 8 and 20.</string>
+    <string name="add_to_calender">Add this meal to calender</string>
 </resources>
