@@ -145,6 +145,10 @@ public class WelcomeFragment extends Fragment {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                MySharedPref.setUserId(task.getResult().getUser().getUid());
+                                MySharedPref.setUserEmail(task.getResult().getUser().getEmail());
+                                MySharedPref.setUserName(task.getResult().getUser().getDisplayName());
+                                MySharedPref.setUserUriKey(String.valueOf(task.getResult().getUser().getPhotoUrl()));
                                 if (task.isSuccessful()) {
                                     Navigation.findNavController(requireView())
                                             .navigate(R.id.action_welcomeFragment_to_homeFragment);
@@ -160,13 +164,14 @@ public class WelcomeFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            Navigation.findNavController(requireView())
-                    .navigate(R.id.action_welcomeFragment_to_homeFragment);
-        }
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        if (user != null) {
+//
+//            Navigation.findNavController(requireView())
+//                    .navigate(R.id.action_welcomeFragment_to_homeFragment);
+//        }
+//    }
 }
