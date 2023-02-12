@@ -17,6 +17,21 @@ It is a simple Food Planner App that help you :
 
  2) Yasmeen Ataa
  
+ # Technologies :
+ 
+ 1) Java. 
+ 2) MVP as architectural pattern.
+ 3) Room for local Storage. 
+ 4) Retrofit and GSON For Networking . 
+ 5) ViewBinding. 
+ 6) LiveData And MutableLiveData. 
+ 7) RxJava for Threading. 
+ 8) Firebase Authintication for login and SignUp. 
+ 9) Firebase RealTime for online Storage and retrival of Data. 
+ 10) Glide for display Images.
+ 11) Navigation Component.
+ 12) YouTubePlayer For play the Vedioes.
+ 
  #  Full Scenario In App
  
    ### 1) Splash Screen with Simple Design include lottie animation and App Name and Slogan
@@ -58,4 +73,8 @@ It is a simple Food Planner App that help you :
             3)In Navigation button You can nav to Search ,Favourite ,Plan , Progile
             
   ![Home](https://user-images.githubusercontent.com/55101407/218336900-fa72ab99-d205-4c41-9221-c689e7109e33.jpg)
+  
+  # Dependecy :
+  ## All dependencies are located in the Gradle Script file in the build.gradle folder. To implement them use implementation Libs.XXX.
+ 
            
