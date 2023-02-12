@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="@dimen/_170sdp" />
+        app:layout_constraintGuide_begin="@dimen/_160sdp" />
 
     <ImageView
         android:id="@+id/btn_back"
@@ -67,7 +67,7 @@
         style="@style/instructionStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/_1sdp"
+        android:layout_marginBottom="@dimen/_16sdp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"

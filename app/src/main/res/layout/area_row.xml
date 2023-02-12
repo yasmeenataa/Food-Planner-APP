@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/area_row"
     android:layout_width="200dp"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="20dp"
     android:layout_gravity="center"
+    android:layout_margin="20dp"
     app:cardCornerRadius="14dp"
-    android:id="@+id/area_row"
     app:cardElevation="12dp">
 
-        <TextView
-            android:id="@+id/area_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-                android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:textColor="@color/secondaryColor"
-            android:text="Canade"
-            android:textSize="22sp"
-            android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/area_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:textColor="@color/secondaryColor"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="Canade" />
 
 </androidx.cardview.widget.CardView>
