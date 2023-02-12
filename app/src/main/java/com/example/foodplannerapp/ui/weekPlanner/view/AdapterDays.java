@@ -15,7 +15,8 @@ import java.util.ArrayList;
 public class AdapterDays extends RecyclerView.Adapter<AdapterDays.Holder> {
 
     private ArrayList<String> list;
-    private SetOnDayClickListener onDayClickListener ;
+    private SetOnDayClickListener onDayClickListener;
+    private static int rowIndex = -1;
 
     public void setOnDayClickListener(SetOnDayClickListener onDayClickListener) {
         this.onDayClickListener = onDayClickListener;
@@ -37,6 +38,13 @@ public class AdapterDays extends RecyclerView.Adapter<AdapterDays.Holder> {
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holder.dayTextView.setText(list.get(position));
 
+        if (rowIndex == holder.getLayoutPosition()) {
+            holder.dayTextView.setBackgroundColor(holder.itemView.getContext().getColor(R.color.yellow));
+            holder.dayTextView.setTextColor(holder.itemView.getContext().getColor(R.color.blue));
+        } else {
+            holder.dayTextView.setBackgroundColor(holder.itemView.getContext().getColor(R.color.shadowed_yellow));
+            holder.dayTextView.setTextColor(holder.itemView.getContext().getColor(R.color.black));
+        }
     }
 
     @Override
@@ -53,16 +61,20 @@ public class AdapterDays extends RecyclerView.Adapter<AdapterDays.Holder> {
             dayTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (onDayClickListener !=null){
+                    rowIndex = getLayoutPosition();
+                    notifyDataSetChanged();
+                    if (onDayClickListener != null) {
                         onDayClickListener.onItemClick(list.get(getLayoutPosition()));
                     }
 
                 }
             });
         }
+
+
     }
 
-    interface SetOnDayClickListener{
+    interface SetOnDayClickListener {
         void onItemClick(String day);
     }
 }
