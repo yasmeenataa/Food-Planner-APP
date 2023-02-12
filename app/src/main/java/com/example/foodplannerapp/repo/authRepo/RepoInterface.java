@@ -9,8 +9,7 @@ public interface RepoInterface {
     void login(String email , String pass);
 
     void logout();
-    void getAllIngredients(NetworkDelegate networkDelegate);
-    void getAllAreas(NetworkDelegate networkDelegate);
+
 
 
 

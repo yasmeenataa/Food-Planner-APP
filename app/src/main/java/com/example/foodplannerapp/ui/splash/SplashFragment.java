@@ -41,7 +41,7 @@ public class SplashFragment extends Fragment {
             public void run() {
                 action(view);
             }
-        }, 3000);
+        }, 5000);
     }
 
     private void action(View view) {

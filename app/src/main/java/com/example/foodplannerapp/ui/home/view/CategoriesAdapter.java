@@ -47,7 +47,6 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ho
     public void onBindViewHolder(@NonNull CategoriesAdapter.Holder holder, int position) {
         CategoriesModel categoriesModel = list.get(position);
         holder.category_name.setText(categoriesModel.getStrCategory());
-        holder.category_image.setImageResource(R.drawable.beef);
         Glide.with(holder.itemView.getContext())
                 .load(categoriesModel.getStrCategoryThumb())
                 .apply(new RequestOptions()

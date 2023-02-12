@@ -21,11 +21,8 @@ import io.reactivex.rxjava3.core.Single;
 public interface MealRepoInterface {
 
     void getRandomMeal(NetworkDelegate networkDelegate);
-
     void getRandomMeal2();
-
     void getMealById(String mealId);
-
     void getAllCategory(NetworkDelegate networkDelegate);
     void getAllArea(NetworkDelegateForArea delegateForArea);
     void getAllIngredient(NetworkDelegateForIngredient delegateForIngredient);
@@ -33,21 +30,14 @@ public interface MealRepoInterface {
     void getMealsOfCategory(NetworkDelegateForCategory networkDelegateForCategory , String catName);
     void getMealsOfArea(NetworkDelegateForAreaItem delegateForAreaItem , String areaName);
     void getMealsOfIngredient(NetworkDelegateForIngredientItem delegateForIngredientItem , String ingredientName);
-
     Completable insertMeal(ModelMeal modelMeal);
     Completable deleteMeal(ModelMeal modelMeal);
     LiveData<List<ModelMeal>> getFavMeals();
     LiveData<List<WeekPlannerModel>> getPlannerMeals(String day);
-
     Completable insertWeekMeal(WeekPlannerModel weekPlannerModel);
-
     Completable deleteWeekMeal(WeekPlannerModel weekPlannerModel);
-
-
     Completable deleteFavTableRoom();
     Completable deleteWeekTableRoom();
-
     Single<ModelMeal> isFav(String mealId);
-
     void getMealByName(NetworkDelegateForSearchMeal delegateForSearchMeal,String mealName);
 }

@@ -60,15 +60,6 @@ public class Repo implements RepoInterface {
         auth.signOut();
     }
 
-    @Override
-    public void getAllIngredients(NetworkDelegate networkDelegate) {
-
-    }
-
-    @Override
-    public void getAllAreas(NetworkDelegate networkDelegate) {
-
-    }
 
 
 }
