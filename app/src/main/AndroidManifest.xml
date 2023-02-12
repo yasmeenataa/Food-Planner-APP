@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
 
     <application
         android:name=".App"
@@ -20,8 +23,10 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.INSERT" />
+                <data android:mimeType="vnd.android.cursor.dir/event" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <meta-data
