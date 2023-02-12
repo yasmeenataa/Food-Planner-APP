@@ -67,10 +67,10 @@ public class Extensions {
     }
 
     public static void clearAllDataFromSharedPref(){
-        MySharedPref.setUserId(null);
-        MySharedPref.setUserEmail(null);
-        MySharedPref.setUserName(null);
-        MySharedPref.setUserPassword(null);
+        MySharedPref.setUserId("");
+        MySharedPref.setUserId("");
+        MySharedPref.setUserName("");
+        MySharedPref.setUserPassword("");
     }
 
 
