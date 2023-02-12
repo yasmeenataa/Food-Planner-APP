@@ -1,5 +1,7 @@
 package com.example.foodplannerapp.nework;
 
+import androidx.lifecycle.MutableLiveData;
+
 import com.example.foodplannerapp.models.ModelMealRoot;
 
 import io.reactivex.rxjava3.core.Single;
@@ -18,5 +20,7 @@ public interface RemoteSourceInterface {
     Single<ModelMealRoot> getRandomMeal();
     Single<ModelMealRoot> getMealByd(String mealId);
     void enqueueCallSearchMealByName(NetworkDelegateForSearchMeal delegateForSearchMeal,String mealName);
+
+    MutableLiveData<Integer> getProgressBarLiveData();
     
 }
