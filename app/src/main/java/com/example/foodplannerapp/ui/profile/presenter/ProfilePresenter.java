@@ -1,8 +1,8 @@
-package com.example.foodplannerapp.ui.profile;
+package com.example.foodplannerapp.ui.profile.presenter;
 
-import com.example.foodplannerapp.models.MySharedPref;
 import com.example.foodplannerapp.repo.authRepo.Repo;
 import com.example.foodplannerapp.repo.mealRepo.MealRepo;
+import com.example.foodplannerapp.ui.profile.view.ProfilePresenterInterface;
 import com.example.foodplannerapp.utils.FirebaseOnCompleteListener;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;

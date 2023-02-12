@@ -1,4 +1,4 @@
-package com.example.foodplannerapp.ui.profile;
+package com.example.foodplannerapp.ui.profile.presenter;
 
 public interface ProfileViewInterface {
 

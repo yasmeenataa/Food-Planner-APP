@@ -1,6 +1,5 @@
-package com.example.foodplannerapp.ui.profile;
+package com.example.foodplannerapp.ui.profile.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +15,10 @@ import android.widget.Toast;
 
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentProfileBinding;
-import com.example.foodplannerapp.MainActivity;
-import com.example.foodplannerapp.models.MySharedPref;
-import com.example.foodplannerapp.repo.authRepo.Repo;
+import com.example.foodplannerapp.ui.profile.presenter.ProfilePresenter;
+import com.example.foodplannerapp.ui.profile.presenter.ProfileViewInterface;
+import com.example.foodplannerapp.utils.Constants;
+import com.example.foodplannerapp.utils.Extensions;
 
 public class ProfileFragment extends Fragment implements ProfileViewInterface {
 
@@ -59,13 +60,7 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface {
         binding.textViewLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MySharedPref.setUserId("");
-                MySharedPref.setUserPassword("");
-                MySharedPref.setUserName("");
-                MySharedPref.setUserEmail("");
-                onLogoutSuccess();
-                Navigation.findNavController(view)
-                        .navigate(R.id.action_profileFragment_to_welcomeFragment);
+                showDialog(view);
             }
         });
 
@@ -76,6 +71,22 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface {
                         .navigate(R.id.action_profileFragment_to_weekPlannerFragment2);
             }
         });
+    }
+
+    private void showDialog(View view) {
+        Extensions.showConfirmationDialog(requireContext(), Constants.LOGOUT,
+                //onYes
+                () -> {
+                    Extensions.clearAllDataFromSharedPref();
+                    onLogoutSuccess();
+                    Navigation.findNavController(view)
+                            .navigate(R.id.action_profileFragment_to_welcomeFragment);
+                },
+                //onNo
+                () -> {
+                }
+        );
+
     }
 
     @Override
