@@ -58,15 +58,14 @@ public class ResultSearchAdapter extends RecyclerView.Adapter<ResultSearchAdapte
     public class Holder extends RecyclerView.ViewHolder {
         TextView txtResult_maelName_itemMeal;
         ImageView image_result_itemMeal;
-        RoundedImageView image_calender_result,image_result_fav;
+
 
         public Holder(@NonNull View itemView) {
             super(itemView);
 
             txtResult_maelName_itemMeal = itemView.findViewById(R.id.txtResult_maelName_itemMeal);
             image_result_itemMeal=itemView.findViewById(R.id.image_result_itemMeal);
-            image_calender_result=itemView.findViewById(R.id.image_calender_result);
-            image_result_fav=itemView.findViewById(R.id.image_result_fav);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
