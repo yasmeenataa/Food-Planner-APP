@@ -17,7 +17,48 @@
     android:layout_marginBottom="20dp"
     android:background="@drawable/design_top">
 
-
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_search"
+        android:layout_width="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/search_by_meal_name"
+        app:hintTextColor="@color/primaryColor"
+        android:background="@drawable/search_bg"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/primaryColor"
+        app:startIconDrawable="@drawable/search"
+        >
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/searchEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bg"
+        android:textSize="18sp"
+        />
+    </com.google.android.material.textfield.TextInputLayout>
+    <ProgressBar
+        android:id="@+id/progressBar_search"
+        android:visibility="visible"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:progressBackgroundTint="@color/white"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_search_mealName"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/ingredients_row" />
     <TextView
         android:id="@+id/search_by_ingradient"
         android:layout_width="wrap_content"
@@ -29,16 +70,7 @@
         android:textStyle="bold"
         />
 
-    <ProgressBar
-        android:id="@+id/progressBar_search"
-        android:visibility="visible"
-        android:layout_margin="10dp"
-        android:layout_gravity="center"
-        android:progressBackgroundTint="@color/white"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_ingredients"
@@ -47,7 +79,6 @@
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
         tools:listitem="@layout/ingredients_row" />
     <TextView
         android:id="@+id/search_by_area"
@@ -84,7 +115,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_Search_cat"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
