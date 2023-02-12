@@ -18,7 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_150sdp"
             android:scaleType="fitXY"
-            android:src="@drawable/random_meal2"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

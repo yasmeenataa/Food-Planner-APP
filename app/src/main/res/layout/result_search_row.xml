@@ -19,7 +19,7 @@
             android:layout_height="@dimen/_150sdp"
             android:scaleType="fitXY"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/random_meal2"
+
             />
 
         <TextView

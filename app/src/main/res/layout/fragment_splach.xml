@@ -24,18 +24,32 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottiAnimationView"
-        android:layout_width="@dimen/_250sdp"
-        android:layout_height="@dimen/_250sdp"
+        android:layout_width="241dp"
+        android:layout_height="226dp"
+        android:layout_marginTop="176dp"
         android:contentDescription="@string/app_name"
+        android:foregroundGravity="bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.405"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/splash2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:lottie_rawRes="@raw/splash2" />
 
     <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="294dp"
+        android:layout_height="94dp"
+        android:layout_marginBottom="292dp"
+        android:src="@drawable/slogan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
@@ -45,17 +59,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="@color/blue" />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/logo"-->
-<!--            android:layout_width="@dimen/_200sdp"-->
-<!--            android:layout_height="@dimen/_100sdp"-->
-<!--            android:contentDescription="@string/image"-->
-<!--            android:elevation="@dimen/_10sdp"-->
-<!--            android:src="@drawable/logo"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/guideLineTop"-->
-<!--            app:tint="@color/brown" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

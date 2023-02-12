@@ -25,7 +25,7 @@
             android:elevation="@dimen/_8sdp"
             android:scaleType="fitXY"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/random_meal" />
+             />
 
         <TextView
             android:id="@+id/text_view_meal_name_inWeekFrag"

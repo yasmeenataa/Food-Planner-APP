@@ -63,7 +63,7 @@
                     android:scaleType="fitXY"
                     tools:layout_editor_absoluteX="82dp"
                     tools:layout_editor_absoluteY="113dp"
-                    tools:src="@drawable/random_meal" />
+                    />
 
 
                 <TextView
