@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,9 +81,19 @@ public class AllCategoriesFragment extends Fragment implements AllCategoryViewIn
         });
     }
 
+    private void showHideAllMealCategoriesProgress(){
+        binding.recyclerAllCategories.setVisibility(View.INVISIBLE);
+        binding.progressAllCategories.setVisibility(View.VISIBLE);
+        new Handler().postDelayed(() -> {
+            binding.progressAllCategories.setVisibility(View.GONE);
+            binding.recyclerAllCategories.setVisibility(View.VISIBLE);
+        }, 2500);
+    }
+
 
     @Override
     public void showAllMealCategory(List<ModelMeal> mealList) {
+        showHideAllMealCategoriesProgress();
         adapter.setList((ArrayList<ModelMeal>) mealList);
         binding.recyclerAllCategories.setAdapter(adapter);
         adapter.notifyDataSetChanged();
