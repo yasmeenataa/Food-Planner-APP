@@ -35,15 +35,6 @@
             tools:layout_editor_absoluteX="106dp"
             tools:text="@string/fish_stew" />
 
-        <ImageView
-            android:id="@+id/btn_favourite"
-            android:layout_width="@dimen/_30sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:contentDescription="@string/image"
-            android:src="@drawable/favorite_border"
-
-            />
-
     </LinearLayout>
 
 
