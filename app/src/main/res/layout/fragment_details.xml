@@ -85,8 +85,6 @@
             tools:text="@string/category" />
 
 
-
-
         <ImageView
             android:id="@+id/btn_back"
             android:layout_width="wrap_content"
@@ -216,12 +214,13 @@
             android:id="@+id/btn_play_vedio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/yellow"
             android:elevation="@dimen/_16sdp"
             android:fontFamily="@font/akaya_telivigala"
             android:text="@string/play"
             android:textSize="@dimen/_16sdp"
+            android:visibility="gone"
             app:cornerRadius="@dimen/_8sdp"
-            android:backgroundTint="@color/yellow"
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             app:layout_constraintStart_toEndOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@id/videoView" />
@@ -246,21 +245,20 @@
             android:background="@color/white"
             android:elevation="@dimen/_4sdp"
             android:visibility="gone"
-            tools:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            />
+            tools:visibility="visible" />
 
         <ProgressBar
             android:id="@+id/progressDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:indeterminateTint="@color/teal_700"
-            android:elevation="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_230sdp"
+            android:elevation="@dimen/_16sdp"
+            android:indeterminateTint="@color/teal_700"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

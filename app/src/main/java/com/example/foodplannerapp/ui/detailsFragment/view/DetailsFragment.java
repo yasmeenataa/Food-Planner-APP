@@ -1,14 +1,6 @@
 package com.example.foodplannerapp.ui.detailsFragment.view;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LifecycleObserver;
-import androidx.lifecycle.Observer;
-import androidx.navigation.Navigation;
-
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,22 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.navigation.Navigation;
+
 import com.bumptech.glide.Glide;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentDetailsBinding;
 import com.example.foodplannerapp.models.ModelMeal;
 import com.example.foodplannerapp.models.MySharedPref;
-import com.example.foodplannerapp.repo.mealRepo.MealRepo;
-import com.example.foodplannerapp.ui.detailsFragment.view.DetailsFragmentDirections;
-import com.example.foodplannerapp.ui.detailsFragment.view.DetailsFragmentArgs;
 import com.example.foodplannerapp.ui.detailsFragment.presenter.DetailsPresenter;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
@@ -89,7 +77,7 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
         adapter = new IngredientsAdapter();
         measurementList = new ArrayList<>();
         ingredientList = new ArrayList<>();
-        modelMeal = new ModelMeal();
+//        modelMeal = new ModelMeal();
         flag = false;
         detailsPresenter = new DetailsPresenter(this);
         detailsPresenter.getData(mealId, getViewLifecycleOwner());
@@ -139,6 +127,8 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
         adapter.setMeasurementList((ArrayList<String>) measurementList);
         binding.recyclerIngredients.setAdapter(adapter);
 
+        playVideo(modelMeal);
+
 
     }
 
@@ -151,6 +141,7 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
         } else {
             getViewLifecycleOwner().getLifecycle().addObserver((LifecycleObserver) binding.videoView);
             String[] split = mealModel.getStrYoutube().split("=");
+
 
             binding.videoView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
                 @Override
@@ -166,13 +157,15 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
 
                     try {
                         String videoId = split[1];
-                        youTubePlayer.loadVideo(videoId, 0);
+                        youTubePlayer.cueVideo(videoId, 0);
 
                     } catch (Exception e) {
                         Log.e("TAG", "onReady: " + e.getMessage());
                     }
                 }
+
             });
+
 
         }
 
@@ -282,12 +275,6 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
             }
         });
 
-        binding.btnPlayVedio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                playVideo(modelMeal);
-            }
-        });
     }
 
 
