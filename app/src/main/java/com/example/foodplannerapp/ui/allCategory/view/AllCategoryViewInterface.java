@@ -10,4 +10,6 @@ public interface AllCategoryViewInterface {
     void showAllMealCategory(List<ModelMeal> mealList);
 
     void getErrorMessage(String message);
+
+    void getProgressBarLiveData();
 }

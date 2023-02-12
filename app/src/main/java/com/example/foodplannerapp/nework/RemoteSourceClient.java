@@ -125,6 +125,7 @@ public class RemoteSourceClient implements RemoteSourceInterface {
 
     @Override
     public void enqueueCallCategoryItem(NetworkDelegateForCategory networkDelegate, String categoryName) {
+        progressBarLiveData.setValue(View.VISIBLE);
         RetrofitConnection
                 .getServices()
                 .getAllMealsByCategory(categoryName)
@@ -139,11 +140,13 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                     @Override
                     public void onSuccess(@NonNull ModelMealRoot modelMealRoot) {
                         networkDelegate.onCategoryNameSuccessfulResult(modelMealRoot.getMeals());
+                        progressBarLiveData.setValue(View.GONE);
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
                         networkDelegate.onFailureResult(e.getMessage());
+                        progressBarLiveData.setValue(View.GONE);
 
                     }
                 });
