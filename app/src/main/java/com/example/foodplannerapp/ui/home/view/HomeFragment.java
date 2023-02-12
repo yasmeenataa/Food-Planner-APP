@@ -62,20 +62,19 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
         presenterInterface.getRandomMeal();
 
         presenterInterface.getAllCategories();
-
         onClicks();
     }
 
-    private void showHideMealOfTheDayProgress(){
+    private void showHideMealOfTheDayProgress() {
         binding.rootMealOfTheDay.setVisibility(View.INVISIBLE);
         binding.progressMealOfTheDay.setVisibility(View.VISIBLE);
         new Handler().postDelayed(() -> {
             binding.progressMealOfTheDay.setVisibility(View.GONE);
             binding.rootMealOfTheDay.setVisibility(View.VISIBLE);
-        }, 1500);
+        }, 3000);
     }
 
-    private void showHideCategoriesProgress(){
+    private void showHideCategoriesProgress() {
         binding.recycleCategory.setVisibility(View.INVISIBLE);
         binding.progressCategories.setVisibility(View.VISIBLE);
         new Handler().postDelayed(() -> {
