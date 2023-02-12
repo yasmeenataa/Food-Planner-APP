@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +7,12 @@
     android:orientation="vertical"
     android:padding="10dp"
     tools:context=".ui.login.view.LogInFragment">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        >
     <ImageView
         android:id="@+id/img_backSignIn"
         android:layout_width="40dp"
@@ -60,7 +65,7 @@
         app:boxBackgroundMode="outline"
         app:boxStrokeColor="@color/teal_700"
         app:counterEnabled="true"
-        app:counterMaxLength="11"
+        app:counterMaxLength="20"
         app:endIconMode="password_toggle"
         app:errorEnabled="true"
         app:hintTextColor="@color/teal_700"
@@ -70,7 +75,7 @@
             android:id="@+id/PasswordEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberPassword"
+            android:inputType="textPassword"
             android:textSize="18dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -117,5 +122,6 @@
             android:textColor="@color/teal_700"
             android:textSize="18sp"></TextView>
     </LinearLayout>
+    </LinearLayout>
 
-</LinearLayout>
+</ScrollView>
