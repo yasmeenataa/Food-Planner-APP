@@ -51,7 +51,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/wave"
                 android:src="@drawable/baseline_person_24"
-                android:tint="@color/blue"/>
+                android:tint="@color/blue" />
 
 
             <TextView
@@ -88,7 +88,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:fontFamily="@font/akaya_telivigala"
                 android:gravity="center_vertical"
                 android:paddingStart="@dimen/_5sdp"
