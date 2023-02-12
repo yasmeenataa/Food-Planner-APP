@@ -15,6 +15,7 @@ import com.example.foodplannerapp.models.WeekPlannerModel;
 import com.example.foodplannerapp.nework.NetworkDelegateForCategory;
 import com.example.foodplannerapp.nework.NetworkDelegateForIngredient;
 import com.example.foodplannerapp.nework.NetworkDelegateForIngredientItem;
+import com.example.foodplannerapp.nework.NetworkDelegateForSearchMeal;
 import com.example.foodplannerapp.nework.RemoteSourceClient;
 import com.example.foodplannerapp.nework.NetworkDelegate;
 import com.example.foodplannerapp.nework.RemoteSourceInterface;
@@ -187,6 +188,11 @@ public class MealRepo implements MealRepoInterface {
     @Override
     public Single<ModelMeal> isFav(String mealId) {
         return localSourceInterface.isFav(mealId);
+    }
+
+    @Override
+    public void getMealByName(NetworkDelegateForSearchMeal delegateForSearchMeal, String mealName) {
+        remoteSourceInterface.enqueueCallSearchMealByName(delegateForSearchMeal,mealName);
     }
 
     @Override
