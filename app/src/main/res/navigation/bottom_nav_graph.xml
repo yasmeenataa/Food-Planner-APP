@@ -49,7 +49,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.foodplannerapp.ui.profile.ProfileFragment"
+        android:name="com.example.foodplannerapp.ui.profile.view.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile">
         <action

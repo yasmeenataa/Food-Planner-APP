@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,9 @@ import android.widget.Toast;
 
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentWelcomeBinding;
+import com.example.foodplannerapp.models.MySharedPref;
+import com.example.foodplannerapp.utils.Constants;
+import com.example.foodplannerapp.utils.Extensions;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -95,13 +99,33 @@ public class WelcomeFragment extends Fragment {
         binding.btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view)
-                        .navigate(R.id.action_welcomeFragment_to_homeFragment);
+                checkUserAuthorization();
             }
         });
 
 
     }
+
+    private void checkUserAuthorization() {
+        if (MySharedPref.getUserId().isEmpty()) {
+            Extensions.showConfirmationDialog(requireContext(), Constants.ANONYMOUS_USER_MESSAGE,
+                    //onYes
+                    () -> {
+                        Log.i("TAG", "checkUserAuthorization: YES");
+                        Extensions.clearAllDataFromSharedPref();
+                        Navigation.findNavController(requireView())
+                                .navigate(R.id.action_welcomeFragment_to_homeFragment);
+                    },
+                    //onNo
+                    () -> {
+                        Log.i("TAG", "checkUserAuthorization: No");
+                    }
+            );
+        } else {
+            MySharedPref.getUserId();
+        }
+    }
+
 
     @Override
     public void onDestroyView() {

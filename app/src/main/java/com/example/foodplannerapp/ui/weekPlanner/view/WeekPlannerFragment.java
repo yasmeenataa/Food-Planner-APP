@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,8 @@ import com.example.foodplannerapp.ui.weekPlanner.presenter.WeekPlannerPresenterI
 import com.example.foodplannerapp.ui.weekPlanner.view.AdapterDays;
 import com.example.foodplannerapp.ui.weekPlanner.view.AdapterMealOfTheDay;
 import com.example.foodplannerapp.ui.weekPlanner.view.WeekPlannerFragment;
+import com.example.foodplannerapp.utils.Constants;
+import com.example.foodplannerapp.utils.Extensions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,9 +93,7 @@ public class WeekPlannerFragment extends Fragment implements WeekPlannerViewInte
         adapterMealOfTheDay.setOnItemClickListener(new AdapterMealOfTheDay.SetOnItemClickListener() {
             @Override
             public void onDeleteClicked(WeekPlannerModel model) {
-                deleteWeeklyMeal(model);
-                getData(model.getDay());
-                Toast.makeText(requireContext(), "Deleted", Toast.LENGTH_SHORT).show();
+                showDialog(model);
             }
 
             @Override
@@ -134,6 +135,21 @@ public class WeekPlannerFragment extends Fragment implements WeekPlannerViewInte
     public void deleteWeeklyMeal(WeekPlannerModel weekPlannerModel) {
         presenterInterface.deleteWeeklyMealFromFirebase(weekPlannerModel);
         presenterInterface.deleteWeeklyMeal(weekPlannerModel);
+    }
+
+    private void showDialog(WeekPlannerModel model) {
+        Extensions.showConfirmationDialog(requireContext(), Constants.ANONYMOUS_USER_MESSAGE,
+                //onYes
+                () -> {
+                    deleteWeeklyMeal(model);
+                    getData(model.getDay());
+                    Toast.makeText(requireContext(), "Deleted", Toast.LENGTH_SHORT).show();
+                },
+                //onNo
+                () -> {
+                }
+        );
+
     }
 
     @Override

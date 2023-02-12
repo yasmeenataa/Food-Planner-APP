@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.navigation.Navigation;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,8 +43,6 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -61,11 +60,27 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
 
         presenterInterface = new PresenterHome(this);
         presenterInterface.getRandomMeal();
-//        presenterInterface.getRandomMeal2();
 
         presenterInterface.getAllCategories();
-
         onClicks();
+    }
+
+    private void showHideMealOfTheDayProgress() {
+        binding.rootMealOfTheDay.setVisibility(View.INVISIBLE);
+        binding.progressMealOfTheDay.setVisibility(View.VISIBLE);
+        new Handler().postDelayed(() -> {
+            binding.progressMealOfTheDay.setVisibility(View.GONE);
+            binding.rootMealOfTheDay.setVisibility(View.VISIBLE);
+        }, 3000);
+    }
+
+    private void showHideCategoriesProgress() {
+        binding.recycleCategory.setVisibility(View.INVISIBLE);
+        binding.progressCategories.setVisibility(View.VISIBLE);
+        new Handler().postDelayed(() -> {
+            binding.progressCategories.setVisibility(View.GONE);
+            binding.recycleCategory.setVisibility(View.VISIBLE);
+        }, 1500);
     }
 
     private void onClicks() {
@@ -92,12 +107,13 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
 
 
     @Override
-    public void showMeal(ModelMeal modelMeal) {
+    public void showMealOfTheDay(ModelMeal modelMeal) {
         mealId = modelMeal.getIdMeal();
         mealName = modelMeal.getStrMeal();
         mealCategory = modelMeal.getStrCategory();
         mealCountry = modelMeal.getStrArea();
         imageUrl = modelMeal.getStrMealThumb();
+        showHideMealOfTheDayProgress();
 
         binding.textViewArea.setText(mealCountry);
         binding.textViewcategory.setText(mealCategory);
@@ -111,6 +127,7 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
 
     @Override
     public void showAllCategories(List<CategoriesModel> categoryList) {
+        showHideCategoriesProgress();
         adapter.setList((ArrayList<CategoriesModel>) categoryList);
         binding.recycleCategory.setAdapter(adapter);
         adapter.notifyDataSetChanged();

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentFavouriteBinding;
 import com.example.foodplannerapp.models.ModelMeal;
+import com.example.foodplannerapp.models.WeekPlannerModel;
 import com.example.foodplannerapp.repo.mealRepo.MealRepo;
 import com.example.foodplannerapp.ui.favourite.presenter.FavMealPresenter;
 import com.example.foodplannerapp.ui.favourite.presenter.FavMealPresenterInterface;
@@ -24,6 +26,8 @@ import com.example.foodplannerapp.ui.favourite.view.FavouriteFragmentDirections;
 import com.example.foodplannerapp.ui.favourite.view.FavouriteFragmentDirections;
 import com.example.foodplannerapp.ui.favourite.view.FavouriteFragmentDirections.ActionFavouriteFragmentToDetailsFragment;
 import com.example.foodplannerapp.ui.home.view.HomeFragmentDirections;
+import com.example.foodplannerapp.utils.Constants;
+import com.example.foodplannerapp.utils.Extensions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +81,7 @@ public class FavouriteFragment extends Fragment implements FavViewInterface {
 
             @Override
             public void onItemDelete(ModelMeal mealModel) {
-                deleteMeal(mealModel);
+                showDialog(mealModel);
             }
         });
     }
@@ -92,6 +96,20 @@ public class FavouriteFragment extends Fragment implements FavViewInterface {
                         adapter.notifyDataSetChanged();
                     }
                 });
+    }
+
+    private void showDialog(ModelMeal model) {
+        Extensions.showConfirmationDialog(requireContext(), Constants.DELETE_FAV_ITEM,
+                //onYes
+                () -> {
+                    deleteMeal(model);
+                    Toast.makeText(requireContext(), "Deleted", Toast.LENGTH_SHORT).show();
+                },
+                //onNo
+                () -> {
+                }
+        );
+
     }
 
 
