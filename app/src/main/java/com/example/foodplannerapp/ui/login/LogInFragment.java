@@ -1,5 +1,6 @@
 package com.example.foodplannerapp.ui.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentLogInBinding;
 import com.example.foodplannerapp.ui.login.presenter.LoginPresenter;
 import com.example.foodplannerapp.ui.login.presenter.PresenterInterface;
+import com.example.foodplannerapp.utils.Extensions;
 
 
 public class LogInFragment extends Fragment implements ViewInterface {
@@ -94,10 +96,14 @@ public class LogInFragment extends Fragment implements ViewInterface {
 
     @Override
     public void onLoginSuccess(String userId) {
-        presenterInterface.getFavData();
-        presenterInterface.getPlanData();
-        Navigation.findNavController(requireView())
-                .navigate(R.id.action_logInFragment_to_homeFragment);
+
+        Extensions.showProgressDialog2(requireContext(), 3000, () -> {
+            presenterInterface.getFavData();
+            presenterInterface.getPlanData();
+            Navigation.findNavController(requireView())
+                    .navigate(R.id.action_logInFragment_to_homeFragment);
+        });
+
     }
 
     @Override
