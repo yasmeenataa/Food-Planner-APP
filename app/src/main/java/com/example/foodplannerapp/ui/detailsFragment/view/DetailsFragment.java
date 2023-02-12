@@ -14,9 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.Observer;
 import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
+import com.example.foodplannerapp.ui.detailsFragment.view.DetailsFragmentDirections;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentDetailsBinding;
 import com.example.foodplannerapp.models.ModelMeal;
@@ -244,7 +246,9 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
         binding.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_detailsFragment_to_homeFragment);
+                Navigation.findNavController(view)
+                        .popBackStack();
+//                Navigation.findNavController(view).navigate(R.id.action_detailsFragment_to_homeFragment);
             }
         });
 
@@ -255,10 +259,10 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
                 if (!flag) {
                     modelMeal.setUserId(MySharedPref.getUserId());
                     insertMealToFav(modelMeal);
+                    Toast.makeText(requireActivity().getApplicationContext(), "inserted", Toast.LENGTH_SHORT).show();
                     RedrawHeart();
-                    Toast.makeText(requireContext(), "inserted", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(requireContext(), "Already Inserted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireActivity().getApplicationContext(), "Already Inserted", Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -269,8 +273,9 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
             public void onClick(View view) {
 
                 modelMeal.setUserId(MySharedPref.getUserId());
-                DetailsFragmentDirections.ActionDetailsFragmentToDayFragment action =
-                        DetailsFragmentDirections.actionDetailsFragmentToDayFragment(modelMeal);
+                DetailsFragmentDirections.ActionDetailsFragmentToDayFragment3 action =
+                        DetailsFragmentDirections.actionDetailsFragmentToDayFragment3(modelMeal);
+
                 Navigation.findNavController(view)
                         .navigate(action);
 
@@ -307,6 +312,17 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
     public void insertMealToFav(ModelMeal modelMeal) {
         detailsPresenter.insertMeal(modelMeal);
         detailsPresenter.insertMealToFireBase(modelMeal);
+    }
+
+    @Override
+    public void getProgressBarLiveData() {
+        detailsPresenter.getProgressBarLiveData()
+                .observe(getViewLifecycleOwner(), new Observer<Integer>() {
+                    @Override
+                    public void onChanged(Integer integer) {
+                        binding.progressDetails.setVisibility(integer);
+                    }
+                });
     }
 
 

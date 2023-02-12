@@ -67,30 +67,6 @@ public class MealRepo implements MealRepoInterface {
         remoteSourceInterface.enqueueCall(networkDelegate);
     }
 
-    @Override
-    public void getRandomMeal2() {
-        remoteSourceInterface.getRandomMeal()
-                .observeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SingleObserver<ModelMealRoot>() {
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onSuccess(@NonNull ModelMealRoot modelMealRoot) {
-                        listLiveData.setValue(modelMealRoot.getMeals());
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-
-                        errorMessage.setValue(e.getMessage());
-
-                    }
-                });
-    }
 
     @Override
     public void getMealById(String mealId) {
@@ -106,7 +82,7 @@ public class MealRepo implements MealRepoInterface {
 
                     @Override
                     public void onSuccess(@NonNull ModelMealRoot modelMealRoot) {
-                        Log.i("TAG", "onSuccess: "+modelMealRoot.getMeals().size());
+                        Log.i("TAG", "onSuccess: " + modelMealRoot.getMeals().size());
                         listLiveData.setValue(modelMealRoot.getMeals());
                     }
 
@@ -192,16 +168,21 @@ public class MealRepo implements MealRepoInterface {
 
     @Override
     public void getMealByName(NetworkDelegateForSearchMeal delegateForSearchMeal, String mealName) {
-        remoteSourceInterface.enqueueCallSearchMealByName(delegateForSearchMeal,mealName);
+        remoteSourceInterface.enqueueCallSearchMealByName(delegateForSearchMeal, mealName);
+    }
+
+    @Override
+    public MutableLiveData<Integer> getProgressLiveData() {
+        return remoteSourceInterface.getProgressBarLiveData();
     }
 
     @Override
     public void getMealsOfArea(NetworkDelegateForAreaItem delegateForAreaItem, String areaName) {
-        remoteSourceInterface.enqueueCallAreaItem(delegateForAreaItem,areaName);
+        remoteSourceInterface.enqueueCallAreaItem(delegateForAreaItem, areaName);
     }
 
     @Override
     public void getMealsOfIngredient(NetworkDelegateForIngredientItem delegateForIngredientItem, String ingredientName) {
-        remoteSourceInterface.enqueueIngredientItem(delegateForIngredientItem,ingredientName);
+        remoteSourceInterface.enqueueIngredientItem(delegateForIngredientItem, ingredientName);
     }
 }

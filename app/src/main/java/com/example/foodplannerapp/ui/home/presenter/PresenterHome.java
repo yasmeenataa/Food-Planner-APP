@@ -2,6 +2,7 @@ package com.example.foodplannerapp.ui.home.presenter;
 
 import android.util.Log;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
 import com.example.foodplannerapp.models.AreaListModel;
@@ -32,14 +33,16 @@ public class PresenterHome implements PresenterHomeInterface, NetworkDelegate {
         mealRepo.getRandomMeal(this);
     }
 
-    @Override
-    public void getRandomMeal2() {
-        mealRepo.getRandomMeal2();
-    }
+
 
     @Override
     public void getAllCategories() {
         mealRepo.getAllCategory(this);
+    }
+
+    @Override
+    public MutableLiveData<Integer> getProgressBarLiveData() {
+        return mealRepo.getProgressLiveData();
     }
 
     @Override

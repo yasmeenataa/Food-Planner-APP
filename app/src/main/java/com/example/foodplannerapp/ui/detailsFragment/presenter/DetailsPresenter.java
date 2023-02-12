@@ -4,6 +4,7 @@ import android.util.Log;
 
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
 import com.example.foodplannerapp.models.ModelMeal;
@@ -25,7 +26,7 @@ import io.reactivex.rxjava3.core.SingleObserver;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class DetailsPresenter {
+public class DetailsPresenter implements DetailsPresenterInterface{
 
 
     private DetailsViewInterface viewInterface;
@@ -117,4 +118,10 @@ public class DetailsPresenter {
     }
 
 
+
+
+    @Override
+    public MutableLiveData<Integer> getProgressBarLiveData() {
+        return mealRepo.getProgressLiveData();
+    }
 }

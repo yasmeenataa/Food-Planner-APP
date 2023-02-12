@@ -105,7 +105,8 @@ public class WeekPlannerFragment extends Fragment implements WeekPlannerViewInte
             @Override
             public void onItemClicked(WeekPlannerModel weekPlannerModel) {
                 String mealId = weekPlannerModel.getIdMeal();
-                WeekPlannerFragmentDirections.ActionWeekPlannerFragment2ToDetailsFragment action = WeekPlannerFragmentDirections.actionWeekPlannerFragment2ToDetailsFragment(mealId);
+                WeekPlannerFragmentDirections.ActionWeekPlannerFragment2ToDetailsFragment2 action =
+                        WeekPlannerFragmentDirections.actionWeekPlannerFragment2ToDetailsFragment2(mealId);
                 Navigation.findNavController(requireView()).navigate(action);
             }
         });
@@ -113,7 +114,8 @@ public class WeekPlannerFragment extends Fragment implements WeekPlannerViewInte
         binding.btnBackInWeekFrag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_weekPlannerFragment2_to_homeFragment);
+                Navigation.findNavController(view)
+                        .popBackStack();
             }
         });
     }

@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(bottom_navigation, navController);
 
+
+
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
@@ -50,4 +52,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    // the back of bar have the same behaviour of back of system
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        return navController.navigateUp() || super.onSupportNavigateUp();
+//    }
+
 }

@@ -1,6 +1,7 @@
 package com.example.foodplannerapp.repo.mealRepo;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.foodplannerapp.models.ModelMeal;
 import com.example.foodplannerapp.models.ModelMealRoot;
@@ -21,7 +22,6 @@ import io.reactivex.rxjava3.core.Single;
 public interface MealRepoInterface {
 
     void getRandomMeal(NetworkDelegate networkDelegate);
-    void getRandomMeal2();
     void getMealById(String mealId);
     void getAllCategory(NetworkDelegate networkDelegate);
     void getAllArea(NetworkDelegateForArea delegateForArea);
@@ -40,4 +40,6 @@ public interface MealRepoInterface {
     Completable deleteWeekTableRoom();
     Single<ModelMeal> isFav(String mealId);
     void getMealByName(NetworkDelegateForSearchMeal delegateForSearchMeal,String mealName);
+
+    MutableLiveData<Integer>  getProgressLiveData();
 }

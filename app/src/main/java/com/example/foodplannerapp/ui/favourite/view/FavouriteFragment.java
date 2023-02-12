@@ -22,11 +22,11 @@ import com.example.foodplannerapp.models.WeekPlannerModel;
 import com.example.foodplannerapp.repo.mealRepo.MealRepo;
 import com.example.foodplannerapp.ui.favourite.presenter.FavMealPresenter;
 import com.example.foodplannerapp.ui.favourite.presenter.FavMealPresenterInterface;
-import com.example.foodplannerapp.ui.favourite.view.FavouriteAdapter;
-import com.example.foodplannerapp.ui.favourite.view.FavouriteFragmentDirections;
-import com.example.foodplannerapp.ui.favourite.view.FavouriteFragmentDirections;
-import com.example.foodplannerapp.ui.favourite.view.FavouriteFragmentDirections.ActionFavouriteFragmentToDetailsFragment;
-import com.example.foodplannerapp.ui.home.view.HomeFragmentDirections;
+//import com.example.foodplannerapp.ui.favourite.view.FavouriteAdapter;
+//import com.example.foodplannerapp.ui.favourite.view.FavouriteFragmentDirections;
+//import com.example.foodplannerapp.ui.favourite.view.FavouriteFragmentDirections;
+//import com.example.foodplannerapp.ui.favourite.view.FavouriteFragmentDirections.ActionFavouriteFragmentToDetailsFragment;
+//import com.example.foodplannerapp.ui.home.view.HomeFragmentDirections;
 import com.example.foodplannerapp.utils.Constants;
 import com.example.foodplannerapp.utils.Extensions;
 
@@ -73,7 +73,7 @@ public class FavouriteFragment extends Fragment implements FavViewInterface {
         binding.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_favouriteFragment_to_homeFragment);
+                Navigation.findNavController(view).popBackStack();
             }
         });
 

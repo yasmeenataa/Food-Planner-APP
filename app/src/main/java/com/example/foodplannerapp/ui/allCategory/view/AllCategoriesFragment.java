@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.navigation.Navigation;
 
 
@@ -19,7 +20,7 @@ import com.example.foodplannerapp.databinding.FragmentAllCategoriesBinding;
 import com.example.foodplannerapp.models.ModelMeal;
 import com.example.foodplannerapp.ui.allCategory.presenter.AllCategoryPresenterInterface;
 import com.example.foodplannerapp.ui.allCategory.presenter.PresenterAllCategory;
-import com.example.foodplannerapp.ui.allCategory.view.AllCategoriesFragmentDirections;
+//import com.example.foodplannerapp.ui.allCategory.view.AllCategoriesFragmentDirections;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +82,7 @@ public class AllCategoriesFragment extends Fragment implements AllCategoryViewIn
         });
     }
 
-    private void showHideAllMealCategoriesProgress(){
+    private void showHideAllMealCategoriesProgress() {
         binding.recyclerAllCategories.setVisibility(View.INVISIBLE);
         binding.progressAllCategories.setVisibility(View.VISIBLE);
         new Handler().postDelayed(() -> {
@@ -93,7 +94,7 @@ public class AllCategoriesFragment extends Fragment implements AllCategoryViewIn
 
     @Override
     public void showAllMealCategory(List<ModelMeal> mealList) {
-        showHideAllMealCategoriesProgress();
+//        showHideAllMealCategoriesProgress();
         adapter.setList((ArrayList<ModelMeal>) mealList);
         binding.recyclerAllCategories.setAdapter(adapter);
         adapter.notifyDataSetChanged();
@@ -102,6 +103,17 @@ public class AllCategoriesFragment extends Fragment implements AllCategoryViewIn
     @Override
     public void getErrorMessage(String message) {
         Toast.makeText(requireContext(), "Fail: " + message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void getProgressBarLiveData() {
+        presenterInterface.getProgressBarLiveData()
+                .observe(getViewLifecycleOwner(), new Observer<Integer>() {
+                    @Override
+                    public void onChanged(Integer integer) {
+                        binding.progressAllCategories.setVisibility(integer);
+                    }
+                });
     }
 
     @Override

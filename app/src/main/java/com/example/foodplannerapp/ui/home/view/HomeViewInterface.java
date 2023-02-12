@@ -1,5 +1,7 @@
 package com.example.foodplannerapp.ui.home.view;
 
+import androidx.lifecycle.MutableLiveData;
+
 import com.example.foodplannerapp.models.CategoriesModel;
 import com.example.foodplannerapp.models.ModelMeal;
 
@@ -12,4 +14,6 @@ public interface HomeViewInterface {
     void showAllCategories(List<CategoriesModel> categoryList);
 
     void getErrorMessage(String message);
+
+    void getProgressBarLiveData();
 }

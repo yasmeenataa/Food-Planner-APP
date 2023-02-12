@@ -18,6 +18,9 @@ import android.widget.Toast;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentWelcomeBinding;
 import com.example.foodplannerapp.models.MySharedPref;
+import com.example.foodplannerapp.ui.login.presenter.LoginPresenter;
+import com.example.foodplannerapp.ui.login.presenter.PresenterInterface;
+import com.example.foodplannerapp.ui.login.view.ViewInterface;
 import com.example.foodplannerapp.utils.Constants;
 import com.example.foodplannerapp.utils.Extensions;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -32,11 +35,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
-public class WelcomeFragment extends Fragment {
+public class WelcomeFragment extends Fragment implements ViewInterface {
 
     FragmentWelcomeBinding binding;
     GoogleSignInClient client;
+
+    private PresenterInterface presenterInterface;
 
 
     @Override
@@ -56,7 +62,7 @@ public class WelcomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        presenterInterface = new LoginPresenter(this);
         GoogleSignInOptions options = new GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -85,14 +91,14 @@ public class WelcomeFragment extends Fragment {
         binding.btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_welcomeFragment_to_signUpFragment);
+                Navigation.findNavController(view).navigate(R.id.action_welcomeFragment_to_signUpFragment2);
             }
         });
 
         binding.textViewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_welcomeFragment_to_logInFragment);
+                Navigation.findNavController(view).navigate(R.id.action_welcomeFragment_to_logInFragment2);
             }
         });
 
@@ -114,7 +120,7 @@ public class WelcomeFragment extends Fragment {
                         Log.i("TAG", "checkUserAuthorization: YES");
                         Extensions.clearAllDataFromSharedPref();
                         Navigation.findNavController(requireView())
-                                .navigate(R.id.action_welcomeFragment_to_homeFragment);
+                                .navigate(R.id.action_welcomeFragment_to_homeFragment2);
                     },
                     //onNo
                     () -> {
@@ -145,13 +151,20 @@ public class WelcomeFragment extends Fragment {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                UserProfileChangeRequest user = new UserProfileChangeRequest.Builder()
+                                        .setDisplayName(account.getDisplayName()).build();
+                                task.getResult().getUser().updateProfile(user);
                                 MySharedPref.setUserId(task.getResult().getUser().getUid());
                                 MySharedPref.setUserEmail(task.getResult().getUser().getEmail());
                                 MySharedPref.setUserName(task.getResult().getUser().getDisplayName());
                                 MySharedPref.setUserUriKey(String.valueOf(task.getResult().getUser().getPhotoUrl()));
                                 if (task.isSuccessful()) {
-                                    Navigation.findNavController(requireView())
-                                            .navigate(R.id.action_welcomeFragment_to_homeFragment);
+                                    Extensions.showProgressDialog2(requireContext(), 3000, () -> {
+                                        presenterInterface.getFavData();
+                                        presenterInterface.getPlanData();
+                                        Navigation.findNavController(requireView())
+                                                .navigate(R.id.action_welcomeFragment_to_homeFragment2);
+                                    });
                                 } else
                                     Toast.makeText(getContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
@@ -162,6 +175,21 @@ public class WelcomeFragment extends Fragment {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void onLoginSuccess(String userId) {
+//        Extensions.showProgressDialog2(requireContext(), 3000, () -> {
+//            presenterInterface.getFavData();
+//            presenterInterface.getPlanData();
+//            Navigation.findNavController(requireView())
+//                    .navigate(R.id.action_welcomeFragment_to_homeFragment2);
+//        });
+    }
+
+    @Override
+    public void onLoginFail(String message) {
+//        Toast.makeText(requireContext(), "Fail :" + message, Toast.LENGTH_SHORT).show();
     }
 
 //    @Override

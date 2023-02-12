@@ -1,5 +1,9 @@
 package com.example.foodplannerapp.nework;
 
+import android.view.View;
+
+import androidx.lifecycle.MutableLiveData;
+
 import com.example.foodplannerapp.models.CategoriesRootModel;
 import com.example.foodplannerapp.models.ModelMealRoot;
 
@@ -14,8 +18,15 @@ public class RemoteSourceClient implements RemoteSourceInterface {
 
     private static RemoteSourceClient mealClient = null;
 
-    private RemoteSourceClient() {
+    private MutableLiveData<Integer> progressBarLiveData;
 
+    @Override
+    public MutableLiveData<Integer> getProgressBarLiveData() {
+        return progressBarLiveData;
+    }
+
+    private RemoteSourceClient() {
+        progressBarLiveData = new MutableLiveData<>();
     }
 
     public static RemoteSourceClient getMealClientInstance() {
@@ -27,9 +38,9 @@ public class RemoteSourceClient implements RemoteSourceInterface {
     }
 
 
-
     @Override
     public void enqueueCall(NetworkDelegate networkDelegate) {
+        progressBarLiveData.setValue(View.VISIBLE);
         RetrofitConnection
                 .getServices()
                 .getRandomMeal()
@@ -44,11 +55,12 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                     @Override
                     public void onSuccess(@NonNull ModelMealRoot modelMealRoot) {
                         networkDelegate.onSuccessfulResult(modelMealRoot.getMeals());
+                        progressBarLiveData.setValue(View.GONE);
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-
+                        progressBarLiveData.setValue(View.GONE);
                         networkDelegate.onFailureResult(e.getLocalizedMessage());
                     }
                 });
@@ -57,6 +69,7 @@ public class RemoteSourceClient implements RemoteSourceInterface {
 
     @Override
     public void enqueueCallCategory(NetworkDelegate networkDelegate) {
+        progressBarLiveData.setValue(View.VISIBLE);
         RetrofitConnection
                 .getServices()
                 .getAllCategories()
@@ -71,11 +84,13 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                     @Override
                     public void onSuccess(@NonNull CategoriesRootModel categoriesRootModel) {
                         networkDelegate.onCategorySuccessfulResult(categoriesRootModel.getCategories());
+                        progressBarLiveData.setValue(View.GONE);
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
                         networkDelegate.onFailureResult(e.getMessage());
+                        progressBarLiveData.setValue(View.GONE);
                     }
                 });
 
@@ -102,7 +117,7 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        item ->networkDelegate.onSuccessIngredientList(item.getMeals()),
+                        item -> networkDelegate.onSuccessIngredientList(item.getMeals()),
                         error -> networkDelegate.onFailureIngredientList("Error :" + error.toString())
                 );
     }
@@ -110,6 +125,7 @@ public class RemoteSourceClient implements RemoteSourceInterface {
 
     @Override
     public void enqueueCallCategoryItem(NetworkDelegateForCategory networkDelegate, String categoryName) {
+        progressBarLiveData.setValue(View.VISIBLE);
         RetrofitConnection
                 .getServices()
                 .getAllMealsByCategory(categoryName)
@@ -124,11 +140,13 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                     @Override
                     public void onSuccess(@NonNull ModelMealRoot modelMealRoot) {
                         networkDelegate.onCategoryNameSuccessfulResult(modelMealRoot.getMeals());
+                        progressBarLiveData.setValue(View.GONE);
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
                         networkDelegate.onFailureResult(e.getMessage());
+                        progressBarLiveData.setValue(View.GONE);
 
                     }
                 });

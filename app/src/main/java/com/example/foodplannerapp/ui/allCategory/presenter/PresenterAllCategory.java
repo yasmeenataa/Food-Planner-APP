@@ -1,5 +1,7 @@
 package com.example.foodplannerapp.ui.allCategory.presenter;
 
+import androidx.lifecycle.MutableLiveData;
+
 import com.example.foodplannerapp.models.ModelMeal;
 import com.example.foodplannerapp.nework.NetworkDelegateForCategory;
 import com.example.foodplannerapp.repo.mealRepo.MealRepo;
@@ -40,5 +42,10 @@ public class PresenterAllCategory implements AllCategoryPresenterInterface, Netw
     @Override
     public void insertToFav(ModelMeal modelMeal) {
         mealRepo.insertMeal(modelMeal);
+    }
+
+    @Override
+    public MutableLiveData<Integer> getProgressBarLiveData() {
+        return mealRepo.getProgressLiveData();
     }
 }

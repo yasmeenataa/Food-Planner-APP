@@ -36,7 +36,7 @@ public class SignUpFragment extends Fragment implements ViewInterface {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentSignUpBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -55,11 +55,27 @@ public class SignUpFragment extends Fragment implements ViewInterface {
 
 
     private void onClicks() {
-        binding.btnSignUp.setOnClickListener(view -> getData());
+        binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        binding.textViewHaveAcount.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_logInFragment));
+                getData();
+            }
+        });
 
-        binding.imgBackSignUp.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_logInFragment));
+        binding.textViewHaveAcount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_logInFragment2);
+            }
+        });
+
+        binding.imgBackSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_welcomeFragment3);
+            }
+        });
     }
 
     private void getData() {
@@ -126,7 +142,7 @@ public class SignUpFragment extends Fragment implements ViewInterface {
     public void onRegisterSuccess(String userId) {
 
         Navigation.findNavController(requireView())
-                .navigate(R.id.action_signUpFragment_to_homeFragment);
+                .navigate(R.id.action_signUpFragment_to_homeFragment3);
 
     }
 

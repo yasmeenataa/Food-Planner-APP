@@ -3,17 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_16sdp"
+    android:layout_gravity="center"
+    android:layout_margin="@dimen/_4sdp"
     android:backgroundTint="@color/secondaryWhite"
     android:elevation="@dimen/_16sdp"
     android:orientation="horizontal"
-    android:paddingVertical="@dimen/_32sdp"
+    android:paddingVertical="@dimen/_16sdp"
     app:cardCornerRadius="@dimen/_16sdp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/secondaryWhite"
         android:paddingVertical="@dimen/_16sdp">
 
         <ProgressBar
@@ -21,7 +23,7 @@
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_8sdp"
+            android:layout_margin="@dimen/_4sdp"
             android:indeterminateTint="@color/blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,12 +33,15 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:background="@color/secondaryWhite"
             android:fontFamily="@font/akaya_telivigala"
+            android:maxEms="10"
             android:text="@string/login_successfully_please_wait"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/black"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_12ssp"
             app:layout_constraintBottom_toBottomOf="@id/progressBar"
             app:layout_constraintStart_toEndOf="@id/progressBar"
             app:layout_constraintTop_toTopOf="@id/progressBar" />
