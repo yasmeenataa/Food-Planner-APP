@@ -31,7 +31,6 @@ public class SignUpPresenter implements PresenterInterface, FirebaseOnCompleteLi
     @Override
     public void signUp(String email, String pass) {
         repoInterface.signUp(email, pass);
-
     }
 
     @Override

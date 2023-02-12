@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentSignUpBinding;
+import com.example.foodplannerapp.models.MySharedPref;
 import com.example.foodplannerapp.ui.signUp.presenter.PresenterInterface;
 import com.example.foodplannerapp.ui.signUp.presenter.SignUpPresenter;
 
@@ -92,6 +93,8 @@ public class SignUpFragment extends Fragment implements ViewInterface {
         } else if (pass.isEmpty()) {
             binding.PasswordEdit.setError("Required");
         } else {
+            MySharedPref.setUserName(name);
+            MySharedPref.setUserPassword(pass);
             presenterInterface.signUp(email, pass);
 
         }
@@ -114,7 +117,7 @@ public class SignUpFragment extends Fragment implements ViewInterface {
     @Override
     public void onRegisterFail(String message) {
 
-        Toast.makeText(requireContext(), "Fail" + message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(requireActivity().getBaseContext(), "Fail" + message, Toast.LENGTH_SHORT).show();
 
     }
 }
