@@ -121,7 +121,7 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
         mealCategory = modelMeal.getStrCategory();
         mealCountry = modelMeal.getStrArea();
         imageUrl = modelMeal.getStrMealThumb();
-        showHideMealOfTheDayProgress();
+
 
         binding.textViewArea.setText(mealCountry);
         binding.textViewcategory.setText(mealCategory);
@@ -135,7 +135,7 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
 
     @Override
     public void showAllCategories(List<CategoriesModel> categoryList) {
-        showHideCategoriesProgress();
+
         adapter.setList((ArrayList<CategoriesModel>) categoryList);
         binding.recycleCategory.setAdapter(adapter);
         adapter.notifyDataSetChanged();
@@ -144,6 +144,20 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
     @Override
     public void getErrorMessage(String message) {
         Toast.makeText(requireContext(), "Failed : " + message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void getProgressBarLiveData() {
+        presenterInterface.getProgressBarLiveData()
+                .observe(getViewLifecycleOwner(), new Observer<Integer>() {
+                    @Override
+                    public void onChanged(Integer integer) {
+                        //        showHideCategoriesProgress();
+                        //        showHideMealOfTheDayProgress();
+                        binding.progressCategories.setVisibility(integer);
+                        binding.progressMealOfTheDay.setVisibility(integer);
+                    }
+                });
     }
 
 
