@@ -171,7 +171,7 @@
 
     <fragment
         android:id="@+id/logInFragment"
-        android:name="com.example.foodplannerapp.ui.login.LogInFragment"
+        android:name="com.example.foodplannerapp.ui.login.view.LogInFragment"
         android:label="fragment_log_in"
         tools:layout="@layout/fragment_log_in" >
         <action

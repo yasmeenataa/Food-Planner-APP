@@ -8,7 +8,25 @@
     tools:context=".ui.profile.view.ProfileFragment">
 
 
+    <TextView
+        android:id="@+id/textViewLoginFirst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:background="@drawable/shape_description"
+        android:fontFamily="@font/akaya_telivigala"
+        android:gravity="center"
+        android:paddingVertical="@dimen/_24sdp"
+        android:text="@string/loginFirst"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
+        android:id="@+id/card"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="@dimen/_400sdp"
         app:cardCornerRadius="@dimen/_30sdp"
@@ -25,7 +43,7 @@
             <ImageView
                 android:id="@+id/wave"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_70sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:scaleType="fitXY"
                 android:src="@drawable/wave"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +53,7 @@
             <ImageView
                 android:id="@+id/wave2"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_70sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:scaleType="fitXY"
                 android:src="@drawable/wave3"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -47,34 +65,36 @@
                 android:id="@+id/image_view_profile"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_100sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:src="@drawable/baseline_person_24"
+                app:civ_border_color="@color/black"
+                app:civ_border_width="@dimen/_1sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/wave"
-                android:src="@drawable/baseline_person_24"
-                android:tint="@color/blue" />
+                app:layout_constraintTop_toBottomOf="@id/wave" />
 
 
             <TextView
-                android:id="@+id/text_view_name"
+                android:id="@+id/text_view_name_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_4sdp"
                 android:fontFamily="@font/akaya_telivigala"
-                tools:text="@string/arwa"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15ssp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/image_view_profile"
                 app:layout_constraintStart_toStartOf="@id/image_view_profile"
-                app:layout_constraintTop_toBottomOf="@id/image_view_profile" />
+                app:layout_constraintTop_toBottomOf="@id/image_view_profile"
+                tools:text="@string/arwa" />
 
 
             <ImageView
-                android:contentDescription="@string/image"
                 android:id="@+id/image_view_fav"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_marginStart="@dimen/_30sdp"
+                android:contentDescription="@string/image"
                 android:src="@drawable/baseline_favorite_24"
                 app:layout_constraintBottom_toBottomOf="@id/text_view_fav"
                 app:layout_constraintStart_toStartOf="parent"
@@ -95,15 +115,15 @@
                 android:text="@string/favourite"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/image_view_fav"
-                app:layout_constraintTop_toBottomOf="@id/text_view_name"
+                app:layout_constraintTop_toBottomOf="@id/text_view_name_profile"
                 app:layout_constraintWidth_percent="0.7" />
 
             <ImageView
-                android:contentDescription="@string/image"
                 android:id="@+id/image_view_settings"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_marginStart="@dimen/_30sdp"
+                android:contentDescription="@string/image"
                 android:src="@drawable/plan"
                 app:layout_constraintBottom_toBottomOf="@id/text_view_WeeklyPlannerMeals"
                 app:layout_constraintStart_toStartOf="parent"
@@ -128,11 +148,11 @@
                 app:layout_constraintWidth_percent="0.7" />
 
             <ImageView
-                android:contentDescription="@string/image"
                 android:id="@+id/image_view_logout"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_marginStart="@dimen/_30sdp"
+                android:contentDescription="@string/image"
                 android:src="@drawable/baseline_exit_to_app_24"
                 app:layout_constraintBottom_toBottomOf="@id/text_view_logout"
                 app:layout_constraintStart_toStartOf="parent"

@@ -131,7 +131,7 @@
         android:layout_marginEnd="@dimen/_30sdp"
         android:text="@string/already_have_an_account"
         android:textColor="@color/white"
-        android:textSize="@dimen/_15ssp"
+        android:textSize="@dimen/_10ssp"
         app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintTop_toBottomOf="@id/btn_signup" />
@@ -149,6 +149,7 @@
         android:textColor="@color/white"
         android:textSize="@dimen/_17ssp"
         android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/haveAcc"
         app:layout_constraintBottom_toBottomOf="@id/haveAcc"
         app:layout_constraintStart_toEndOf="@id/haveAcc" />
 

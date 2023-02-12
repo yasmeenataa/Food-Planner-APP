@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentWeekPlannerBinding;
 import com.example.foodplannerapp.models.ModelMeal;
+import com.example.foodplannerapp.models.MySharedPref;
 import com.example.foodplannerapp.models.WeekPlannerModel;
 import com.example.foodplannerapp.ui.weekPlanner.presenter.WeekPlannerPresenter;
 import com.example.foodplannerapp.ui.weekPlanner.presenter.WeekPlannerPresenterInterface;
@@ -57,13 +58,16 @@ public class WeekPlannerFragment extends Fragment implements WeekPlannerViewInte
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentWeekPlannerBinding.bind(view);
 
-        list = new ArrayList<>();
-        adapter = new AdapterDays();
-        adapterMealOfTheDay = new AdapterMealOfTheDay();
-        presenterInterface = new WeekPlannerPresenter(this);
-        inflateDaysRecycler();
-        onClicks();
-
+        if (MySharedPref.getUserId().isEmpty()){
+            Toast.makeText(requireContext(), getString(R.string.loginFirst), Toast.LENGTH_SHORT).show();
+        }else {
+            list = new ArrayList<>();
+            adapter = new AdapterDays();
+            adapterMealOfTheDay = new AdapterMealOfTheDay();
+            presenterInterface = new WeekPlannerPresenter(this);
+            inflateDaysRecycler();
+            onClicks();
+        }
     }
 
     private ArrayList<String> fillDayList() {
@@ -87,7 +91,9 @@ public class WeekPlannerFragment extends Fragment implements WeekPlannerViewInte
         adapter.setOnDayClickListener(new AdapterDays.SetOnDayClickListener() {
             @Override
             public void onItemClick(String day) {
-                getData(day);
+
+                    getData(day);
+
             }
         });
         adapterMealOfTheDay.setOnItemClickListener(new AdapterMealOfTheDay.SetOnItemClickListener() {
@@ -112,11 +118,6 @@ public class WeekPlannerFragment extends Fragment implements WeekPlannerViewInte
         });
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
 
     private void getData(String day) {
         presenterInterface.getAllMealByDay(day)
@@ -145,7 +146,6 @@ public class WeekPlannerFragment extends Fragment implements WeekPlannerViewInte
                     getData(model.getDay());
                     Toast.makeText(requireContext(), "Deleted", Toast.LENGTH_SHORT).show();
                 },
-                //onNo
                 () -> {
                 }
         );
@@ -157,5 +157,10 @@ public class WeekPlannerFragment extends Fragment implements WeekPlannerViewInte
         Toast.makeText(requireContext(), "Fail :" + error, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
 
 }

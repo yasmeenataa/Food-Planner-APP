@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/_8sdp"
-    android:layout_marginTop="@dimen/_3sdp"
+    android:layout_marginHorizontal="@dimen/_12sdp"
+    android:layout_marginTop="@dimen/_8sdp"
+    android:layout_marginBottom="@dimen/_4sdp"
     android:background="@color/white"
     android:elevation="@dimen/_8sdp"
     app:cardCornerRadius="@dimen/_16sdp">
@@ -36,7 +37,8 @@
             android:paddingVertical="@dimen/_8sdp"
             android:paddingStart="@dimen/_16sdp"
             android:textColor="@color/blue"
-            android:textSize="@dimen/_24sdp"
+            android:textSize="@dimen/_16sdp"
+            android:maxEms="7"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/image_of_weekPlanner"
             tools:text="@string/arwa" />

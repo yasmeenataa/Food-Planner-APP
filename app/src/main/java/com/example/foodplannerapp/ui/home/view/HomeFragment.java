@@ -20,6 +20,7 @@ import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentHomeBinding;
 import com.example.foodplannerapp.models.CategoriesModel;
 import com.example.foodplannerapp.models.ModelMeal;
+import com.example.foodplannerapp.models.MySharedPref;
 import com.example.foodplannerapp.repo.mealRepo.MealRepo;
 import com.example.foodplannerapp.ui.home.presenter.PresenterHome;
 import com.example.foodplannerapp.ui.home.presenter.PresenterHomeInterface;
@@ -55,6 +56,13 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        Log.e("TAG", MySharedPref.getUserName());
+        Log.e("TAG", MySharedPref.getUserId());
+        Log.e("TAG", MySharedPref.getUserEmail());
+        Log.e("TAG", MySharedPref.getUserPassword());
+        Log.e("TAG", MySharedPref.getUserUriKey());
+
         fragment = new HomeFragment();
         adapter = new CategoriesAdapter();
 

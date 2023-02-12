@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import com.example.foodplannerapp.models.AreaListModel;
 import com.example.foodplannerapp.models.IngredientListModel;
 import com.example.foodplannerapp.models.ModelMeal;
@@ -23,11 +24,12 @@ import com.example.foodplannerapp.databinding.FragmentSearchBinding;
 import com.example.foodplannerapp.models.CategoriesModel;
 import com.example.foodplannerapp.ui.search.presenter.SearchPresenter;
 import com.example.foodplannerapp.ui.search.presenter.SearchPresenterInterface;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class SearchFragment extends Fragment implements SearchViewInterface,OnItemClickListener {
+public class SearchFragment extends Fragment implements SearchViewInterface, OnItemClickListener {
     private FragmentSearchBinding binding;
     private ArrayList<CategoriesModel> list;
     private CategoriesAdapter categoriesAdapter;
@@ -36,6 +38,7 @@ public class SearchFragment extends Fragment implements SearchViewInterface,OnIt
     private SearchForMealAdapter searchForMealAdapter;
     private SearchPresenterInterface presenterInterface;
     private SearchFragment searchFragment;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,12 +52,12 @@ public class SearchFragment extends Fragment implements SearchViewInterface,OnIt
 
         super.onViewCreated(view, savedInstanceState);
 
-        areaListAdapter=new AreaListAdapter(new ArrayList<>(),getContext(),this);
-        ingredientListAdapter=new IngredientListAdapter(new ArrayList<>(),getContext(),this);
-        categoriesAdapter=new CategoriesAdapter();
-        searchForMealAdapter=new SearchForMealAdapter(new ArrayList<>(),getContext(),this);
+        areaListAdapter = new AreaListAdapter(new ArrayList<>(), getContext(), this);
+        ingredientListAdapter = new IngredientListAdapter(new ArrayList<>(), getContext(), this);
+        categoriesAdapter = new CategoriesAdapter();
+        searchForMealAdapter = new SearchForMealAdapter(new ArrayList<>(), getContext(), this);
         list = new ArrayList<>();
-        presenterInterface=new SearchPresenter(this, MealRepo.getMealRepoInstance());
+        presenterInterface = new SearchPresenter(this, MealRepo.getMealRepoInstance());
         presenterInterface.getAreaList();
         presenterInterface.getIngredientList();
         presenterInterface.getAllCategories();
@@ -67,10 +70,10 @@ public class SearchFragment extends Fragment implements SearchViewInterface,OnIt
             @SuppressLint("SuspiciousIndentation")
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.toString().equals(""))
+                if (s.toString().equals(""))
                     binding.recycleSearchMealName.setVisibility(View.GONE);
                 else
-                presenterInterface.getMealByName(s.toString());
+                    presenterInterface.getMealByName(s.toString());
             }
 
             @Override
@@ -81,24 +84,23 @@ public class SearchFragment extends Fragment implements SearchViewInterface,OnIt
         onClicks();
     }
 
-public void onClicks()
-{
-    categoriesAdapter.setOnCategoryClickListener(new CategoriesAdapter.SetOnCategoryClickListener() {
-        @Override
-        public void onCategoryClicked(String categoryName) {
-            SearchFragmentDirections.ActionSearchFragmentToAllCategoriesFragment3 action=
-                    SearchFragmentDirections.actionSearchFragmentToAllCategoriesFragment3(categoryName);
-            Navigation.findNavController(requireView())
-                    .navigate(action);
+    public void onClicks() {
+        categoriesAdapter.setOnCategoryClickListener(new CategoriesAdapter.SetOnCategoryClickListener() {
+            @Override
+            public void onCategoryClicked(String categoryName) {
+                SearchFragmentDirections.ActionSearchFragmentToAllCategoriesFragment3 action =
+                        SearchFragmentDirections.actionSearchFragmentToAllCategoriesFragment3(categoryName);
+                Navigation.findNavController(requireView())
+                        .navigate(action);
 
-        }
-    });
-}
+            }
+        });
+    }
 
     @Override
     public void showIngredientList(List<IngredientListModel> ingredientList) {
         binding.progressBarSearch.setVisibility(View.GONE);
-        System.out.println("//////////////////////Handled/////////////////////"+ingredientList.get(0).getStrIngredient());
+        System.out.println("//////////////////////Handled/////////////////////" + ingredientList.get(0).getStrIngredient());
         ingredientListAdapter.setList((ArrayList<IngredientListModel>) ingredientList);
         binding.recycleIngredients.setAdapter(ingredientListAdapter);
         ingredientListAdapter.notifyDataSetChanged();
@@ -106,15 +108,15 @@ public void onClicks()
 
     @Override
     public void showAllCategories(List<CategoriesModel> categoryList) {
-       categoriesAdapter.setList((ArrayList<CategoriesModel>) categoryList);
-       binding.recyclerSearchCat.setAdapter(categoriesAdapter);
-       categoriesAdapter.notifyDataSetChanged();
+        categoriesAdapter.setList((ArrayList<CategoriesModel>) categoryList);
+        binding.recyclerSearchCat.setAdapter(categoriesAdapter);
+        categoriesAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void onFailureCategoryList(String message) {
-        System.out.println("Error : "+message);
-        Toast.makeText(getContext(),"Error : "+message,Toast.LENGTH_SHORT).show();
+        System.out.println("Error : " + message);
+        Toast.makeText(getContext(), "Error : " + message, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -128,15 +130,15 @@ public void onClicks()
 
     @Override
     public void onFailureIngredientList(String errorMsg) {
-        System.out.println("Error : "+errorMsg);
-        Toast.makeText(getContext(),"Error : "+errorMsg,Toast.LENGTH_SHORT).show();
+        System.out.println("Error : " + errorMsg);
+        Toast.makeText(getContext(), "Error : " + errorMsg, Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
     public void onFailureAreaList(String errorMsg) {
-        System.out.println("Error : "+errorMsg);
-        Toast.makeText(getContext(),"Error : "+errorMsg,Toast.LENGTH_SHORT).show();
+        System.out.println("Error : " + errorMsg);
+        Toast.makeText(getContext(), "Error : " + errorMsg, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -149,14 +151,14 @@ public void onClicks()
 
     @Override
     public void onFailureMealsByName(String errorMsg) {
-
+        Toast.makeText(requireContext(), errorMsg, Toast.LENGTH_SHORT).show();
     }
 
 
     @Override
     public void OnIngredientClick(String item_name) {
-        SearchFragmentDirections.ActionSearchFragmentToResultSearchFragment action=
-                SearchFragmentDirections.actionSearchFragmentToResultSearchFragment("Ingredient",item_name);
+        SearchFragmentDirections.ActionSearchFragmentToResultSearchFragment action =
+                SearchFragmentDirections.actionSearchFragmentToResultSearchFragment("Ingredient", item_name);
         Navigation.findNavController(requireView())
                 .navigate(action);
 
@@ -165,15 +167,15 @@ public void onClicks()
 
     @Override
     public void OnAreaClick(String item_name) {
-        SearchFragmentDirections.ActionSearchFragmentToResultSearchFragment action=
-                SearchFragmentDirections.actionSearchFragmentToResultSearchFragment("Area",item_name);
+        SearchFragmentDirections.ActionSearchFragmentToResultSearchFragment action =
+                SearchFragmentDirections.actionSearchFragmentToResultSearchFragment("Area", item_name);
         Navigation.findNavController(requireView())
                 .navigate(action);
     }
 
     @Override
     public void onSearchedMealClick(String mealId) {
-        com.example.foodplannerapp.ui.search.view.SearchFragmentDirections.ActionSearchFragmentToDetailsFragment action=
+        com.example.foodplannerapp.ui.search.view.SearchFragmentDirections.ActionSearchFragmentToDetailsFragment action =
                 com.example.foodplannerapp.ui.search.view.SearchFragmentDirections.actionSearchFragmentToDetailsFragment(mealId);
         Navigation.findNavController(requireView())
                 .navigate(action);

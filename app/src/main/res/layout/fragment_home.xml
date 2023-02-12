@@ -8,11 +8,21 @@
     android:orientation="vertical"
     tools:context=".ui.home.view.HomeFragment">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/splash_up"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
@@ -24,8 +34,10 @@
             android:fontFamily="@font/akaya_telivigala"
             android:text="@string/inspiration_for_you"
             android:textColor="#1C1C1C"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewMealHome"
@@ -34,15 +46,16 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="23dp"
             android:layout_marginEnd="30dp"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="24dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="24dp"
+            app:layout_constraintTop_toBottomOf="@id/textView">
 
             <ProgressBar
                 android:id="@+id/progressMealOfTheDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:elevation="@dimen/_5sdp"
+                android:elevation="@dimen/_8sdp"
                 android:indeterminateTint="@color/teal_700"
                 android:visibility="gone"
                 tools:visibility="visible" />
@@ -51,6 +64,7 @@
                 android:id="@+id/rootMealOfTheDay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="#1D0A7891"
                 android:orientation="vertical"
                 android:paddingVertical="@dimen/_8sdp">
 
@@ -72,8 +86,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
-                    android:textColor="@color/primaryColor"
-                    android:textSize="18sp"
+                    android:fontFamily="@font/akaya_telivigala"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
                     android:textStyle="bold"
                     tools:text="@string/fettuccine_alfredo" />
 
@@ -83,6 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="3dp"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     tools:text="@string/paste" />
@@ -93,6 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     tools:text="@string/italian" />
@@ -111,7 +128,9 @@
             android:text="@string/search_by_category"
             android:textColor="#1C1C1C"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/textView"
+            app:layout_constraintTop_toBottomOf="@id/cardViewMealHome" />
 
 
         <ProgressBar
@@ -119,10 +138,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_80sdp"
             android:elevation="@dimen/_5sdp"
             android:indeterminateTint="@color/teal_700"
             android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardViewMealHome"
             tools:visibility="visible" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -133,9 +155,11 @@
             android:layout_marginBottom="48dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_by_category"
             app:spanCount="2"
             tools:listitem="@layout/category_row" />
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
