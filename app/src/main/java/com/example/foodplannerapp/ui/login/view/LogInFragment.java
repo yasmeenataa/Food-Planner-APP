@@ -18,6 +18,9 @@ import com.example.foodplannerapp.ui.login.presenter.LoginPresenter;
 import com.example.foodplannerapp.ui.login.presenter.PresenterInterface;
 import com.example.foodplannerapp.utils.Extensions;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class LogInFragment extends Fragment implements ViewInterface {
 
@@ -76,16 +79,32 @@ public class LogInFragment extends Fragment implements ViewInterface {
     }
 
     private void validation(String email, String pass) {
+        binding.UserNameLayout.setError(null);
+        binding.passwordLayout.setError(null);
         if (email.isEmpty()) {
-            binding.UserNameEdit.setError("Required");
-        } else if (pass.isEmpty()) {
-            binding.PasswordEdit.setError("Required");
+            binding.UserNameLayout.setError("Required");
+        } else if (!isValidEmail(email)) {
+            binding.UserNameLayout.setError("Invalid email");
+        }else if (pass.isEmpty()) {
+            binding.passwordLayout.setError("Required");
         } else {
             presenterInterface.login(email, pass);
         }
     }
 
 
+    public  boolean isValidEmail(String email)
+    {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
