@@ -1,7 +1,9 @@
 package com.example.foodplannerapp.ui.detailsFragment.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -272,6 +274,22 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
                 Navigation.findNavController(view)
                         .navigate(action);
 
+            }
+        });
+        binding.btnCalender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(modelMeal!=null) {
+                    Intent intent = new Intent(Intent.ACTION_INSERT);
+                    intent.setData(CalendarContract.Events.CONTENT_URI);
+                    intent.putExtra(CalendarContract.Events.TITLE, modelMeal.getStrMeal());
+                    intent.putExtra(CalendarContract.Events.DESCRIPTION, modelMeal.getStrInstructions()+"\n Video On YouTube : "+modelMeal.getStrYoutube());
+                    intent.putExtra(CalendarContract.Events.ALL_DAY, true);
+                    if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                        startActivity(intent);
+                    } else
+                        Toast.makeText(getContext(), "There is no App Support this action", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
