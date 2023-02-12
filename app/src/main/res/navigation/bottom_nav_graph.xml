@@ -10,48 +10,54 @@
         android:name="com.example.foodplannerapp.ui.home.view.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home">
+
         <action
             android:id="@+id/action_homeFragment_to_allCategoriesFragment3"
             app:destination="@id/allCategoriesFragment3"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left" />
         <action
             android:id="@+id/action_homeFragment_to_detailsFragment"
             app:destination="@id/detailsFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left"
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.foodplannerapp.ui.search.view.SearchFragment"
         android:label="Search"
-        tools:layout="@layout/fragment_search" >
+        tools:layout="@layout/fragment_search">
+
         <action
             android:id="@+id/action_searchFragment_to_resultSearchFragment"
             app:destination="@id/resultSearchFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
-        <action
-            android:id="@+id/action_searchFragment_to_allCategoriesFragment3"
-            app:destination="@id/allCategoriesFragment3"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_searchFragment_to_detailsFragment"
             app:destination="@id/detailsFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_searchFragment_to_allCategoriesFragment3"
+            app:destination="@id/allCategoriesFragment3"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_out_right"
+            app:popExitAnim="@android:anim/slide_in_left"
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -59,20 +65,15 @@
         android:name="com.example.foodplannerapp.ui.favourite.view.FavouriteFragment"
         android:label="Favourit"
         tools:layout="@layout/fragment_favourite">
+
         <action
             android:id="@+id/action_favouriteFragment_to_detailsFragment"
             app:destination="@id/detailsFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
-        <action
-            android:id="@+id/action_favouriteFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left"
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -80,27 +81,30 @@
         android:name="com.example.foodplannerapp.ui.profile.view.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile">
+
         <action
             android:id="@+id/action_profileFragment_to_favouriteFragment"
             app:destination="@id/favouriteFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left" />
         <action
-            android:id="@+id/action_profileFragment_to_weekPlannerFragment2"
+            android:id="@+id/action_profileFragment_to_weekPlannerFragment22"
             app:destination="@id/weekPlannerFragment2"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left" />
         <action
             android:id="@+id/action_profileFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/bottom_nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -108,23 +112,18 @@
         android:name="com.example.foodplannerapp.ui.detailsFragment.view.DetailsFragment"
         android:label="Details"
         tools:layout="@layout/fragment_details">
-        <action
-            android:id="@+id/action_detailsFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+
         <argument
             android:name="mealId"
             app:argType="string" />
         <action
-            android:id="@+id/action_detailsFragment_to_dayFragment"
+            android:id="@+id/action_detailsFragment_to_dayFragment3"
             app:destination="@id/dayFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left" />
+
     </fragment>
 
     <fragment
@@ -141,20 +140,22 @@
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left" />
         <action
             android:id="@+id/action_allCategoriesFragment3_to_detailsFragment"
             app:destination="@id/detailsFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left"
+            app:popUpToInclusive="false" />
+
     </fragment>
     <fragment
         android:id="@+id/resultSearchFragment"
         android:name="com.example.foodplannerapp.ui.resulFromSearch.view.ResultSearchFragment"
         android:label="fragment_rasult_search"
-        tools:layout="@layout/fragment_rasult_search" >
+        tools:layout="@layout/fragment_rasult_search">
         <argument
             android:name="item_type"
             app:argType="string" />
@@ -162,56 +163,46 @@
             android:name="item_name"
             app:argType="string" />
         <action
-            android:id="@+id/action_resultSearchFragment_to_searchFragment"
-            app:destination="@id/searchFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
-        <action
             android:id="@+id/action_resultSearchFragment_to_detailsFragment"
             app:destination="@id/detailsFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left" />
     </fragment>
 
     <fragment
         android:id="@+id/dayFragment"
         android:name="com.example.foodplannerapp.ui.dayFragment.view.DayFragment"
         android:label="fragment_day"
-        tools:layout="@layout/fragment_day" >
-        <argument
-            android:name="mealData"
-            app:argType="com.example.foodplannerapp.models.ModelMeal" />
+        tools:layout="@layout/fragment_day">
+
         <action
             android:id="@+id/action_dayFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left" />
+        <argument
+            android:name="mealData"
+            app:argType="com.example.foodplannerapp.models.ModelMeal" />
     </fragment>
 
     <fragment
         android:id="@+id/weekPlannerFragment2"
         android:name="com.example.foodplannerapp.ui.weekPlanner.view.WeekPlannerFragment"
-        android:label="WeekPlanner" >
+        android:label="WeekPlanner">
+
         <action
-            android:id="@+id/action_weekPlannerFragment2_to_detailsFragment"
+            android:id="@+id/action_weekPlannerFragment2_to_detailsFragment2"
             app:destination="@id/detailsFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
-        <action
-            android:id="@+id/action_weekPlannerFragment2_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/weekPlannerFragment2"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -220,102 +211,111 @@
         android:label="Splach"
         tools:layout="@layout/fragment_splach">
         <action
-            android:id="@+id/action_splashFragment_to_welcomeFragment"
+            android:id="@+id/action_splashFragment_to_welcomeFragment2"
             app:destination="@id/welcomeFragment"
-            app:popUpTo="@id/splashFragment"
-            app:popUpToInclusive="true"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.example.foodplannerapp.ui.welcome.view.WelcomeFragment"
         android:label="Welcome"
-        tools:layout="@layout/fragment_welcome" >
+        tools:layout="@layout/fragment_welcome">
+
         <action
-            android:id="@+id/action_welcomeFragment_to_logInFragment"
+            android:id="@+id/action_welcomeFragment_to_logInFragment2"
             app:destination="@id/logInFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left" />
         <action
-            android:id="@+id/action_welcomeFragment_to_signUpFragment"
+            android:id="@+id/action_welcomeFragment_to_signUpFragment2"
             app:destination="@id/signUpFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left" />
         <action
-            android:id="@+id/action_welcomeFragment_to_homeFragment"
+            android:id="@+id/action_welcomeFragment_to_homeFragment2"
             app:destination="@id/homeFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left" />
     </fragment>
 
     <fragment
         android:id="@+id/logInFragment"
         android:name="com.example.foodplannerapp.ui.login.view.LogInFragment"
         android:label="fragment_log_in"
-        tools:layout="@layout/fragment_log_in" >
+        tools:layout="@layout/fragment_log_in">
         <action
-            android:id="@+id/action_logInFragment_to_signUpFragment"
+            android:id="@+id/action_logInFragment_to_signUpFragment2"
             app:destination="@id/signUpFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/logInFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_logInFragment_to_homeFragment3"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_out_right"
+            app:popExitAnim="@android:anim/slide_in_left" />
         <action
             android:id="@+id/action_logInFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
-        <action
-            android:id="@+id/action_logInFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/logInFragment"
-            app:popUpToInclusive="true"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left" />
     </fragment>
 
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.example.foodplannerapp.ui.signUp.view.SignUpFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" >
+        tools:layout="@layout/fragment_sign_up">
+
         <action
-            android:id="@+id/action_signUpFragment_to_logInFragment"
+            android:id="@+id/action_signUpFragment_to_logInFragment2"
             app:destination="@id/logInFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left" />
         <action
-            android:id="@+id/action_signUpFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/signUpFragment"
-            app:popUpToInclusive="true"
+            android:id="@+id/action_signUpFragment_to_welcomeFragment3"
+            app:destination="@id/welcomeFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_out_right"
-            app:popExitAnim="@android:anim/slide_in_left"/>
+            app:popExitAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_signUpFragment_to_homeFragment3"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_out_right"
+            app:popExitAnim="@android:anim/slide_in_left" />
     </fragment>
 
 </navigation>
