@@ -32,20 +32,20 @@ It is a simple Food Planner App that help you :
  11) Navigation Component.
  12) YouTubePlayer For play the Vedioes.
  
- #  Full Scenario In App
+ # Full Scenario In App
  
    ### 1) Splash Screen with Simple Design include lottie animation and App Name and Slogan
  
  ![Splash](https://user-images.githubusercontent.com/55101407/218335585-d50b8b71-3a08-4a18-88d4-8202a61ae6ce.jpg)
 
    ### 2) Welcome Screen 
-           1) you can Regist with google tab on Google button
+           1) you can Regist with google tap on Google button
            
-           2) Sign UP with your Email tab on Sign Up button
+           2) Sign UP with your Email tap on Sign Up button
            
-           3) Log In with your Email tab on LogIn
+           3) Log In with your Email tap on LogIn
            
-           4) you can skip registration and explore the application tab on SKIP button
+           4) you can skip registration and explore the application tap on SKIP button
            
 ![Welcome](https://user-images.githubusercontent.com/55101407/218335846-08a04b57-3969-4d2d-a7a5-ec6ff683b951.jpg)
 
@@ -68,11 +68,26 @@ It is a simple Food Planner App that help you :
             
             1) you have an inspiration meal for you if you click on it you can see full details about it 
             
-            2) you can choose category you want to search by tab on any Category
+            2) you can choose category you want to search by tap on any Category
             
             3)In Navigation button You can nav to Search ,Favourite ,Plan , Progile
             
   ![Home](https://user-images.githubusercontent.com/55101407/218336900-fa72ab99-d205-4c41-9221-c689e7109e33.jpg)
+  
+  
+  ### 6) Search Screen
+        
+        you can search for reciep by different methods:
+        
+        1) search by meal name type name of meal in search bar then tap on target meal to nav to itd details
+        
+        2) search by Ingradiant tap on your ingradient to nav to all reciepes taht have this ingredient
+        
+        3) search by Country tap on wanted country to nav to all reciepes popular in this Area
+        
+        4) search by Category tap on your category to nav to all reciepes taht included in this category
+  
+  ![searchByName](https://user-images.githubusercontent.com/55101407/218341855-de377f43-fc89-48fa-9d8e-f54eb6036c78.jpg)
   
   # Dependecy :
   - All dependencies are located in the Gradle Script file in the build.gradle folder. To implement them use implementation Libs.XXX.
