@@ -61,7 +61,7 @@ public class LogInFragment extends Fragment implements ViewInterface {
         binding.txtSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_logInFragment_to_signUpFragment);
+                Navigation.findNavController(view).navigate(R.id.action_logInFragment_to_signUpFragment2);
             }
         });
     }
@@ -100,7 +100,7 @@ public class LogInFragment extends Fragment implements ViewInterface {
             presenterInterface.getFavData();
             presenterInterface.getPlanData();
             Navigation.findNavController(requireView())
-                    .navigate(R.id.action_logInFragment_to_homeFragment);
+                    .navigate(R.id.action_logInFragment_to_homeFragment3);
         });
 
     }

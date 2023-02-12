@@ -37,10 +37,11 @@
             android:layout_marginEnd="@dimen/_4sdp"
             android:background="@color/secondaryWhite"
             android:fontFamily="@font/akaya_telivigala"
+            android:maxEms="10"
             android:text="@string/login_successfully_please_wait"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/black"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_12ssp"
             app:layout_constraintBottom_toBottomOf="@id/progressBar"
             app:layout_constraintStart_toEndOf="@id/progressBar"
             app:layout_constraintTop_toTopOf="@id/progressBar" />

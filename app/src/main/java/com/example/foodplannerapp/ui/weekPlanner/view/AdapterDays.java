@@ -18,6 +18,11 @@ public class AdapterDays extends RecyclerView.Adapter<AdapterDays.Holder> {
     private SetOnDayClickListener onDayClickListener;
     private static int rowIndex = -1;
 
+    public AdapterDays() {
+        rowIndex = -1;
+        notifyDataSetChanged();
+    }
+
     public void setOnDayClickListener(SetOnDayClickListener onDayClickListener) {
         this.onDayClickListener = onDayClickListener;
     }

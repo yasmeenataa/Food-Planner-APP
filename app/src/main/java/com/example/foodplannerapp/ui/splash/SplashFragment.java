@@ -46,7 +46,9 @@ public class SplashFragment extends Fragment {
 
     private void action(View view) {
         if (MySharedPref.getUserId().isEmpty()) {
-            Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_welcomeFragment);
+            Navigation.findNavController(view)
+                    .navigate(R.id.action_splashFragment_to_welcomeFragment2);
+
         } else {
             Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_homeFragment);
         }

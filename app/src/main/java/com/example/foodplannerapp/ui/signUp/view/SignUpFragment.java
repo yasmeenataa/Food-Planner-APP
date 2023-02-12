@@ -63,14 +63,14 @@ public class SignUpFragment extends Fragment implements ViewInterface {
         binding.textViewHaveAcount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_logInFragment);
+                Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_logInFragment2);
             }
         });
 
         binding.imgBackSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_logInFragment);
+                Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_welcomeFragment3);
             }
         });
     }
@@ -110,7 +110,7 @@ public class SignUpFragment extends Fragment implements ViewInterface {
     public void onRegisterSuccess(String userId) {
 
         Navigation.findNavController(requireView())
-                .navigate(R.id.action_signUpFragment_to_homeFragment);
+                .navigate(R.id.action_signUpFragment_to_homeFragment3);
 
     }
 

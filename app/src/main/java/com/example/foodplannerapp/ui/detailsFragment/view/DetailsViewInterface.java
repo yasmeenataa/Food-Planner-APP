@@ -8,6 +8,10 @@ public interface DetailsViewInterface {
 
     void insertMealToFav(ModelMeal modelMeal);
 
+//    void deleteMealFromFav(ModelMeal modelMeal);
+
+    void getProgressBarLiveData();
+
 
 
 }

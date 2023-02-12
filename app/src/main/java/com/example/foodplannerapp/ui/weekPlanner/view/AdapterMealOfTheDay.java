@@ -21,6 +21,9 @@ public class AdapterMealOfTheDay extends RecyclerView.Adapter<AdapterMealOfTheDa
 
     private SetOnItemClickListener onItemClickListener;
 
+
+
+
     public void setOnItemClickListener(SetOnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }

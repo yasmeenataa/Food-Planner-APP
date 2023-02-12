@@ -85,6 +85,7 @@ public class SearchFragment extends Fragment implements SearchViewInterface, OnI
     }
 
     public void onClicks() {
+
         categoriesAdapter.setOnCategoryClickListener(new CategoriesAdapter.SetOnCategoryClickListener() {
             @Override
             public void onCategoryClicked(String categoryName) {

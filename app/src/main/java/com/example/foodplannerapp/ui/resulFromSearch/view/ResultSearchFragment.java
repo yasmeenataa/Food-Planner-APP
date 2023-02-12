@@ -24,9 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ResultSearchFragment extends Fragment  implements ResultSearchViewInterface,OnResultClickListener{
+public class ResultSearchFragment extends Fragment implements ResultSearchViewInterface, OnResultClickListener {
     FragmentRasultSearchBinding binding;
-    String item_type,item_name;
+    String item_type, item_name;
     ResultSearchAdapter resultSearchAdapter;
     ResultSearchPresenterInterface presenterInterface;
 
@@ -35,8 +35,8 @@ public class ResultSearchFragment extends Fragment  implements ResultSearchViewI
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         assert getArguments() != null;
-        item_type=ResultSearchFragmentArgs.fromBundle(getArguments()).getItemType();
-        item_name=ResultSearchFragmentArgs.fromBundle(getArguments()).getItemName();
+        item_type = ResultSearchFragmentArgs.fromBundle(getArguments()).getItemType();
+        item_name = ResultSearchFragmentArgs.fromBundle(getArguments()).getItemName();
     }
 
     @Override
@@ -44,7 +44,7 @@ public class ResultSearchFragment extends Fragment  implements ResultSearchViewI
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        binding=FragmentRasultSearchBinding.inflate(inflater,container,false);
+        binding = FragmentRasultSearchBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -52,34 +52,33 @@ public class ResultSearchFragment extends Fragment  implements ResultSearchViewI
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         onClicks();
-        binding.txtCategoryName.setText(item_name+" Recipes");
-        presenterInterface=new ResultSearchPresenter(this, MealRepo.getMealRepoInstance());
-        resultSearchAdapter=new ResultSearchAdapter(new ArrayList<>(),getContext(),this);
-        System.out.println("////////////////////////////////////"+item_type+"//////"+item_name);
-        if(item_type.equals("Area")) {
+        binding.txtCategoryName.setText(item_name + " Recipes");
+        presenterInterface = new ResultSearchPresenter(this, MealRepo.getMealRepoInstance());
+        resultSearchAdapter = new ResultSearchAdapter(new ArrayList<>(), getContext(), this);
+        System.out.println("////////////////////////////////////" + item_type + "//////" + item_name);
+        if (item_type.equals("Area")) {
             presenterInterface.getAllMealArea(item_name);
-        }
-        else if(item_type.equals("Ingredient"))
+        } else if (item_type.equals("Ingredient"))
             presenterInterface.getAllMealIngredient(item_name);
         else if (item_type.equals("Category"))
             presenterInterface.getAllMealCategory(item_name);
 
     }
-    private void onClicks()
-    {
+
+    private void onClicks() {
         binding.btnBackResultSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(requireView())
-                        .navigate(R.id.action_resultSearchFragment_to_searchFragment);
+                Navigation.findNavController(v)
+                        .popBackStack();
             }
         });
     }
 
     @Override
     public void onMealClick(String mealId) {
-       com.example.foodplannerapp.ui.resulFromSearch.view.ResultSearchFragmentDirections.ActionResultSearchFragmentToDetailsFragment action=
-               com.example.foodplannerapp.ui.resulFromSearch.view.ResultSearchFragmentDirections.actionResultSearchFragmentToDetailsFragment(mealId);
+        com.example.foodplannerapp.ui.resulFromSearch.view.ResultSearchFragmentDirections.ActionResultSearchFragmentToDetailsFragment action =
+                com.example.foodplannerapp.ui.resulFromSearch.view.ResultSearchFragmentDirections.actionResultSearchFragmentToDetailsFragment(mealId);
         Navigation.findNavController(requireView())
                 .navigate(action);
 
@@ -108,16 +107,16 @@ public class ResultSearchFragment extends Fragment  implements ResultSearchViewI
 
     @Override
     public void getErrorMessageCat(String message) {
-        System.out.println("Error :"+message);
+        System.out.println("Error :" + message);
     }
 
     @Override
     public void getErrorMessageIng(String message) {
-        System.out.println("Error :"+message);
+        System.out.println("Error :" + message);
     }
 
     @Override
     public void getErrorMessageArea(String message) {
-        System.out.println("Error :"+message);
+        System.out.println("Error :" + message);
     }
 }

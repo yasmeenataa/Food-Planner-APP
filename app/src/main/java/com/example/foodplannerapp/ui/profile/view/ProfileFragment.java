@@ -111,7 +111,7 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view)
-                        .navigate(R.id.action_profileFragment_to_weekPlannerFragment2);
+                        .navigate(R.id.action_profileFragment_to_weekPlannerFragment22);
             }
         });
     }

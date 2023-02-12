@@ -20,7 +20,7 @@ import com.example.foodplannerapp.databinding.FragmentAllCategoriesBinding;
 import com.example.foodplannerapp.models.ModelMeal;
 import com.example.foodplannerapp.ui.allCategory.presenter.AllCategoryPresenterInterface;
 import com.example.foodplannerapp.ui.allCategory.presenter.PresenterAllCategory;
-import com.example.foodplannerapp.ui.allCategory.view.AllCategoriesFragmentDirections;
+//import com.example.foodplannerapp.ui.allCategory.view.AllCategoriesFragmentDirections;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,7 +94,7 @@ public class AllCategoriesFragment extends Fragment implements AllCategoryViewIn
 
     @Override
     public void showAllMealCategory(List<ModelMeal> mealList) {
-        showHideAllMealCategoriesProgress();
+//        showHideAllMealCategoriesProgress();
         adapter.setList((ArrayList<ModelMeal>) mealList);
         binding.recyclerAllCategories.setAdapter(adapter);
         adapter.notifyDataSetChanged();
