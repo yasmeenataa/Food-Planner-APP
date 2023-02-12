@@ -171,5 +171,18 @@ public class RemoteSourceClient implements RemoteSourceInterface {
         return RetrofitConnection.getServices().getMealById(mealId);
     }
 
+    @Override
+    public void enqueueCallSearchMealByName(NetworkDelegateForSearchMeal delegateForSearchMeal, String mealName) {
+        RetrofitConnection
+                .getServices()
+                .searchMealByName(mealName)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        item -> delegateForSearchMeal.onSuccessSearchMealByName(item.getMeals()),
+                        error -> delegateForSearchMeal.onFailureSearchMealByName("Error :" + error.toString())
+                );
+    }
+
 
 }
