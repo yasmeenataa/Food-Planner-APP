@@ -17,6 +17,9 @@ import com.example.foodplannerapp.models.MySharedPref;
 import com.example.foodplannerapp.ui.signUp.presenter.PresenterInterface;
 import com.example.foodplannerapp.ui.signUp.presenter.SignUpPresenter;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class SignUpFragment extends Fragment implements ViewInterface {
 
@@ -33,7 +36,7 @@ public class SignUpFragment extends Fragment implements ViewInterface {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentSignUpBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -52,27 +55,11 @@ public class SignUpFragment extends Fragment implements ViewInterface {
 
 
     private void onClicks() {
-        binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        binding.btnSignUp.setOnClickListener(view -> getData());
 
-                getData();
-            }
-        });
+        binding.textViewHaveAcount.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_logInFragment));
 
-        binding.textViewHaveAcount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_logInFragment);
-            }
-        });
-
-        binding.imgBackSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_logInFragment);
-            }
-        });
+        binding.imgBackSignUp.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_signUpFragment_to_logInFragment));
     }
 
     private void getData() {
@@ -86,18 +73,47 @@ public class SignUpFragment extends Fragment implements ViewInterface {
     }
 
     private void validation(String name, String email, String pass) {
+        binding.inputEmail.setError(null);
+        binding.inputUserName.setError(null);
+        binding.passwordLayout.setError(null);
         if (name.isEmpty()) {
-            binding.editUserName.setError("Required");
+            binding.inputUserName.setError("Required");
         } else if (email.isEmpty()) {
-            binding.editEmail.setError("Required");
+            binding.inputEmail.setError("Required");
+        } else if (!isValidEmail(email)) {
+            binding.inputEmail.setError("Invalid email");
         } else if (pass.isEmpty()) {
-            binding.PasswordEdit.setError("Required");
-        } else {
+            binding.passwordLayout.setError("Required");
+
+        }else if(!isValidPassword(pass))
+        {
+            binding.passwordLayout.setError("Password must have at least one numeric character ,one uppercase character,one lowercase character,one special symbol among @#$% and Password length should be between 8 and 20.");
+        }
+        else {
             MySharedPref.setUserName(name);
             MySharedPref.setUserPassword(pass);
             presenterInterface.signUp(email, pass);
 
         }
+    }
+    public  boolean isValidPassword(String password)
+    {
+        String regex= "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
+    public  boolean isValidEmail(String email)
+    {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
     }
 
     @Override
