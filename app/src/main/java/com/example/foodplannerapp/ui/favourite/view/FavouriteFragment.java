@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentFavouriteBinding;
 import com.example.foodplannerapp.models.ModelMeal;
+import com.example.foodplannerapp.models.MySharedPref;
 import com.example.foodplannerapp.models.WeekPlannerModel;
 import com.example.foodplannerapp.repo.mealRepo.MealRepo;
 import com.example.foodplannerapp.ui.favourite.presenter.FavMealPresenter;
@@ -56,10 +57,15 @@ public class FavouriteFragment extends Fragment implements FavViewInterface {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        adapter = new FavouriteAdapter();
-        presenterInterface = new FavMealPresenter(this);
-        getData();
-        onClicks();
+
+        if (MySharedPref.getUserId().isEmpty()) {
+            Toast.makeText(requireContext(), "You Have to Login First !!", Toast.LENGTH_LONG).show();
+        } else {
+            adapter = new FavouriteAdapter();
+            presenterInterface = new FavMealPresenter(this);
+            getData();
+            onClicks();
+        }
 
     }
 

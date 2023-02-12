@@ -123,7 +123,7 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
     private void setData2(ModelMeal modelMeal) {
         binding.textViewMealName.setText(modelMeal.getStrCategory().concat("\t From \t").concat(modelMeal.getStrArea()));
         binding.textViewSteps.setText(modelMeal.getStrInstructions());
-        Glide.with(requireContext())
+        Glide.with(requireActivity().getApplicationContext())
                 .load(modelMeal.getStrMealThumb())
                 .into(binding.imageFood);
 
@@ -175,7 +175,7 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
 
     }
 
-    private void showHideDetailsProgress(){
+    private void showHideDetailsProgress() {
         binding.progressDetails.setVisibility(View.VISIBLE);
         binding.fakeRoot.setVisibility(View.VISIBLE);
         new Handler().postDelayed(() -> {
