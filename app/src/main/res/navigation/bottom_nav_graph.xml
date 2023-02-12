@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_searchFragment_to_allCategoriesFragment3"
             app:destination="@id/allCategoriesFragment3" />
+        <action
+            android:id="@+id/action_searchFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
 
     <fragment
