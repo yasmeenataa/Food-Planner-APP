@@ -143,10 +143,16 @@ public class SearchFragment extends Fragment implements SearchViewInterface, OnI
 
     @Override
     public void showMealsByName(List<ModelMeal> resultList) {
-        searchForMealAdapter.setList(resultList);
-        binding.recycleSearchMealName.setAdapter(searchForMealAdapter);
-        binding.recycleSearchMealName.setVisibility(View.VISIBLE);
-        searchForMealAdapter.notifyDataSetChanged();
+        if(resultList!=null) {
+            searchForMealAdapter.setList(resultList);
+            binding.recycleSearchMealName.setAdapter(searchForMealAdapter);
+            binding.recycleSearchMealName.setVisibility(View.VISIBLE);
+            searchForMealAdapter.notifyDataSetChanged();
+        }
+        else
+        {
+            binding.recycleSearchMealName.setVisibility(View.GONE);
+        }
     }
 
     @Override
