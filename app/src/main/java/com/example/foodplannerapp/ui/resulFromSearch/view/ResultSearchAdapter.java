@@ -65,8 +65,6 @@ public class ResultSearchAdapter extends RecyclerView.Adapter<ResultSearchAdapte
 
             txtResult_maelName_itemMeal = itemView.findViewById(R.id.txtResult_maelName_itemMeal);
             image_result_itemMeal=itemView.findViewById(R.id.image_result_itemMeal);
-            image_calender_result=itemView.findViewById(R.id.image_calender_result);
-            image_result_fav=itemView.findViewById(R.id.image_result_fav);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

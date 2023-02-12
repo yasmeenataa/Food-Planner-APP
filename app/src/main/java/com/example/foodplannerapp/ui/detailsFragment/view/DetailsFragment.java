@@ -9,6 +9,7 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.Observer;
 import androidx.navigation.Navigation;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -78,6 +79,7 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        showHideDetailsProgress();
         adapter = new IngredientsAdapter();
         measurementList = new ArrayList<>();
         ingredientList = new ArrayList<>();
@@ -171,6 +173,15 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
         }
 
 
+    }
+
+    private void showHideDetailsProgress(){
+        binding.progressDetails.setVisibility(View.VISIBLE);
+        binding.fakeRoot.setVisibility(View.VISIBLE);
+        new Handler().postDelayed(() -> {
+            binding.progressDetails.setVisibility(View.GONE);
+            binding.fakeRoot.setVisibility(View.GONE);
+        }, 2500);
     }
 
     private void setData(ModelMeal modelMeal) {
