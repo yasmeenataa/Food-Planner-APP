@@ -290,11 +290,8 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
                     intent.putExtra(CalendarContract.Events.TITLE, modelMeal.getStrMeal());
                     intent.putExtra(CalendarContract.Events.DESCRIPTION, modelMeal.getStrInstructions()+"\n Video On YouTube : "+modelMeal.getStrYoutube());
                     intent.putExtra(CalendarContract.Events.ALL_DAY, true);
-                    if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
                         startActivity(intent);
-                    } else
-                        Toast.makeText(getContext(), "There is no App Support this action", Toast.LENGTH_SHORT).show();
-                }
+                    }
             }
         });
 
