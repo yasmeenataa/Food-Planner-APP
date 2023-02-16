@@ -105,6 +105,7 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
                             flag = true;
                             binding.imageFavourite.setImageResource(R.drawable.baseline_favorite_24);
                             binding.imageFavourite.setColorFilter(R.color.yellow);
+                            Toast.makeText(requireActivity().getApplicationContext(), "Added To Favourite Successfully", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -259,10 +260,9 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
                 if (!flag) {
                     modelMeal.setUserId(MySharedPref.getUserId());
                     insertMealToFav(modelMeal);
-                    Toast.makeText(requireActivity().getApplicationContext(), "inserted", Toast.LENGTH_SHORT).show();
                     RedrawHeart();
                 } else {
-                    Toast.makeText(requireActivity().getApplicationContext(), "Already Inserted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireActivity().getApplicationContext(), "Already in Favourite", Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -307,7 +307,7 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
 
     @Override
     public void insertMealToFav(ModelMeal modelMeal) {
-        detailsPresenter.insertMeal(modelMeal);
+//        detailsPresenter.insertMeal(modelMeal);
         detailsPresenter.insertMealToFireBase(modelMeal);
     }
 

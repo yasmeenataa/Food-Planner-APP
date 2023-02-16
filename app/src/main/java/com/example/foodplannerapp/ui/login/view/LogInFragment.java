@@ -126,6 +126,6 @@ public class LogInFragment extends Fragment implements ViewInterface {
 
     @Override
     public void onLoginFail(String message) {
-        Toast.makeText(requireContext(), "Fail" + message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(requireContext(), "Fail Check Network" , Toast.LENGTH_SHORT).show();
     }
 }

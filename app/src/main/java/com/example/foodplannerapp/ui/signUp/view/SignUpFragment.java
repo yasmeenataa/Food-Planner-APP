@@ -149,7 +149,7 @@ public class SignUpFragment extends Fragment implements ViewInterface {
     @Override
     public void onRegisterFail(String message) {
 
-        Toast.makeText(requireActivity().getBaseContext(), "Fail" + message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(requireActivity().getBaseContext(), "Fail Check Network", Toast.LENGTH_SHORT).show();
 
     }
 }

@@ -60,7 +60,7 @@ public class RemoteSourceClient implements RemoteSourceInterface {
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        progressBarLiveData.setValue(View.GONE);
+                        progressBarLiveData.setValue(View.VISIBLE);
                         networkDelegate.onFailureResult(e.getLocalizedMessage());
                     }
                 });
@@ -90,7 +90,7 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                     @Override
                     public void onError(@NonNull Throwable e) {
                         networkDelegate.onFailureResult(e.getMessage());
-                        progressBarLiveData.setValue(View.GONE);
+                        progressBarLiveData.setValue(View.VISIBLE);
                     }
                 });
 
@@ -146,7 +146,7 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                     @Override
                     public void onError(@NonNull Throwable e) {
                         networkDelegate.onFailureResult(e.getMessage());
-                        progressBarLiveData.setValue(View.GONE);
+                        progressBarLiveData.setValue(View.VISIBLE);
 
                     }
                 });

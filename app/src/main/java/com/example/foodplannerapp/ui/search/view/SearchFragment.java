@@ -117,7 +117,7 @@ public class SearchFragment extends Fragment implements SearchViewInterface, OnI
     @Override
     public void onFailureCategoryList(String message) {
         System.out.println("Error : " + message);
-        Toast.makeText(getContext(), "Error : " + message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Error : Check Network" , Toast.LENGTH_SHORT).show();
     }
 
 
@@ -132,14 +132,14 @@ public class SearchFragment extends Fragment implements SearchViewInterface, OnI
     @Override
     public void onFailureIngredientList(String errorMsg) {
         System.out.println("Error : " + errorMsg);
-        Toast.makeText(getContext(), "Error : " + errorMsg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Error : Check Network" , Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
     public void onFailureAreaList(String errorMsg) {
         System.out.println("Error : " + errorMsg);
-        Toast.makeText(getContext(), "Error : " + errorMsg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Error : Check Network" , Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -158,7 +158,7 @@ public class SearchFragment extends Fragment implements SearchViewInterface, OnI
 
     @Override
     public void onFailureMealsByName(String errorMsg) {
-        Toast.makeText(requireContext(), errorMsg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(requireContext(), "Error : Check Network", Toast.LENGTH_SHORT).show();
     }
 
 

@@ -127,7 +127,7 @@ public class FavouriteFragment extends Fragment implements FavViewInterface {
 
     @Override
     public void deleteMeal(ModelMeal modelMeal) {
-        presenterInterface.deleteFavMeal(modelMeal);
+//        presenterInterface.deleteFavMeal(modelMeal);
         presenterInterface.deleteFavMealFromFireBase(modelMeal);
         Toast.makeText(requireContext(), "Deleted", Toast.LENGTH_SHORT).show();
     }

@@ -193,7 +193,7 @@ public class DayFragment extends Fragment implements DayViewInterface {
 
     @Override
     public void insertMealToWeek(WeekPlannerModel weekPlannerModel) {
-        presenterInterface.insertMealToDay(weekPlannerModel);
+//        presenterInterface.insertMealToDay(weekPlannerModel);
         presenterInterface.insertMealToDayToFirebase(weekPlannerModel);
         Toast.makeText(requireContext(), "Inserted into : " + weekPlannerModel.getDay(), Toast.LENGTH_SHORT).show();
     }

@@ -7,6 +7,9 @@ import com.example.foodplannerapp.models.MySharedPref;
 import com.example.foodplannerapp.repo.mealRepo.MealRepo;
 import com.example.foodplannerapp.ui.favourite.view.FavViewInterface;
 import com.example.foodplannerapp.utils.Constants;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -65,6 +68,16 @@ public class FavMealPresenter implements FavMealPresenterInterface {
         reference.child(MySharedPref.getUserId())
                 .child(Constants.FAV_REF)
                 .child(modelMeal.getIdMeal())
-                .removeValue();
+                .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@androidx.annotation.NonNull Task<Void> task) {
+
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        deleteFavMeal(modelMeal);
+                    }
+                });
     }
 }

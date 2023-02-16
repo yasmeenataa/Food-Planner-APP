@@ -12,6 +12,9 @@ import com.example.foodplannerapp.models.MySharedPref;
 import com.example.foodplannerapp.repo.mealRepo.MealRepo;
 import com.example.foodplannerapp.ui.detailsFragment.view.DetailsViewInterface;
 import com.example.foodplannerapp.utils.Constants;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -102,7 +105,19 @@ public class DetailsPresenter implements DetailsPresenterInterface{
         ref.child(MySharedPref.getUserId())
                 .child(Constants.FAV_REF)
                 .child(modelMeal.getIdMeal())
-                .setValue(modelMeal);
+                .setValue(modelMeal).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@androidx.annotation.NonNull Task<Void> task) {
+                        if (task.isSuccessful()){
+
+                        }
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        insertMeal(modelMeal);
+                    }
+                });
     }
 
     public void deleteMealFromFireBase(ModelMeal modelMeal) {

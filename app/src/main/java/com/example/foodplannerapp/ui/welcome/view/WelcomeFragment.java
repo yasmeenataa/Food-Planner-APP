@@ -28,7 +28,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -151,13 +154,28 @@ public class WelcomeFragment extends Fragment implements ViewInterface {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(requireContext(), "Failed Check your Network", Toast.LENGTH_SHORT).show();
+                            }
+                        }).addOnCanceledListener(new OnCanceledListener() {
+                            @Override
+                            public void onCanceled() {
+                                Toast.makeText(requireContext(), "Failed check Network", Toast.LENGTH_SHORT).show();
+                            }
+                        }).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
                                 UserProfileChangeRequest user = new UserProfileChangeRequest.Builder()
                                         .setDisplayName(account.getDisplayName()).build();
-                                task.getResult().getUser().updateProfile(user);
-                                MySharedPref.setUserId(task.getResult().getUser().getUid());
-                                MySharedPref.setUserEmail(task.getResult().getUser().getEmail());
-                                MySharedPref.setUserName(task.getResult().getUser().getDisplayName());
-                                MySharedPref.setUserUriKey(String.valueOf(task.getResult().getUser().getPhotoUrl()));
+                                authResult.getUser().updateProfile(user);
+                                MySharedPref.setUserId(authResult.getUser().getUid());
+                                MySharedPref.setUserEmail(authResult.getUser().getEmail());
+                                MySharedPref.setUserName(authResult.getUser().getDisplayName());
+                                MySharedPref.setUserUriKey(String.valueOf(authResult.getUser().getPhotoUrl()));
                                 if (task.isSuccessful()) {
                                     Extensions.showProgressDialog2(requireContext(), 3000, () -> {
                                         presenterInterface.getFavData();

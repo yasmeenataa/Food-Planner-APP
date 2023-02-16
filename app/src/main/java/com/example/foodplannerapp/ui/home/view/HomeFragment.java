@@ -129,13 +129,15 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
         Glide.with(requireContext())
                 .load(imageUrl)
                 .into(binding.imageMeal);
-
+//        binding.progressCategories.setVisibility(View.GONE);
+//        binding.progressMealOfTheDay.setVisibility(View.GONE);
 
     }
 
     @Override
     public void showAllCategories(List<CategoriesModel> categoryList) {
-
+//        binding.progressCategories.setVisibility(View.GONE);
+//        binding.progressMealOfTheDay.setVisibility(View.GONE);
         adapter.setList((ArrayList<CategoriesModel>) categoryList);
         binding.recycleCategory.setAdapter(adapter);
         adapter.notifyDataSetChanged();
@@ -143,7 +145,9 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
 
     @Override
     public void getErrorMessage(String message) {
-        Toast.makeText(requireContext(), "Failed : " + message, Toast.LENGTH_SHORT).show();
+        binding.progressCategories.setVisibility(View.VISIBLE);
+        binding.progressMealOfTheDay.setVisibility(View.VISIBLE);
+        Toast.makeText(requireContext(), "Failed : Check Network", Toast.LENGTH_SHORT).show();
     }
 
     @Override

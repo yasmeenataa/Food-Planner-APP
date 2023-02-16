@@ -126,9 +126,11 @@ public class WeekPlannerFragment extends Fragment implements WeekPlannerViewInte
                 .observe(getViewLifecycleOwner(), new Observer<List<WeekPlannerModel>>() {
                     @Override
                     public void onChanged(List<WeekPlannerModel> mealList) {
-                        adapterMealOfTheDay.setList((ArrayList<WeekPlannerModel>) mealList);
-                        binding.recyclerMeal.setAdapter(adapterMealOfTheDay);
-                        adapterMealOfTheDay.notifyDataSetChanged();
+
+                            adapterMealOfTheDay.setList((ArrayList<WeekPlannerModel>) mealList);
+                            binding.recyclerMeal.setAdapter(adapterMealOfTheDay);
+                            adapterMealOfTheDay.notifyDataSetChanged();
+
                     }
                 });
     }
@@ -137,7 +139,7 @@ public class WeekPlannerFragment extends Fragment implements WeekPlannerViewInte
     @Override
     public void deleteWeeklyMeal(WeekPlannerModel weekPlannerModel) {
         presenterInterface.deleteWeeklyMealFromFirebase(weekPlannerModel);
-        presenterInterface.deleteWeeklyMeal(weekPlannerModel);
+//        presenterInterface.deleteWeeklyMeal(weekPlannerModel);
     }
 
     private void showDialog(WeekPlannerModel model) {
