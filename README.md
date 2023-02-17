@@ -101,6 +101,16 @@ It is a simple Food Planner App that help you :
           tap on button add this meal to calender to add this meal to your mobile calender as event
   
  ![mealDetails](https://user-images.githubusercontent.com/55101407/218343142-771f3a22-b209-4ab8-ab4a-25bb7f31c778.jpg)
+ 
+  ### 8) Favourite Meals Screen  
+   
+          it shows you your favourite meals 
+ 
+ ![Favourite_List](https://user-images.githubusercontent.com/55101407/219335746-0f928e1f-f91d-4f45-bae6-2f4af42273b5.jpg)
+ 
+   ### 9) Plan Screen 
+   
+ ![Day_of_week](https://user-images.githubusercontent.com/55101407/219336620-bb18d501-31fb-4c9c-808f-45217719f8b7.jpg)
   
   # Dependecy :
   - All dependencies are located in the Gradle Script file in the build.gradle folder. To implement them use implementation Libs.XXX.
