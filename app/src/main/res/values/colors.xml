@@ -26,4 +26,5 @@
     <color name="primaryColor">#0A8791</color>
     <color name="secondaryColor">#FBA83C</color>
     <color name="lightGray">#E6E5E5</color>
+    <color name="shadowedBlue">#1D0A7891</color>
 </resources>
