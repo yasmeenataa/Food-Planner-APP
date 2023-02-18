@@ -117,7 +117,7 @@ public class SearchFragment extends Fragment implements SearchViewInterface, OnI
     @Override
     public void onFailureCategoryList(String message) {
         System.out.println("Error : " + message);
-        Toast.makeText(getContext(), "Error : Check Network" , Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Error : Check Network", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -132,26 +132,24 @@ public class SearchFragment extends Fragment implements SearchViewInterface, OnI
     @Override
     public void onFailureIngredientList(String errorMsg) {
         System.out.println("Error : " + errorMsg);
-        Toast.makeText(getContext(), "Error : Check Network" , Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Error : Check Network", Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
     public void onFailureAreaList(String errorMsg) {
         System.out.println("Error : " + errorMsg);
-        Toast.makeText(getContext(), "Error : Check Network" , Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Error : Check Network", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showMealsByName(List<ModelMeal> resultList) {
-        if(resultList!=null) {
+        if (resultList != null) {
             searchForMealAdapter.setList(resultList);
             binding.recycleSearchMealName.setAdapter(searchForMealAdapter);
             binding.recycleSearchMealName.setVisibility(View.VISIBLE);
             searchForMealAdapter.notifyDataSetChanged();
-        }
-        else
-        {
+        } else {
             binding.recycleSearchMealName.setVisibility(View.GONE);
         }
     }
@@ -192,6 +190,7 @@ public class SearchFragment extends Fragment implements SearchViewInterface, OnI
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+//        presenterInterface.getDisposable().clear();
     }
 
 }

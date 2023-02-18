@@ -14,9 +14,12 @@ import com.example.foodplannerapp.ui.search.view.SearchViewInterface;
 
 import java.util.List;
 
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+
 public class SearchPresenter implements NetworkDelegateForArea, NetworkDelegateForIngredient,NetworkDelegate,SearchPresenterInterface , NetworkDelegateForSearchMeal {
     private SearchViewInterface _view;
     private MealRepoInterface _repo;
+
 
     public SearchPresenter(SearchViewInterface _view, MealRepoInterface _repo) {
         this._view = _view;
@@ -43,6 +46,11 @@ public class SearchPresenter implements NetworkDelegateForArea, NetworkDelegateF
     @Override
     public void getMealByName(String mealName) {
         _repo.getMealByName(this,mealName);
+    }
+
+    @Override
+    public CompositeDisposable getDisposable() {
+        return _repo.getDisposable();
     }
 
 
