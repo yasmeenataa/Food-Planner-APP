@@ -8,6 +8,8 @@ import com.example.foodplannerapp.ui.resulFromSearch.view.ResultSearchViewInterf
 
 import java.util.List;
 
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+
 public class ResultSearchPresenter implements ResultSearchPresenterInterface, NetworkDelegateForIngredientItem, NetworkDelegateForAreaItem, NetworkDelegateForCategory {
     private final ResultSearchViewInterface viewInterface;
     private final MealRepo mealRepo;
@@ -50,6 +52,11 @@ public class ResultSearchPresenter implements ResultSearchPresenterInterface, Ne
     @Override
     public void getAllMealIngredient(String ingredientName) {
          mealRepo.getMealsOfIngredient(this,ingredientName);
+    }
+
+    @Override
+    public CompositeDisposable getDisposable() {
+        return mealRepo.getDisposable();
     }
 
     @Override
