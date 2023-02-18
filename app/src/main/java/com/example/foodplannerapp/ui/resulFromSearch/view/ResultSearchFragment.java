@@ -119,4 +119,10 @@ public class ResultSearchFragment extends Fragment implements ResultSearchViewIn
     public void getErrorMessageArea(String message) {
         System.out.println("Error :" + message);
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+//        presenterInterface.getDisposable().clear();
+    }
 }
