@@ -44,5 +44,7 @@ public interface MealRepoInterface {
 
     MutableLiveData<Integer>  getProgressLiveData();
 
+    CompositeDisposable getDisposable();
+
 
 }

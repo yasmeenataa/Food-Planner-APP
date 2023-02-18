@@ -6,6 +6,8 @@ public interface FavViewInterface {
 
     void deleteMeal(ModelMeal modelMeal);
 
+    void observeProgress();
+
 
 
 }
