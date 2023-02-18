@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.foodplannerapp.R;
 import com.example.foodplannerapp.databinding.FragmentHomeBinding;
 import com.example.foodplannerapp.models.CategoriesModel;
@@ -129,6 +130,9 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
         binding.textViewMealName.setText(mealName);
         Glide.with(requireContext())
                 .load(imageUrl)
+                .apply(new RequestOptions())
+                .placeholder(R.drawable.ic_launcher_foreground)
+                .error(R.drawable.ic_launcher_background)
                 .into(binding.imageMeal);
 
 
