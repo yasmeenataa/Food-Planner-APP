@@ -19,19 +19,19 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class SearchForMealAdapter extends RecyclerView.Adapter<SearchForMealAdapter.Holder>{
+public class SearchForMealAdapter extends RecyclerView.Adapter<SearchForMealAdapter.Holder> {
 
     private List<ModelMeal> values;
     private Context context;
     private OnItemClickListener listener;
 
 
-
-    public SearchForMealAdapter(List<ModelMeal> values, Context context,OnItemClickListener listener) {
+    public SearchForMealAdapter(List<ModelMeal> values, Context context, OnItemClickListener listener) {
         this.values = values;
         this.context = context;
-        this.listener=listener;
+        this.listener = listener;
     }
+
     public void setList(List<ModelMeal> list) {
         this.values = list;
     }
@@ -51,6 +51,9 @@ public class SearchForMealAdapter extends RecyclerView.Adapter<SearchForMealAdap
         holder.ingredient_name.setText(mealModel.getStrMeal());
         Glide.with(holder.itemView.getContext())
                 .load(mealModel.getStrMealThumb())
+                .apply(new RequestOptions())
+                .placeholder(R.drawable.ic_launcher_foreground)
+                .error(R.drawable.ic_launcher_background)
                 .into(holder.ingredient_img);
 
     }
@@ -59,6 +62,7 @@ public class SearchForMealAdapter extends RecyclerView.Adapter<SearchForMealAdap
     public int getItemCount() {
         return values.size();
     }
+
     public class Holder extends RecyclerView.ViewHolder {
         CircleImageView ingredient_img;
         TextView ingredient_name;
