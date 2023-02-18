@@ -26,6 +26,7 @@ import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.CompletableObserver;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.core.SingleObserver;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
@@ -66,7 +67,7 @@ public class DetailsPresenter implements DetailsPresenterInterface {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-
+//                        mealRepo.getDisposable().add(d);
                     }
 
                     @Override
@@ -87,7 +88,7 @@ public class DetailsPresenter implements DetailsPresenterInterface {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-
+//                        mealRepo.getDisposable().add(d);
                     }
 
                     @Override
@@ -136,5 +137,10 @@ public class DetailsPresenter implements DetailsPresenterInterface {
     @Override
     public MutableLiveData<Integer> getProgressBarLiveData() {
         return mealRepo.getProgressLiveData();
+    }
+
+    @Override
+    public CompositeDisposable getDisposable() {
+        return mealRepo.getDisposable();
     }
 }

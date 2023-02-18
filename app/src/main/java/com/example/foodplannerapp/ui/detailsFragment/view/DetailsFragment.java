@@ -284,14 +284,14 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
         binding.btnCalender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(modelMeal!=null) {
+                if (modelMeal != null) {
                     Intent intent = new Intent(Intent.ACTION_INSERT);
                     intent.setData(CalendarContract.Events.CONTENT_URI);
                     intent.putExtra(CalendarContract.Events.TITLE, modelMeal.getStrMeal());
-                    intent.putExtra(CalendarContract.Events.DESCRIPTION, modelMeal.getStrInstructions()+"\n Video On YouTube : "+modelMeal.getStrYoutube());
+                    intent.putExtra(CalendarContract.Events.DESCRIPTION, modelMeal.getStrInstructions() + "\n Video On YouTube : " + modelMeal.getStrYoutube());
                     intent.putExtra(CalendarContract.Events.ALL_DAY, true);
-                        startActivity(intent);
-                    }
+                    startActivity(intent);
+                }
             }
         });
 
@@ -327,5 +327,6 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+//        detailsPresenter.getDisposable().clear();
     }
 }
