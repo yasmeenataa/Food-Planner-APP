@@ -29,7 +29,7 @@ import io.reactivex.rxjava3.core.SingleObserver;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class DetailsPresenter implements DetailsPresenterInterface{
+public class DetailsPresenter implements DetailsPresenterInterface {
 
 
     private DetailsViewInterface viewInterface;
@@ -108,14 +108,9 @@ public class DetailsPresenter implements DetailsPresenterInterface{
                 .setValue(modelMeal).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@androidx.annotation.NonNull Task<Void> task) {
-                        if (task.isSuccessful()){
-
+                        if (task.isSuccessful()) {
+                            insertMeal(modelMeal);
                         }
-                    }
-                }).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        insertMeal(modelMeal);
                     }
                 });
     }
@@ -124,15 +119,18 @@ public class DetailsPresenter implements DetailsPresenterInterface{
         ref.child(MySharedPref.getUserId())
                 .child(Constants.FAV_REF)
                 .child(modelMeal.getIdMeal())
-                .removeValue();
+                .removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        deleteMeal(modelMeal);
+                    }
+                });
     }
 
     public Single<ModelMeal> isFav(String mealId) {
         return mealRepo.isFav(mealId)
                 .subscribeOn(Schedulers.io());
     }
-
-
 
 
     @Override

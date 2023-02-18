@@ -307,7 +307,7 @@ public class DetailsFragment extends Fragment implements DetailsViewInterface {
 
     @Override
     public void insertMealToFav(ModelMeal modelMeal) {
-//        detailsPresenter.insertMeal(modelMeal);
+        detailsPresenter.insertMeal(modelMeal);
         detailsPresenter.insertMealToFireBase(modelMeal);
     }
 

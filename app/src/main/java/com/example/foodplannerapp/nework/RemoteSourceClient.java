@@ -11,6 +11,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.core.SingleObserver;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
@@ -20,12 +21,20 @@ public class RemoteSourceClient implements RemoteSourceInterface {
 
     private MutableLiveData<Integer> progressBarLiveData;
 
+
+    private CompositeDisposable disposable;
+
+    public CompositeDisposable getDisposable() {
+        return disposable;
+    }
+
     @Override
     public MutableLiveData<Integer> getProgressBarLiveData() {
         return progressBarLiveData;
     }
 
     private RemoteSourceClient() {
+        disposable = new CompositeDisposable();
         progressBarLiveData = new MutableLiveData<>();
     }
 
@@ -49,6 +58,7 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                 .subscribe(new SingleObserver<ModelMealRoot>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
+                        disposable.add(d);
 
                     }
 
@@ -60,7 +70,7 @@ public class RemoteSourceClient implements RemoteSourceInterface {
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        progressBarLiveData.setValue(View.VISIBLE);
+                        progressBarLiveData.setValue(View.GONE);
                         networkDelegate.onFailureResult(e.getLocalizedMessage());
                     }
                 });
@@ -90,7 +100,7 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                     @Override
                     public void onError(@NonNull Throwable e) {
                         networkDelegate.onFailureResult(e.getMessage());
-                        progressBarLiveData.setValue(View.VISIBLE);
+                        progressBarLiveData.setValue(View.GONE);
                     }
                 });
 
@@ -146,7 +156,7 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                     @Override
                     public void onError(@NonNull Throwable e) {
                         networkDelegate.onFailureResult(e.getMessage());
-                        progressBarLiveData.setValue(View.VISIBLE);
+                        progressBarLiveData.setValue(View.GONE);
 
                     }
                 });

@@ -16,6 +16,8 @@ import com.example.foodplannerapp.ui.home.view.HomeViewInterface;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+
 public class PresenterHome implements PresenterHomeInterface, NetworkDelegate {
 
 
@@ -34,7 +36,6 @@ public class PresenterHome implements PresenterHomeInterface, NetworkDelegate {
     }
 
 
-
     @Override
     public void getAllCategories() {
         mealRepo.getAllCategory(this);
@@ -43,6 +44,11 @@ public class PresenterHome implements PresenterHomeInterface, NetworkDelegate {
     @Override
     public MutableLiveData<Integer> getProgressBarLiveData() {
         return mealRepo.getProgressLiveData();
+    }
+
+    @Override
+    public CompositeDisposable getDisposable() {
+        return mealRepo.getDisposable();
     }
 
     @Override

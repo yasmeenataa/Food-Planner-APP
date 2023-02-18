@@ -29,6 +29,7 @@ import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.CompletableObserver;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.core.SingleObserver;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
@@ -65,6 +66,10 @@ public class MealRepo implements MealRepoInterface {
     @Override
     public void getRandomMeal(NetworkDelegate networkDelegate) {
         remoteSourceInterface.enqueueCall(networkDelegate);
+    }
+
+    public CompositeDisposable getDisposable() {
+        return remoteSourceInterface.getDisposable();
     }
 
 

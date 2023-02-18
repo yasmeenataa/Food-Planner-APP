@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.foodplannerapp.models.ModelMealRoot;
 
 import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 public interface RemoteSourceInterface {
 
@@ -22,5 +23,7 @@ public interface RemoteSourceInterface {
     void enqueueCallSearchMealByName(NetworkDelegateForSearchMeal delegateForSearchMeal,String mealName);
 
     MutableLiveData<Integer> getProgressBarLiveData();
+
+    CompositeDisposable getDisposable();
     
 }

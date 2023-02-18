@@ -145,8 +145,8 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
 
     @Override
     public void getErrorMessage(String message) {
-        binding.progressCategories.setVisibility(View.VISIBLE);
-        binding.progressMealOfTheDay.setVisibility(View.VISIBLE);
+//        binding.progressCategories.setVisibility(View.VISIBLE);
+//        binding.progressMealOfTheDay.setVisibility(View.VISIBLE);
         Toast.makeText(requireContext(), "Failed : Check Network", Toast.LENGTH_SHORT).show();
     }
 
@@ -156,8 +156,8 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
                 .observe(getViewLifecycleOwner(), new Observer<Integer>() {
                     @Override
                     public void onChanged(Integer integer) {
-                        //        showHideCategoriesProgress();
-                        //        showHideMealOfTheDayProgress();
+//                                showHideCategoriesProgress();
+//                                showHideMealOfTheDayProgress();
                         binding.progressCategories.setVisibility(integer);
                         binding.progressMealOfTheDay.setVisibility(integer);
                     }
@@ -169,6 +169,7 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+        presenterInterface.getDisposable().clear();
     }
 }
 

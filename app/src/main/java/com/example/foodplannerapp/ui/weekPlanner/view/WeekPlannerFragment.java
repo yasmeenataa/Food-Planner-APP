@@ -58,9 +58,9 @@ public class WeekPlannerFragment extends Fragment implements WeekPlannerViewInte
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentWeekPlannerBinding.bind(view);
 
-        if (MySharedPref.getUserId().isEmpty()){
+        if (MySharedPref.getUserId().isEmpty()) {
             Toast.makeText(requireContext(), getString(R.string.loginFirst), Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             list = new ArrayList<>();
             adapter = new AdapterDays();
             adapterMealOfTheDay = new AdapterMealOfTheDay();
@@ -92,7 +92,7 @@ public class WeekPlannerFragment extends Fragment implements WeekPlannerViewInte
             @Override
             public void onItemClick(String day) {
 
-                    getData(day);
+                getData(day);
 
             }
         });
@@ -127,9 +127,12 @@ public class WeekPlannerFragment extends Fragment implements WeekPlannerViewInte
                     @Override
                     public void onChanged(List<WeekPlannerModel> mealList) {
 
-                            adapterMealOfTheDay.setList((ArrayList<WeekPlannerModel>) mealList);
-                            binding.recyclerMeal.setAdapter(adapterMealOfTheDay);
-                            adapterMealOfTheDay.notifyDataSetChanged();
+                        if (mealList.size() <= 0) {
+                            Toast.makeText(requireContext(), day + " Has No Meals on It", Toast.LENGTH_SHORT).show();
+                        }
+                        adapterMealOfTheDay.setList((ArrayList<WeekPlannerModel>) mealList);
+                        binding.recyclerMeal.setAdapter(adapterMealOfTheDay);
+                        adapterMealOfTheDay.notifyDataSetChanged();
 
                     }
                 });
