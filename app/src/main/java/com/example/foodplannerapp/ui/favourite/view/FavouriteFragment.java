@@ -109,7 +109,7 @@ public class FavouriteFragment extends Fragment implements FavViewInterface {
                 //onYes
                 () -> {
                     deleteMeal(model);
-                    Toast.makeText(requireContext(), "Deleted", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(requireContext(), "Deleted", Toast.LENGTH_SHORT).show();
                 },
                 //onNo
                 () -> {
@@ -123,6 +123,7 @@ public class FavouriteFragment extends Fragment implements FavViewInterface {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+//        presenterInterface.getDisposable().clear();
     }
 
     @Override
@@ -130,5 +131,16 @@ public class FavouriteFragment extends Fragment implements FavViewInterface {
 //        presenterInterface.deleteFavMeal(modelMeal);
         presenterInterface.deleteFavMealFromFireBase(modelMeal);
         Toast.makeText(requireContext(), "Deleted", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void observeProgress() {
+        presenterInterface.getProgressLiveData()
+                .observe(getViewLifecycleOwner(), new Observer<Integer>() {
+                    @Override
+                    public void onChanged(Integer integer) {
+                        binding.favProgress.setVisibility(integer);
+                    }
+                });
     }
 }
