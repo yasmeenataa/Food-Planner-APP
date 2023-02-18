@@ -68,7 +68,8 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
 
         presenterInterface = new PresenterHome(this);
         presenterInterface.getRandomMeal();
-
+        showHideMealOfTheDayProgress();
+        showHideCategoriesProgress();
         presenterInterface.getAllCategories();
         onClicks();
     }
@@ -129,15 +130,13 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
         Glide.with(requireContext())
                 .load(imageUrl)
                 .into(binding.imageMeal);
-//        binding.progressCategories.setVisibility(View.GONE);
-//        binding.progressMealOfTheDay.setVisibility(View.GONE);
+
 
     }
 
     @Override
     public void showAllCategories(List<CategoriesModel> categoryList) {
-//        binding.progressCategories.setVisibility(View.GONE);
-//        binding.progressMealOfTheDay.setVisibility(View.GONE);
+
         adapter.setList((ArrayList<CategoriesModel>) categoryList);
         binding.recycleCategory.setAdapter(adapter);
         adapter.notifyDataSetChanged();
@@ -145,23 +144,21 @@ public class HomeFragment extends Fragment implements HomeViewInterface {
 
     @Override
     public void getErrorMessage(String message) {
-//        binding.progressCategories.setVisibility(View.VISIBLE);
-//        binding.progressMealOfTheDay.setVisibility(View.VISIBLE);
-        Toast.makeText(requireContext(), "Failed : Check Network", Toast.LENGTH_SHORT).show();
+        Toast.makeText(requireContext(), "Failed : " + message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void getProgressBarLiveData() {
-        presenterInterface.getProgressBarLiveData()
-                .observe(getViewLifecycleOwner(), new Observer<Integer>() {
-                    @Override
-                    public void onChanged(Integer integer) {
-//                                showHideCategoriesProgress();
-//                                showHideMealOfTheDayProgress();
-                        binding.progressCategories.setVisibility(integer);
-                        binding.progressMealOfTheDay.setVisibility(integer);
-                    }
-                });
+//        presenterInterface.getProgressBarLiveData()
+//                .observe(getViewLifecycleOwner(), new Observer<Integer>() {
+//                    @Override
+//                    public void onChanged(Integer integer) {
+//                        //        showHideCategoriesProgress();
+//                        //        showHideMealOfTheDayProgress();
+//                        binding.progressCategories.setVisibility(integer);
+//                        binding.progressMealOfTheDay.setVisibility(integer);
+//                    }
+//                });
     }
 
 
