@@ -44,6 +44,8 @@ public class MealRepo implements MealRepoInterface {
     private static MutableLiveData<ArrayList<ModelMeal>> listLiveData;
     private static MutableLiveData<String> errorMessage;
 
+
+
     public MutableLiveData<ArrayList<ModelMeal>> getListLiveData() {
         return listLiveData;
     }
@@ -82,7 +84,7 @@ public class MealRepo implements MealRepoInterface {
                 .subscribe(new SingleObserver<ModelMealRoot>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-
+//                        getDisposable().add(d);
                     }
 
                     @Override
@@ -94,6 +96,7 @@ public class MealRepo implements MealRepoInterface {
                     @Override
                     public void onError(@NonNull Throwable e) {
                         errorMessage.setValue(e.getMessage());
+
                     }
                 });
 
