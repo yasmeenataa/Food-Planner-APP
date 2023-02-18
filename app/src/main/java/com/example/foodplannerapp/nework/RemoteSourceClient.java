@@ -58,7 +58,7 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                 .subscribe(new SingleObserver<ModelMealRoot>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-                        disposable.add(d);
+//                        disposable.add(d);
 
                     }
 
@@ -88,7 +88,7 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                 .subscribe(new SingleObserver<CategoriesRootModel>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-
+//                        disposable.add(d);
                     }
 
                     @Override
@@ -144,7 +144,7 @@ public class RemoteSourceClient implements RemoteSourceInterface {
                 .subscribe(new SingleObserver<ModelMealRoot>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-
+//                        disposable.add(d);
                     }
 
                     @Override
